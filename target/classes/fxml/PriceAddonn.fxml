@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/priceaddonn.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.PriceAddonnController">
+   <children>
+      <Text layoutX="44.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra Charge Name" />
+      <Text layoutX="44.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra Value" />
+      <TextField fx:id="ChargeNameText" layoutX="193.0" layoutY="32.0" prefHeight="25.0" prefWidth="207.0" />
+      <TextField fx:id="ChargeValue" layoutX="193.0" layoutY="76.0" prefHeight="25.0" prefWidth="207.0" />
+      <RadioButton fx:id="PercentageRadio" layoutX="52.0" layoutY="136.0" mnemonicParsing="false" selected="true" text="As per percentage">
+         <toggleGroup>
+            <ToggleGroup fx:id="t1" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="AmountRadio" layoutX="289.0" layoutY="136.0" mnemonicParsing="false" text="As per amount" toggleGroup="$t1" />
+      <CheckBox fx:id="InactiveCheck" layoutX="201.0" layoutY="183.0" mnemonicParsing="false" text="Inactive Charge" />
+      <CheckBox fx:id="TaxCheck" layoutX="201.0" layoutY="227.0" mnemonicParsing="false" selected="true" text="Apply this charge as tax exclusive" />
+      <Button fx:id="SaveButton" layoutX="84.0" layoutY="313.0" mnemonicParsing="false" onAction="#handleAddOnButtonAction" prefHeight="33.0" prefWidth="87.0" text="Save" />
+      <Button layoutX="296.0" layoutY="313.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" prefHeight="33.0" prefWidth="87.0" text="Close" />
+   </children>
+</AnchorPane>

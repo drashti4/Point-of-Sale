@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import finaldemo.Controller.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="232.0" prefWidth="418.0" styleClass="mainFxmlClass" stylesheets="@../styles/addpack.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AddPackController">
+   <children>
+      <Text layoutX="41.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pack Name" />
+      <Text layoutX="17.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localized Name" />
+      <Text layoutX="39.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit In Pack" />
+      <TextField fx:id="name" layoutX="135.0" layoutY="18.0" prefHeight="25.0" prefWidth="201.0" />
+      <TextField fx:id="LocalName" layoutX="135.0" layoutY="59.0" prefHeight="25.0" prefWidth="201.0" />
+      <NumberTextField fx:id="unit" layoutX="135.0" layoutY="100.0" prefHeight="25.0" prefWidth="201.0" />
+      <Button layoutX="26.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleSaveNewButtonAction" prefHeight="35.0" prefWidth="105.0" text="Save &amp; New" />
+      <Button fx:id="Save" layoutX="151.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleSaveCloseButtonAction" prefHeight="35.0" prefWidth="117.0" text="Save &amp; Close" />
+      <Button layoutX="291.0" layoutY="152.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="72.0" text="Close" />
+   </children>
+</AnchorPane>

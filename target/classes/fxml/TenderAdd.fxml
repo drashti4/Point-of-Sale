@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="615.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/tenderadd.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.TenderAddController">
+   <children>
+      <Text layoutX="90.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tender Description" />
+      <Text layoutX="113.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Mode" />
+      <Text layoutX="133.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Type" />
+      <Text layoutX="90.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exchange Rate(E.R)" />
+      <Text layoutX="73.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conversion Rate(1/E.R)" />
+      <Text layoutX="95.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currency Symbol" />
+      <Text layoutX="53.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum Payment Amount" />
+      <Text layoutX="170.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image" />
+      <Text layoutX="77.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note" />
+      <TextField fx:id="TenderName" layoutX="257.0" layoutY="26.0" />
+      <ComboBox fx:id="PaymentCombo" layoutX="257.0" layoutY="66.0" prefWidth="150.0">
+          <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Cash" />
+                                 <String fx:value="Check" />
+                                 <String fx:value="Credit Card" />
+                                 <String fx:value="On Account" />
+                                <String fx:value="LayaWay" />
+                                 <String fx:value="EBT" />
+                                 <String fx:value="Debit Card" />
+                                 <String fx:value="WIC Check" />
+                                 <String fx:value="Gift Card" />
+                              </FXCollections>
+                           </items>
+                         </ComboBox>
+      <ComboBox fx:id="CardCombo" layoutX="257.0" layoutY="104.0" prefWidth="150.0" />
+      <TextField fx:id="ERRate" layoutX="258.0" layoutY="147.0" />
+      <TextField fx:id="ConvRate" layoutX="258.0" layoutY="190.0" />
+      <TextField fx:id="CurSymbol" layoutX="257.0" layoutY="236.0" prefHeight="25.0" prefWidth="81.0" />
+      <TextField fx:id="MinPayAmount" layoutX="257.0" layoutY="279.0" />
+      <Button layoutX="479.0" layoutY="341.0" mnemonicParsing="false" onAction="#handleAddImageButtonAction" prefHeight="25.0" prefWidth="59.0" text="Add" />
+      <Button layoutX="479.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleRemoveImageButtonAction" text="Remove" />
+      <TextField fx:id="NoteText" layoutX="73.0" layoutY="475.0" prefHeight="25.0" prefWidth="346.0" />
+      <CheckBox fx:id="AuthenticationCheck" layoutX="97.0" layoutY="513.0" mnemonicParsing="false" text="Only authorized customer allow for this tender " />
+      <Button layoutX="258.0" layoutY="551.0" mnemonicParsing="false" onAction="#handleSaveCloseButtonAction" prefHeight="51.0" prefWidth="107.0" text="Save &amp; Close" />
+      <Button fx:id="save" layoutX="73.0" layoutY="551.0" mnemonicParsing="false" onAction="#handleSaveNewButtonAction" prefHeight="51.0" prefWidth="107.0" text="Save &amp; New" />
+      <Button layoutX="438.0" layoutY="551.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="51.0" prefWidth="100.0" text="Cancel" />
+      <ImageView fx:id="imageLabel" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

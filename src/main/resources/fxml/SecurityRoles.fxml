@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="453.0" prefWidth="469.0" styleClass="mainFxmlClass" stylesheets="@../styles/SysSet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.SecurityRolesController">
+   <children>
+      <Button layoutX="314.0" layoutY="61.0" mnemonicParsing="false" onAction="#handleAddAction" prefHeight="42.0" prefWidth="86.0" text="ADD" />
+      <Button layoutX="314.0" layoutY="125.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="86.0" text="Edit" />
+      <Button layoutX="314.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleDeleteButtonAction" prefHeight="42.0" prefWidth="86.0" text="Delete" />
+      <Button layoutX="314.0" layoutY="255.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="86.0" text="Select" />
+      <Button layoutX="320.0" layoutY="311.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="86.0" text="View" />
+      <ListView id="AnchorPane" fx:id="rolelist" layoutX="27.0" layoutY="54.0" prefHeight="318.0" prefWidth="209.0" />
+      <Label alignment="CENTER" layoutX="27.0" layoutY="28.0" prefHeight="26.0" prefWidth="209.0" style="-fx-background-color: white; -fx-border-color: black;" text="Role" />
+   </children>
+</AnchorPane>

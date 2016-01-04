@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="687.0" prefWidth="901.0" styleClass="mainFxmlClass" stylesheets="@../styles/addgroup.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AddGroupController">
+   <children>
+      <Text layoutX="7.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group Name " />
+      <Text layoutX="296.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+      <TextField layoutX="91.0" layoutY="12.0" prefHeight="25.0" prefWidth="199.0" />
+      <TextField layoutX="367.0" layoutY="12.0" prefHeight="25.0" prefWidth="231.0" />
+      <CheckBox layoutX="615.0" layoutY="16.0" mnemonicParsing="false" text="Allow global changes" />
+      <Button layoutX="788.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="87.0" text="Close" />
+      <TitledPane animated="false" layoutX="14.0" layoutY="49.0" prefHeight="628.0" prefWidth="891.0" text="Select item from group">
+        <content>
+          <AnchorPane fx:id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="602.0" prefWidth="814.0">
+               <children>
+                  <Text layoutX="379.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By:" wrappingWidth="70.02734375" />
+                  <ComboBox layoutX="449.0" layoutY="25.0" prefWidth="150.0" />
+                  <TextField layoutX="610.0" layoutY="25.0" />
+                  <Button layoutX="793.0" layoutY="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" text="Clear" />
+                  <Button layoutY="24.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Button" />
+                  <Button layoutX="273.0" layoutY="25.0" mnemonicParsing="false" text="Select to add" />
+                  <Text layoutX="126.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan item to add" />
+                  <TextField layoutX="86.0" layoutY="25.0" />
+                  <TableView layoutX="497.0" layoutY="61.0" prefHeight="533.0" prefWidth="374.0">
+                     <columns>
+                        <TableColumn prefWidth="62.0" text="SKU" />
+                        <TableColumn prefWidth="98.0" text="Description" />
+                        <TableColumn text="ItemSize" />
+                        <TableColumn prefWidth="64.0" text="Pack" />
+                        <TableColumn prefWidth="71.0" text="Price" />
+                     </columns>
+                  </TableView>
+                  <TableView layoutY="61.0" prefHeight="333.0" prefWidth="348.0">
+                     <columns>
+                        <TableColumn prefWidth="51.0" text="SKU" />
+                        <TableColumn prefWidth="86.0" text="Description" />
+                        <TableColumn prefWidth="74.0" text="ItemSize" />
+                        <TableColumn prefWidth="67.0" text="Pack" />
+                        <TableColumn prefWidth="68.0" text="Price" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="379.0" layoutY="70.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" text="Add &gt;" />
+                  <Button layoutX="379.0" layoutY="124.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" text="Add All &gt;&gt;" />
+                  <Button layoutX="379.0" layoutY="179.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" text="Remove &lt;" />
+                  <Button layoutX="379.0" layoutY="228.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="97.0" text="Remove All &lt;&lt;" />
+                  <Button layoutX="379.0" layoutY="354.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="96.0" text="Save" />
+                  <Pane layoutX="14.0" layoutY="402.0" prefHeight="189.0" prefWidth="464.0">
+                     <children>
+                        <Text layoutX="13.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" />
+                        <Text layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
+                        <Text layoutX="18.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendor" />
+                        <Text layoutX="60.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find in Descrption" />
+                        <Text layoutX="9.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="---------------------------------------------------------------------------------------------" />
+                        <TextField layoutX="60.0" layoutY="150.0" prefHeight="25.0" prefWidth="193.0" />
+                        <ComboBox layoutX="95.0" layoutY="10.0" prefHeight="25.0" prefWidth="118.0" />
+                        <ComboBox layoutX="95.0" layoutY="51.0" prefHeight="25.0" prefWidth="121.0" />
+                        <ComboBox layoutX="95.0" layoutY="90.0" prefHeight="25.0" prefWidth="121.0" />
+                        <Text layoutX="278.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size" />
+                        <Text layoutX="276.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pack" />
+                        <Text layoutX="272.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand" />
+                        <ComboBox layoutX="325.0" layoutY="10.0" prefHeight="25.0" prefWidth="114.0" />
+                        <ComboBox layoutX="326.0" layoutY="51.0" prefHeight="25.0" prefWidth="112.0" />
+                        <ComboBox layoutX="326.0" layoutY="90.0" prefHeight="25.0" prefWidth="112.0" />
+                        <Button layoutX="300.0" layoutY="135.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="116.0" text="Filter Records" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

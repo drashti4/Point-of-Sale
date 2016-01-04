@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import com.mycompany.mavenproject2.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="526.0" prefWidth="523.0" styleClass="mainFxmlClass" stylesheets="@../styles/cashdrawer.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.CashDrawerController">
+   <children>
+      <TitledPane animated="false" layoutX="9.0" prefHeight="209.0" prefWidth="493.0" text="Enter Change Unit">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Text layoutX="22.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Name" />
+                  <Text layoutX="22.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currency Value" />
+                  <Text layoutX="22.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Type" />
+                  <TextField fx:id="UnitText" layoutX="134.0" layoutY="10.0" prefHeight="25.0" prefWidth="221.0" />
+                  <NumberTextField fx:id="CurrencyText" layoutX="134.0" layoutY="86.0" prefHeight="25.0" prefWidth="221.0" />
+                  <CheckBox fx:id="NCCheck" layoutX="134.0" layoutY="56.0" mnemonicParsing="false" text="This is non-cash unit(Check etc.)" />
+                  <RadioButton fx:id="BillRadio" layoutX="134.0" layoutY="126.0" mnemonicParsing="false" selected="true" text="Bill">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="t1" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="CoinRadio" layoutX="265.0" layoutY="126.0" mnemonicParsing="false" text="Coin" toggleGroup="$t1" />
+                  <Label layoutX="134.0" layoutY="90.0" text="\$" />
+                  <Button fx:id="AddButton" layoutX="329.0" layoutY="144.0" mnemonicParsing="false" onAction="#handleAddButtonAction" prefHeight="25.0" prefWidth="99.0" text="Insert in list" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TableView fx:id="table" layoutX="9.0" layoutY="254.0" prefHeight="200.0" prefWidth="499.0">
+        <columns>
+          <TableColumn fx:id="unitcol" prefWidth="131.0" text="Unit Name" />
+          <TableColumn fx:id="valuecol" prefWidth="125.0" text="Value" />
+            <TableColumn fx:id="typecol" prefWidth="121.0" text="Type" />
+            <TableColumn fx:id="nccol" prefWidth="121.0" text="Non-cash Unit" />
+        </columns>
+      </TableView>
+      <Button fx:id="RemoveButton" layoutX="156.0" layoutY="469.0" mnemonicParsing="false" onAction="#handleRemoveButtonAction" prefHeight="38.0" prefWidth="139.0" text="Remove from list" />
+      <Button fx:id="close" layoutX="338.0" layoutY="469.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="38.0" prefWidth="77.0" text="Close" />
+   </children>
+</AnchorPane>

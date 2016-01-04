@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="626.0" styleClass="mainFxmlClass" stylesheets="@../styles/SysSet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.DeptKey2Controller">
+   <children>
+      <TitledPane animated="false" layoutX="14.0" layoutY="5.0" prefHeight="514.0" prefWidth="614.0" text="Create Department Keys">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="579.0" prefWidth="620.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Just 2 Step To Create Department Keys" />
+                  <TabPane layoutX="26.0" layoutY="38.0" prefHeight="437.0" prefWidth="569.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="   Step - 2 Create Department Keys">
+                        <content>
+                          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="404.0" prefWidth="569.0">
+                                 <children>
+                                    <TableView layoutX="14.0" layoutY="29.0" prefHeight="292.0" prefWidth="548.0">
+                                      <columns>
+                                        <TableColumn prefWidth="129.0" text="Department" />
+                                        <TableColumn prefWidth="181.0" text="Description" />
+                                          <TableColumn prefWidth="61.0" text="Tax 1" />
+                                          <TableColumn prefWidth="59.0" text="Tax 2" />
+                                          <TableColumn prefWidth="47.0" text="Tax 3" />
+                                          <TableColumn prefWidth="70.0" text="Non R" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="BackButton" layoutX="126.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleBackButtonAction" prefHeight="39.0" prefWidth="77.0" text="Back" />
+                                    <Button fx:id="FinishButton" layoutX="248.0" layoutY="338.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="74.0" text="Finish" />
+                                    <Button layoutX="379.0" layoutY="339.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="88.0" text="Cancel" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

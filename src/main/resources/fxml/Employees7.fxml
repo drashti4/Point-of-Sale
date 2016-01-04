@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="437.0" prefWidth="620.0" styleClass="mainFxmlClass" stylesheets="@../styles/employees7.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.Employees7Controller">
+   <children>
+      <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By:" />
+      <Text layoutX="287.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Value" />
+      <ComboBox fx:id="SearchBy" layoutX="94.0" layoutY="13.0" onAction="#handleSearchComboAction" prefWidth="150.0">
+          <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="First Name" />
+                                 <String fx:value="Last Name" />
+                                 <String fx:value="User ID" />
+                                 
+                              </FXCollections>
+          </items></ComboBox>
+      <TextField fx:id="filterField" layoutX="394.0" layoutY="13.0" />
+      <TableView fx:id="empTable" layoutX="14.0" layoutY="54.0" prefHeight="309.0" prefWidth="592.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="fname" prefWidth="119.0" text="First Name" />
+            <TableColumn fx:id="lname" prefWidth="155.0" text="Last Name" />
+            <TableColumn fx:id="uid" prefWidth="124.0" text="User ID" />
+            <TableColumn fx:id="phone" prefWidth="115.0" text="Phone" />
+        </columns>
+      </TableView>
+      <Button fx:id="AddButton" layoutX="94.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleAddButtonAction" prefHeight="35.0" prefWidth="92.0" text="Add" />
+      <Button layoutX="226.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleEditButtonAction" prefHeight="35.0" prefWidth="84.0" text="Edit" />
+      <Button layoutX="354.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleDeleteEmpButtonAction" prefHeight="35.0" prefWidth="84.0" text="Delete" />
+      <Button layoutX="469.0" layoutY="378.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="77.0" text="Close" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="637.0" prefWidth="487.0" styleClass="mainFxmlClass" stylesheets="@../styles/selectdept.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.SelectDeptController">
+   <children>
+      <ScrollPane layoutX="37.0" layoutY="42.0" prefHeight="471.0" prefWidth="217.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="485.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="List" layoutY="6.0" prefHeight="470.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button layoutX="316.0" layoutY="59.0" mnemonicParsing="false" onAction="#handleAddButtonAction" prefHeight="38.0" prefWidth="85.0" text="Add" />
+      <Button layoutX="316.0" layoutY="127.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" text="Edit" />
+      <Button layoutX="316.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleDeleteButtonAction" prefHeight="38.0" prefWidth="85.0" text="Delete" />
+      <Button layoutX="316.0" layoutY="247.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" text="Up" />
+      <Button layoutX="316.0" layoutY="306.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" text="Down" />
+      <Button layoutX="316.0" layoutY="373.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" text="Keys" />
+      <Button layoutX="316.0" layoutY="439.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="79.0" text="Close" />
+   </children>
+</AnchorPane>

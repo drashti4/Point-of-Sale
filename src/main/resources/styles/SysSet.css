@@ -1,0 +1,98 @@
+/*
+dcTo change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 29, 2015, 2:53:17 PM
+    Author     : Third Ev
+*/
+
+#AnchorPane{
+    //-fx-background-color:#fffab7;
+   
+     -fx-background-color: rgba(255,255,255,0.75),
+                           linear-gradient(to bottom,#f9f6dc 0%,#fdfdf8 100%);
+     -fx-background-insets: 0,1;
+     -fx-padding: 7px;
+     -fx-background-radius: 3px;
+     -fx-border-radius: 3px;
+     -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.75),1,0,1,1);
+     -fx-font: 14px "Arial";
+     -fx-text-fill: black;
+   
+}
+.text{
+    -fx-alignment:TOP_CENTER;
+}
+
+#SysSet{
+    -fx-background-image: url("setting.png");
+      -fx-padding: 7px;
+    
+}
+#Text{
+    
+}
+.OP{
+    //-fx-opacity: 0.1;
+    -fx-border-color: #0033cc;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color:#f9f6dc;
+    
+}
+
+#2{
+    -fx-background-image: url("ilist.png");
+     -fx-padding: 20px;
+     
+}
+
+#3{
+    -fx-background-image: url("sale.png");
+}
+#4{
+    -fx-background-image: url("backup.png");
+     
+}
+#5{
+    -fx-background-image: url("images.png");
+}
+#6{
+    -fx-background-image: url("itemIcon.png");
+}
+#7{
+    -fx-background-image: url("agreement2.png");
+}
+#8{
+    -fx-background-image: url("data90.png");
+}
+#9{
+    -fx-background-image: url("currency.png");
+}
+#10{
+    -fx-background-image: url("global.png");
+}
+#11{
+    -fx-background-image: url("clock.png");
+}
+#12{
+    -fx-background-image: url("reports.png");
+     -fx-padding: 20px;
+}
+#13{
+    -fx-background-image: url("security.png");
+     -fx-padding: 20px;
+}
+#14{
+    -fx-background-image: url("emp.png");
+     -fx-padding: 20px;
+}
+#15{
+    -fx-background-image: url("drawer.png");
+     -fx-padding: 20px;
+}
+#16{
+    -fx-background-image: url("exit6.png");
+     -fx-padding: 7px;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.mycompany.mavenproject2.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/addsize.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AddSizeController">
+    <children>
+      <Text layoutX="81.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size Name" />
+      <Text layoutX="44.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localized Name" />
+      <Text layoutX="115.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UOM" />
+      <TextField fx:id="SizeName" layoutX="183.0" layoutY="38.0" />
+      <TextField fx:id="LocalName" layoutX="184.0" layoutY="91.0" />
+      <ComboBox fx:id="UOMCombo" layoutX="184.0" layoutY="200.0" prefHeight="26.0" prefWidth="177.0" />
+      <Button layoutX="43.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleSaveNewButtonAction" prefHeight="38.0" prefWidth="105.0" text="Save &amp; New" />
+      <Button fx:id="Save" layoutX="196.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleSaveCloseButtonAction" prefHeight="38.0" prefWidth="118.0" text="Save &amp; Close" />
+      <Button layoutX="357.0" layoutY="286.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" text="Close" />
+      <Text layoutX="39.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Units" />
+      <NumberTextField fx:id="UnitText" layoutX="185.0" layoutY="140.0" />
+      <Button layoutX="396.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleUOMButtonAction" prefHeight="25.0" prefWidth="45.0" text="..." />
+   </children>
+</AnchorPane>

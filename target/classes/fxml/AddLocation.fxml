@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="202.0" prefWidth="429.0" styleClass="mainFxmlClass" stylesheets="@../styles/addlocation.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AddLocationController">
+    <children>
+      <Text layoutX="40.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area Name" />
+      
+      <Button layoutX="16.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleSaveNewButton" prefHeight="33.0" prefWidth="119.0" text="Save &amp; New" />
+      <Button fx:id="Save" layoutX="148.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleSaveCloseButtonAction" prefHeight="33.0" prefWidth="133.0" text="Save &amp; Close" />
+      <Button layoutX="304.0" layoutY="109.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="79.0" text="Close" />
+      <TextField fx:id="AreaName" layoutX="178.0" layoutY="25.0" />
+      
+   </children>
+</AnchorPane>

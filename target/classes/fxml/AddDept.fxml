@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import finaldemo.Controller.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AddDeptController">
+    <stylesheets>
+        <URL value="@adddept.css" />
+      <URL value="@../styles/adddept.css" />
+    </stylesheets>
+   <children>
+      <Text layoutX="97.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department Name" />
+      <Text layoutX="97.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localization Name" />
+      <TextField fx:id="DeptName" layoutX="220.0" layoutY="23.0" prefHeight="25.0" prefWidth="173.0" />
+      <TextField fx:id="LocalName" layoutX="220.0" layoutY="58.0" prefHeight="25.0" prefWidth="173.0" />
+      <CheckBox fx:id="Price" layoutX="407.0" layoutY="122.0" mnemonicParsing="false" text="Show in Open Price" />
+      <CheckBox fx:id="FoodStamp" layoutX="220.0" layoutY="122.0" mnemonicParsing="false" text="Allow FoodStamp" />
+      <CheckBox fx:id="Taxable" layoutX="61.0" layoutY="122.0" mnemonicParsing="false" text="Is Taxable" />
+      <TitledPane animated="false" layoutX="61.0" layoutY="152.0" prefHeight="77.0" prefWidth="415.0" text="Price Calculation">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="Margin" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" text="Margin">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="t1" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="MarkUp" layoutX="126.0" layoutY="17.0" mnemonicParsing="false" text="MarkUp" toggleGroup="$t1" />
+                  <TextField fx:id="value" layoutX="250.0" layoutY="13.0" prefHeight="25.0" prefWidth="135.0" />
+                  <Text layoutX="366.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Button layoutX="61.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="47.0" prefWidth="115.0" text="Save &amp;  New" />
+      <Button layoutX="361.0" layoutY="246.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="115.0" text="Cancel" />
+      <Button fx:id="Save" layoutX="211.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleSaveCloseButtonAction" prefHeight="47.0" prefWidth="115.0" text="Save &amp; Close" />
+   </children>
+</AnchorPane>

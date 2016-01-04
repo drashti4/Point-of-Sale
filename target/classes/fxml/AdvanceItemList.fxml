@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/advanceitemlist.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AdvanceItemListController">
+   <children>
+      <TitledPane animated="false" layoutX="15.0" layoutY="6.0" prefHeight="85.0" prefWidth="570.0" text="Product Type">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <RadioButton layoutX="22.0" layoutY="21.0" mnemonicParsing="false" text="Standrad" />
+                  <RadioButton layoutX="109.0" layoutY="21.0" mnemonicParsing="false" text="Kit" />
+                  <RadioButton layoutX="162.0" layoutY="21.0" mnemonicParsing="false" text="Matrix" />
+                  <RadioButton layoutX="237.0" layoutY="21.0" mnemonicParsing="false" text="Deli/Bar Item" />
+                  <RadioButton layoutX="354.0" layoutY="21.0" mnemonicParsing="false" text="Gift Card" />
+                  <Separator layoutX="461.0" layoutY="2.0" orientation="VERTICAL" prefHeight="55.0" prefWidth="5.0" />
+                  <CheckBox layoutX="481.0" layoutY="21.0" mnemonicParsing="false" text="Serialize" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TabPane layoutX="15.0" layoutY="99.0" prefHeight="268.0" prefWidth="570.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Vendor">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="49.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier" />
+                        <Text layoutX="32.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product No." />
+                        <Text layoutX="14.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Cost" />
+                        <ComboBox layoutX="132.0" layoutY="22.0" prefWidth="150.0" />
+                        <Button layoutX="302.0" layoutY="22.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="...." />
+                        <TextField layoutX="133.0" layoutY="58.0" />
+                        <TextField layoutX="133.0" layoutY="90.0" />
+                        <TableView layoutX="14.0" layoutY="131.0" prefHeight="94.0" prefWidth="538.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Company" />
+                            <TableColumn prefWidth="83.0" text="Contact" />
+                              <TableColumn prefWidth="116.0" text="Phone" />
+                              <TableColumn prefWidth="95.0" text="Product #" />
+                              <TableColumn text="Last Cost" />
+                              <TableColumn prefWidth="88.0" text="Primary" />
+                          </columns>
+                        </TableView>
+                        <Text layoutX="329.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reorder Quantity" />
+                        <TextField layoutX="447.0" layoutY="90.0" prefHeight="25.0" prefWidth="105.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Special Prcing">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" />
+                        <Text layoutX="16.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" />
+                        <Text layoutX="12.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Type" />
+                        <Text layoutX="20.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount" />
+                        <DatePicker layoutX="84.0" layoutY="13.0" />
+                        <DatePicker layoutX="84.0" layoutY="49.0" />
+                        <ComboBox layoutX="85.0" layoutY="86.0" prefHeight="25.0" prefWidth="173.0" />
+                        <TextField layoutX="88.0" layoutY="129.0" prefHeight="25.0" prefWidth="173.0" />
+                        <Text layoutX="120.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
+                        <TitledPane animated="false" layoutX="297.0" layoutY="8.0" prefHeight="151.0" prefWidth="257.0" text="Price Detail">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="21.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price A" />
+                                    <Text layoutX="21.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price B" />
+                                    <Text layoutX="21.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price C" />
+                                    <TextField layoutX="86.0" layoutY="10.0" />
+                                    <TextField layoutX="86.0" layoutY="42.0" />
+                                    <TextField layoutX="86.0" layoutY="74.0" />
+                                    <CheckBox layoutX="68.0" layoutY="103.0" mnemonicParsing="false" text="Discount Odd Item Pricing" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <Button layoutX="107.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Clear" />
+                        <Button layoutX="282.0" layoutY="188.0" mnemonicParsing="false" text="Aplly" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Item Group">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Misc">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="57.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKU" />
+                        <Text layoutX="56.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item" />
+                        <Text layoutX="53.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+                        <CheckBox layoutX="296.0" layoutY="86.0" mnemonicParsing="false" text="Ask for referance when this item scan" />
+                        <Text layoutX="56.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prompt" />
+                        <TextField layoutX="133.0" layoutY="120.0" prefHeight="25.0" prefWidth="265.0" />
+                        <TitledPane animated="false" layoutX="48.0" layoutY="154.0" prefHeight="70.0" prefWidth="357.0" text="untitled">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          </content>
+                        </TitledPane>
+                        <TextField layoutX="133.0" layoutY="82.0" prefHeight="25.0" prefWidth="111.0" />
+                        <TextField layoutX="133.0" layoutY="44.0" prefHeight="25.0" prefWidth="111.0" />
+                        <TextField layoutX="133.0" layoutY="10.0" prefHeight="25.0" prefWidth="111.0" />
+                        <Button layoutX="255.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="95.0" text="Add SKU" />
+                        <Button layoutX="383.0" layoutY="9.0" mnemonicParsing="false" text="Remove" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Contets">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="162.0" prefWidth="281.0">
+                          <columns>
+                            <TableColumn prefWidth="156.0" text="Nutrient" />
+                            <TableColumn prefWidth="124.0" text="Contents (In %)" />
+                          </columns>
+                        </TableView>
+                        <Text layoutX="332.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediants" />
+                        <TextArea layoutX="316.0" layoutY="23.0" prefHeight="153.0" prefWidth="233.0" />
+                        <Text layoutX="14.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service Instruction" />
+                        <TextField layoutX="145.0" layoutY="193.0" prefHeight="25.0" prefWidth="365.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Matrix Data">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Parent Item">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parent Item" />
+                        <TextField layoutX="90.0" layoutY="10.0" />
+                        <Button layoutX="256.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="...." />
+                        <Text layoutX="324.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+                        <TextField layoutX="387.0" layoutY="10.0" />
+                        <Text layoutX="37.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+                        <TextField layoutX="90.0" layoutY="48.0" />
+                        <Button layoutX="305.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Add" />
+                        <Button layoutX="432.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Remove" />
+                        <Text layoutX="19.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parent Item Chain" wrappingWidth="111.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <TableView layoutX="20.0" layoutY="110.0" prefHeight="112.0" prefWidth="536.0">
+                          <columns>
+                            <TableColumn prefWidth="144.0" text="SKU" />
+                            <TableColumn prefWidth="200.0" text="Item Name" />
+                              <TableColumn prefWidth="190.0" text="Quantity" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Custom Filed">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="22.0" layoutY="14.0" prefHeight="159.0" prefWidth="412.0">
+                          <columns>
+                            <TableColumn prefWidth="120.0" text="Field Name" />
+                            <TableColumn prefWidth="148.0" text="Data Type" />
+                              <TableColumn prefWidth="143.0" text="Field Value" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="374.0" layoutY="191.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="165.0" text="Manage Custom Field" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Serial Number">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="26.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Serial Number" />
+                        <Text layoutX="61.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+                        <TextField layoutX="122.0" layoutY="28.0" />
+                        <TextField layoutX="122.0" layoutY="76.0" />
+                        <CheckBox layoutX="102.0" layoutY="120.0" mnemonicParsing="false" text="Already Sold" />
+                        <Button layoutX="38.0" layoutY="173.0" mnemonicParsing="false" text="Add" />
+                        <Button layoutX="156.0" layoutY="173.0" mnemonicParsing="false" text="Remove" />
+                        <TableView layoutX="321.0" layoutY="20.0" prefHeight="200.0" prefWidth="227.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Serial#" />
+                            <TableColumn prefWidth="75.0" text="Quantity" />
+                              <TableColumn prefWidth="75.0" text="Sold?" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Kit">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKU" />
+                        <TextField layoutX="56.0" layoutY="11.0" prefHeight="26.0" prefWidth="155.0" />
+                        <Button layoutX="230.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="..." />
+                        <Button layoutX="290.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Clear" />
+                        <Text layoutX="369.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+                        <TextField layoutX="431.0" layoutY="11.0" prefHeight="25.0" prefWidth="118.0" />
+                        <TextField layoutX="52.0" layoutY="50.0" prefHeight="25.0" prefWidth="354.0" />
+                        <Text layoutX="9.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+                        <Button layoutX="422.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="53.0" text="Add" />
+                        <Button layoutX="490.0" layoutY="50.0" mnemonicParsing="false" text="Remove" />
+                        <TableView layoutX="14.0" layoutY="87.0" prefHeight="139.0" prefWidth="529.0">
+                          <columns>
+                            <TableColumn prefWidth="152.0" text="SKU" />
+                            <TableColumn minWidth="0.0" prefWidth="208.0" text="Item Name" />
+                              <TableColumn prefWidth="168.0" text="Quantity" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Quantity Set">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="28.0" layoutY="45.0" prefHeight="161.0" prefWidth="480.0">
+                          <columns>
+                            <TableColumn prefWidth="114.0" text="Select" />
+                            <TableColumn prefWidth="181.0" text="Quantity Set Name" />
+                              <TableColumn prefWidth="181.0" text="Set Value" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <TitledPane animated="false" layoutX="19.0" layoutY="375.0" prefHeight="202.0" prefWidth="563.0" text="Image Setting">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="373.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleAddImageButtonAction" prefHeight="42.0" prefWidth="90.0" text="Add" />
+                  <Button layoutX="373.0" layoutY="94.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="93.0" text="Remove" />
+                  <ImageView fx:id="ImageLabel" fitHeight="150.0" fitWidth="200.0" layoutX="33.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Button layoutX="100.0" layoutY="602.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="111.0" text="Save" />
+      <Button layoutX="285.0" layoutY="602.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="111.0" text="Cancel" />
+   </children>
+</AnchorPane>

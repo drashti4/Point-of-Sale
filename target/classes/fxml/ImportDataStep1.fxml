@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="641.0" styleClass="mainFxmlClass" stylesheets="@../styles/importdatastep1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ImportDataStep1Controller">
+   <children>
+      <TabPane layoutX="14.0" layoutY="45.0" prefHeight="473.0" prefWidth="622.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Step 1 -Select File">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TitledPane animated="false" layoutX="14.0" layoutY="14.0" prefHeight="112.0" prefWidth="598.0" text="Import File">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="First Row Contains Column Name" />
+                                    <Text layoutX="306.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field Delimiter" />
+                                    <ComboBox layoutX="406.0" layoutY="10.0" prefWidth="150.0" />
+                                    <Text layoutX="14.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Path" />
+                                    <TextField layoutX="75.0" layoutY="48.0" prefHeight="26.0" prefWidth="376.0" />
+                                    <Button layoutX="472.0" layoutY="47.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Load File" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="14.0" layoutY="134.0" prefHeight="243.0" prefWidth="597.0" text="File Statastic">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. of Rows" />
+                                    <Text layoutX="218.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. of Columns" />
+                                    <TextField layoutX="93.0" layoutY="10.0" prefHeight="25.0" prefWidth="115.0" />
+                                    <TextField layoutX="330.0" layoutY="10.0" prefHeight="25.0" prefWidth="103.0" />
+                                    <Button layoutX="448.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Browse File Data" />
+                                    <Button layoutX="477.0" layoutY="64.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" text="Select All" />
+                                    <Button layoutX="476.0" layoutY="119.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="87.0" text="Clear All" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <Button layoutX="388.0" layoutY="390.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="84.0" text="Next" />
+                        <Button layoutX="516.0" layoutY="391.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Cancel" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Text fill="#f20b0b" layoutX="23.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 Step To Import Data...." wrappingWidth="281.93359375">
+         <font>
+            <Font name="Arial Italic" size="21.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

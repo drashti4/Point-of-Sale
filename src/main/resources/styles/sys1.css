@@ -1,0 +1,137 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+    #AnchorPane{
+    //-fx-background-color:#fffab7;
+   
+     -fx-background-color: rgba(255,255,255,0.75),
+                           linear-gradient(to bottom,#f9f6dc 0%,#fdfdf8 100%);
+     -fx-background-insets: 0,1;
+     -fx-padding: 7px;
+     -fx-background-radius: 3px;
+     -fx-border-radius: 3px;
+     -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.75),1,0,1,1);
+     -fx-font: 14px "Arial";
+     -fx-text-fill: black;
+   
+
+}
+
+.root {
+-fx-base: rgb(50, 50, 50);
+-fx-background: rgb(50, 50, 50);
+-fx-control-inner-background:  rgb(50, 50, 50);
+}
+//tabpane css
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+    -fx-close-tab-animation: none;
+}
+.tab{
+    
+    -fx-padding: 0px 5px -2px 5px;
+-fx-background-insets: 0 -20 0 0;
+-fx-background-color: red;
+-fx-text-fill: #c4d8de;
+-fx-border-color:red;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #F08080;
+}
+.tab-pane .tab:selected
+{
+    -fx-border-color:red;
+-fx-text-fill: #8B0000;
+}
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: aquamarine;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #96b946;
+}
+ .tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+ /* -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; /* 5 2 0 10 */
+    -fx-padding: 0.416667em 0.166667em 0.0em 0.0em; /* overriden as 5 2 0 0 */
+}
+//combo box css
+.combo-box-popup .list-view {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+}
+.combo-box .cell{
+    -fx-text-fill: blue;
+    -fx-font: 16px "Arial";
+}
+
+
+.combo-box-popup .list-view .list-cell {
+    -fx-padding: 4 0 4 5;
+
+    /* No alternate highlighting */
+    -fx-background-color: #009999;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover {
+    -fx-background: -fx-accent;
+    -fx-background-color: #FFF0F5;
+    -fx-text-fill:#0000ff;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #ffff33;
+    -fx-text-fill: #F08080;
+}
+.menu-bar {
+-fx-background-color: linear-gradient(to bottom, -fx-base, derive(-fx-base,30%));
+}
+ 
+.tool-bar:horizontal {
+-fx-background-color:
+linear-gradient(to bottom, derive(-fx-base,+50%), derive(-fx-base,-40%), derive(-fx-base,-20%));
+}
+ 
+.button {
+    -fx-background-color:
+        linear-gradient(#e4b0c2,#ff4435),
+        radial-gradient(center 50% -40%, radius 200%,#ec4c4c 45%,  #e50000 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: #395306;
+}
+ 
+.button:hover {
+-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+-fx-text-fill:#FFFFFF;
+}
+ 
+.table-view {
+-fx-table-cell-border-color:derive(-fx-base,+10%);
+-fx-table-header-border-color:derive(-fx-base,+20%);
+}
+ 
+.split-pane:horizontal > * > .split-pane-divider {
+-fx-border-color: transparent -fx-base transparent -fx-base;
+-fx-background-color: transparent, derive(-fx-base,20%);
+-fx-background-insets: 0, 0 1 0 1;
+}
+ 
+.my-gridpane {
+-fx-background-color: radial-gradient(radius 100%, derive(-fx-base,20%), derive(-fx-base,-20%));
+}
+ 
+.separator-label {
+-fx-text-fill: orange;
+}

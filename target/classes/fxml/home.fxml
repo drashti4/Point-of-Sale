@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!--<AnchorPane id="AnchorPane" prefHeight="956.0" prefWidth="1318.0" stylesheets="@SysSet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finaldemo.Controller.FXMLDocumentController">-->
+
+<FlowPane id="AnchorPane" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="1428.0" stylesheets="@../styles/SysSet.css" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.FXMLDocumentController">
+     <children>
+      <HBox layoutX="31.0" layoutY="26.0" prefHeight="177.0" prefWidth="1258.0" spacing="90.0">
+         <children>
+            <AnchorPane>
+               <children>
+                          <Button id="SysSet" fx:id="b1" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleSystemButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" stylesheets="@SysSet.css" textAlignment="CENTER" />
+                  <Text layoutX="145.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="System">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="146.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                     
+                        <Button id="2" fx:id="button3" onAction="#handleItemListButtonAction" prefHeight="165.0" prefWidth="261.0" styleClass="OP" />
+                  <Text layoutX="152.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item" wrappingWidth="72.703125">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="158.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                     
+                        <Button id="3" fx:id="button1" layoutX="-14.0" layoutY="-1.0" onAction="#handleSalePromoButtonAction" prefHeight="159.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="164.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="137.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Promotion">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                    
+                        <Button id="4" fx:id="button2" onAction="#handleBackUpButtonAction" prefHeight="152.0" prefWidth="244.0" styleClass="OP" />
+                  <Text layoutX="162.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BackUp">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox layoutX="31.0" layoutY="236.0" prefHeight="199.0" prefWidth="1273.0" spacing="90.0">
+         <children>
+            <AnchorPane>
+               <children>
+                    
+                        <Button id="5" fx:id="b5" onAction="#handleShortcutButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="147.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shortcut">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="156.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Button">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                    
+                        <Button id="6" fx:id="button4" onAction="#handleItemGroupButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="177.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="171.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                    
+                        <Button id="7" fx:id="button13" onAction="#handleConfTenderButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="136.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Configure">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="167.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tender">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                     
+                        <Button id="8" fx:id="button10" onAction="#handleImportDataButtonAction" prefHeight="159.0" prefWidth="244.0" styleClass="OP" />
+                  <Text layoutX="158.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Import">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="169.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox layoutX="37.0" layoutY="462.0" prefHeight="185.0" prefWidth="1290.0" spacing="90.0">
+         <children>
+            <AnchorPane>
+               <children>
+                     
+                        <Button id="9" fx:id="button6" onAction="#handleCurrencyButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="143.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currency">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                   
+                        <Button id="10" fx:id="button9" onAction="#handleGlobalButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="165.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Global">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="149.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Changes">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                     
+                        <Button id="11" fx:id="button12" onAction="#handleAdjustTimeButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="167.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adjust">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="166.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timelog">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                    
+                        <Button id="12" fx:id="button15" onAction="#handleViewReportButtonAction" prefHeight="159.0" prefWidth="244.0" styleClass="OP" />
+                  <Text layoutX="135.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reports">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox layoutX="37.0" layoutY="701.0" prefHeight="211.0" prefWidth="1290.0" spacing="90.0">
+         <children>
+            <AnchorPane>
+               <children>
+                     
+                        <Button id="13" fx:id="button7" onAction="#handleSecurityButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="144.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="161.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                     
+                              <Button id="14" fx:id="button8" onAction="#handleEmployeeButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="137.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                     
+                        <Button id="15" fx:id="button11" onAction="#handleReconcileButtonAction" prefHeight="165.0" prefWidth="256.0" styleClass="OP" />
+                  <Text layoutX="142.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reconsile">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="155.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drawer">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                     
+                        <Button id="16" fx:id="button14" prefHeight="159.0" prefWidth="244.0" styleClass="OP" />
+                  <Text layoutX="153.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit" wrappingWidth="60.9873046875">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+        
+    </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</FlowPane>

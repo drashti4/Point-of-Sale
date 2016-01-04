@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="myLayout" prefHeight="668.0" prefWidth="903.0" styleClass="mainFxmlClass" stylesheets="@../styles/SysSet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ButtonPropertySettingController">
+   <children>
+      <TitledPane animated="false" layoutX="8.0" layoutY="14.0" prefHeight="154.0" prefWidth="883.0" text="Item Shortcut Buttom">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="ShortcutButton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="176.0" />
+                  <Button fx:id="ItemBackButton" layoutX="239.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleItemBackAction" prefHeight="32.0" prefWidth="159.0" text="Set Background Color" />
+                  <Button layoutX="441.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleItemTextAction" prefHeight="32.0" prefWidth="159.0" text="Set Text Color" />
+                  <Button fx:id="ShortcutFont" layoutX="680.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleShortcutFontAction" prefHeight="32.0" prefWidth="159.0" text="Change Font" />
+                  <Text layoutX="239.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Color:" />
+                  <Text layoutX="441.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Color:" />
+                  <Text fx:id="Text" layoutX="239.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.13671875" />
+                  <Text fx:id="text2" layoutX="443.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="74.13671875" />
+                  <Text fx:id="Shortcut" layoutX="14.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="        Shortcut Button" wrappingWidth="172.13671875" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="8.0" layoutY="193.0" prefHeight="154.0" prefWidth="883.0" text="Group Shortcut Button">
+         <content>
+            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="GroupButton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="176.0" />
+                  <Button layoutX="239.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleGroupBackAction" prefHeight="32.0" prefWidth="159.0" text="Set Background Color" />
+                  <Button layoutX="441.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleGroupTextAction" prefHeight="32.0" prefWidth="159.0" text="Set Text Color" />
+                  <Button fx:id="GroupFont" layoutX="680.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleGroupFontAction" prefHeight="32.0" prefWidth="159.0" text="Change Font" />
+                  <Text layoutX="239.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Color:" />
+                  <Text layoutX="441.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Color:" />
+                  <Label layoutX="441.0" layoutY="85.0" prefHeight="22.0" prefWidth="149.0">
+                     <effect>
+                        <Shadow radius="8.5175" width="15.07" />
+                     </effect>
+                  </Label>
+                  <Text fx:id="Group" layoutX="16.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="        Group Link Button" wrappingWidth="171.791015625" />
+                  <Text fx:id="gtext1" layoutX="239.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="103.13671875" />
+                  <Text fx:id="gtext2" layoutX="442.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.13671875" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="377.0" prefHeight="163.0" prefWidth="883.0" text="Sub Window Button">
+         <content>
+            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="WindowButton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="176.0" />
+                  <Button layoutX="239.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleWindowBackAction" prefHeight="32.0" prefWidth="159.0" text="Set Background Color" />
+                  <Button layoutX="441.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleWindowTextAction" prefHeight="32.0" prefWidth="159.0" text="Set Text Color" />
+                  <Button fx:id="WimdowFont" layoutX="680.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleWindowFontAction" prefHeight="32.0" prefWidth="159.0" text="Change Font" />
+                  <Text layoutX="239.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Color:" />
+                  <Text layoutX="441.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Color:" />
+                  <Text fx:id="wtext1" layoutX="239.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="75.0" />
+                  <Text fx:id="wtext2" layoutX="436.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="89.0" />
+                  <Text fx:id="Window" layoutX="20.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="        Sub Window Button" wrappingWidth="164.13671875" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

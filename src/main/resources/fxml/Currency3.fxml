@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="531.0" prefWidth="743.0" styleClass="mainFxmlClass" stylesheets="@../styles/SysSet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.Currency3Controller">
+   <children>
+      <TitledPane animated="false" layoutX="14.0" layoutY="31.0" prefHeight="420.0" prefWidth="358.0" text="Currency Setting">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="table" layoutX="24.0" layoutY="59.0" prefHeight="288.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="captioncol" prefWidth="102.0" text="Caption" />
+                      <TableColumn fx:id="amtcol" prefWidth="97.0" text="Amount" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="278.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleResetButtonAction" prefHeight="51.0" prefWidth="60.0" text="Reset" />
+                  <Button layoutX="276.0" layoutY="116.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="60.0" text="Save" />
+               </children></AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="387.0" layoutY="31.0" prefHeight="420.0" prefWidth="342.0" text="Add/Edit Button">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Text layoutX="61.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
+                  <Text layoutX="61.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caption" />
+                  <TextField fx:id="AmountTextField" layoutX="129.0" layoutY="36.0" />
+                  <TextField fx:id="CaptionTextField" disable="true" editable="false" layoutX="135.0" layoutY="86.0" prefHeight="25.0" prefWidth="145.0" />
+                  <Button layoutX="57.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleEditSaveButtonAction" prefHeight="44.0" prefWidth="84.0" text="Save" />
+                  <Button layoutX="219.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleEditResetButtonAction" prefHeight="47.0" prefWidth="82.0" text="Reset" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

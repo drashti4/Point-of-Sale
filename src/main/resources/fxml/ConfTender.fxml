@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="460.0" prefWidth="512.0" styleClass="mainFxmlClass" stylesheets="@../styles/conftender.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ConfTenderController">
+   <children>
+      <Text layoutX="32.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search For Desciption" />
+      <TextField fx:id="filterField" layoutX="199.0" layoutY="18.0" />
+      <TableView fx:id="TenderTable" layoutX="14.0" layoutY="61.0" prefHeight="327.0" prefWidth="488.0">
+        <columns>
+          <TableColumn fx:id="TDesc" prefWidth="289.0" text="Tender Description" />
+          <TableColumn fx:id="TType" prefWidth="195.0" text="Tender Type" />
+        </columns>
+      </TableView>
+      <Button fx:id="AddButton" layoutX="14.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleAddButtonAction" prefHeight="39.0" prefWidth="76.0" text="Add" />
+      <Button layoutX="147.0" layoutY="400.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="76.0" text="Edit" />
+      <Button layoutX="288.0" layoutY="400.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="82.0" text="Delete" />
+      <Button layoutX="420.0" layoutY="400.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="82.0" text="Close" />
+   </children>
+</AnchorPane>

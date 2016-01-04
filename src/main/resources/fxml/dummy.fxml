@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane orientation="VERTICAL" prefHeight="430.0" prefWidth="247.0" vgap="13.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <CheckBox mnemonicParsing="false" text="Allow Selling Prompt-Price Item" />
+      <CheckBox mnemonicParsing="false" text="Allow to override card processing" />
+      <CheckBox mnemonicParsing="false" text="Allow cash drawer reconsiliation" />
+      <CheckBox mnemonicParsing="false" text="Allow version upgrade" />
+      <CheckBox mnemonicParsing="false" text="Allow RF operation" />
+      <CheckBox mnemonicParsing="false" text="Currency Button Setting" />
+      <CheckBox mnemonicParsing="false" text="Close Register" />
+      <CheckBox mnemonicParsing="false" text="Change Hardware Setting" />
+      <CheckBox mnemonicParsing="false" text="Hold/Resume Transaction" />
+      <CheckBox mnemonicParsing="false" text="Override Item Tax in Invoice" />
+      <CheckBox mnemonicParsing="false" text="View Register List" />
+      <CheckBox mnemonicParsing="false" text="Reprint Receipt" />
+      <CheckBox mnemonicParsing="false" text="View Card Process Log" />
+      <FlowPane orientation="VERTICAL" prefHeight="427.0" prefWidth="260.0" vgap="13.0">
+         <children>
+            <CheckBox mnemonicParsing="false" text="Income/Expenses Log Entries" />
+            <CheckBox mnemonicParsing="false" text="Inventory Adjustment" />
+            <CheckBox mnemonicParsing="false" text="Item/Invoice Discount" />
+            <CheckBox mnemonicParsing="false" text="Item/Invoice Custom Discount" />
+            <CheckBox mnemonicParsing="false" text="Label and BarCode Printing" />
+            <CheckBox mnemonicParsing="false" text="Multi Record(global) Changes" />
+            <CheckBox mnemonicParsing="false" text="Order Processing" />
+            <CheckBox mnemonicParsing="false" text="Override Item in Invoice" />
+            <CheckBox mnemonicParsing="false" text="Print/View Z Report" />
+            <CheckBox mnemonicParsing="false" text="Print/View X Report" />
+            <CheckBox mnemonicParsing="false" text="Purge Utility" />
+            <CheckBox mnemonicParsing="false" text="Self Preference" />
+            <CheckBox mnemonicParsing="false" text="Perform Cash Drawer Operation" />
+         </children>
+      </FlowPane>
+   </children>
+</FlowPane>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="762.0" prefWidth="903.0" styleClass="mainFxmlClass" stylesheets="@../styles/globalchanges7.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.GlobalChanges7Controller">
+   <children>
+      <TitledPane animated="false" layoutX="2.0" prefHeight="138.0" prefWidth="892.0" text="Target Items">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="112.0" prefWidth="827.0">
+               <children>
+                  <RadioButton fx:id="CatRadio" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleCatRadioAction" text="Category Items">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="t1" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="DeptRadio" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleDeptRadioButtonAction" text="Department Items" toggleGroup="$t1" />
+                  <RadioButton layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleAllItemRadioAction" text="On Item Selected Below" toggleGroup="$t1" />
+                  <RadioButton fx:id="GroupRadio" layoutX="323.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleGroupRadioAction" text="Group Items" toggleGroup="$t1" />
+                  <RadioButton fx:id="SupplierRadio" layoutX="596.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleSupplierRadioAction" text="Item By Supplier" toggleGroup="$t1" />
+                  <RadioButton fx:id="SizeRadio" layoutX="596.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleSizeRadioAction" text="Item with size" toggleGroup="$t1" />
+                  <RadioButton fx:id="ItemRadio" layoutX="323.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleItemRadioAction" text="Item in Pack" toggleGroup="$t1" />
+                  <TextField fx:id="filterField" layoutX="229.0" layoutY="70.0" prefHeight="25.0" prefWidth="157.0" />
+                  <Button layoutX="426.0" layoutY="70.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Filter" />
+                  <ComboBox fx:id="CatCombo" layoutX="157.0" layoutY="2.0" onAction="#handleCatComboAction" prefHeight="25.0" prefWidth="150.0" />
+                  <ComboBox fx:id="DeptCombo" layoutX="157.0" layoutY="34.0" prefHeight="25.0" prefWidth="150.0" />
+                  <ComboBox fx:id="ItemCombo" layoutX="428.0" layoutY="2.0" prefHeight="25.0" prefWidth="150.0" />
+                  <ComboBox fx:id="PackCombo" layoutX="428.0" layoutY="34.0" prefHeight="25.0" prefWidth="150.0" />
+                  <ComboBox fx:id="SupplierCombo" layoutX="733.0" layoutY="2.0" prefHeight="25.0" prefWidth="150.0" />
+                  <ComboBox fx:id="SizeCombo" layoutX="733.0" layoutY="34.0" prefHeight="25.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TableView fx:id="ItemTable" layoutX="2.0" layoutY="145.0" prefHeight="333.0" prefWidth="373.0">
+         <columns>
+            <TableColumn fx:id="skucol" prefWidth="51.0" text="SKU" />
+            <TableColumn fx:id="desc" prefWidth="99.0" text="Description" />
+            <TableColumn fx:id="size" prefWidth="86.0" text="ItemSize" />
+            <TableColumn fx:id="pack" prefWidth="64.0" text="Pack" />
+            <TableColumn fx:id="price" prefWidth="72.0" text="Price" />
+         </columns>
+      </TableView>
+      <Button layoutX="384.0" layoutY="175.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="101.0" text="Pick" />
+      <Button layoutX="384.0" layoutY="240.0" mnemonicParsing="false" onAction="#handlePutButtonAction" prefHeight="38.0" prefWidth="101.0" text="-----&gt;" />
+      <Button layoutX="384.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleGetButtonAction" prefHeight="38.0" prefWidth="101.0" text="&lt;------" />
+      <Button layoutX="384.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleRemoveAllSelectionButton" prefHeight="38.0" prefWidth="101.0" text="&lt;&lt;------" />
+      <TitledPane animated="false" layoutX="6.0" layoutY="489.0" prefHeight="279.0" prefWidth="782.0" text="Apply following changes to all selected items above">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Text layoutX="3.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prices" />
+                  <Text layoutX="147.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost:" />
+                  <TextField fx:id="PriceText" layoutX="42.0" layoutY="10.0" prefHeight="25.0" prefWidth="99.0" />
+                  <TextField fx:id="CostText" layoutX="182.0" layoutY="10.0" prefHeight="25.0" prefWidth="104.0" />
+                  <Text layoutX="286.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buy Down " />
+                  <TextField fx:id="BuyDownText" layoutX="343.0" layoutY="7.0" prefHeight="25.0" prefWidth="117.0" />
+                  <Text layoutX="517.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock Type" />
+                  <ComboBox fx:id="StockCombo" layoutX="608.0" layoutY="13.0" prefHeight="18.0" prefWidth="150.0">
+                       <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Inventory Item" />
+                                 <String fx:value="Non Stock Item" />                                 
+                              </FXCollections>
+                        </items>
+                  </ComboBox>
+                  <Text layoutX="473.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add to department" />
+                  <ComboBox fx:id="GroupCombo" layoutX="608.0" layoutY="110.0" prefHeight="18.0" prefWidth="150.0" />
+                      
+                 
+                  <ComboBox fx:id="LocationCombo" layoutX="609.0" layoutY="84.0" prefHeight="18.0" prefWidth="150.0" />
+                  <ComboBox fx:id="AddToCatCombo" layoutX="609.0" layoutY="58.0" prefHeight="18.0" prefWidth="150.0" />
+                  <ComboBox fx:id="AddToDeptCombo" layoutX="609.0" layoutY="34.0" prefHeight="18.0" prefWidth="150.0" />
+                  <Text layoutX="492.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add to category" />
+                  <Text layoutX="493.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assign Location" />
+                  <Text layoutX="471.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mix &amp; Match group" />
+                  <Text layoutX="475.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-Order Quantity" />
+                  <TextField fx:id="ReOrderText" layoutX="604.0" layoutY="131.0" prefHeight="25.0" prefWidth="101.0" />
+                  <Text layoutX="600.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Case Unit:" />
+                  <TextField fx:id="UnitText" layoutX="673.0" layoutY="192.0" prefHeight="25.0" prefWidth="59.0" />
+                  <CheckBox layoutX="596.0" layoutY="163.0" mnemonicParsing="false" text="Buy As Case" />
+                  <Text layoutX="49.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
+                  <Text layoutX="192.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
+                  <Text layoutX="350.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
+                  <TitledPane animated="false" layoutX="14.0" layoutY="39.0" prefHeight="148.0" prefWidth="319.0" text="Sold Along Item">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKU : " />
+                              <Text layoutX="12.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item : " />
+                              <Text layoutX="6.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+                              <TextField fx:id="SKUText" layoutX="58.0" layoutY="2.0" />
+                              <TextField fx:id="ItemText" layoutX="58.0" layoutY="35.0" prefHeight="15.0" prefWidth="256.0" />
+                              <TextField fx:id="QuantityText" layoutX="58.0" layoutY="64.0" prefHeight="25.0" prefWidth="52.0" />
+                              <ComboBox fx:id="AddQCombo" layoutX="140.0" layoutY="64.0" prefHeight="25.0" prefWidth="76.0">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Add" />
+                                            <String fx:value="Remove" />                                 
+                                        </FXCollections>
+                                    </items>
+                                </ComboBox>    
+                              <CheckBox fx:id="PackCheck" layoutX="63.0" layoutY="100.0" mnemonicParsing="false" text="Multiply By Pack" />
+                              <Button layoutX="230.0" layoutY="64.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="72.0" text="Select" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <Text layoutX="3.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Stamp Allowance " />
+                  <ComboBox fx:id="FoodStampCombo" layoutX="159.0" layoutY="192.0" prefHeight="25.0" prefWidth="62.0">
+                       <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Add" />
+                                 <String fx:value="Remove" />                                 
+                              </FXCollections>
+                        </items>
+                  </ComboBox>    
+                  <ComboBox fx:id="SaleMsgCombo" layoutX="343.0" layoutY="192.0" prefHeight="25.0" prefWidth="72.0">
+                       <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Add" />
+                                 <String fx:value="Remove" />                                 
+                              </FXCollections>
+                        </items>
+                  </ComboBox>    
+                  <Text layoutX="238.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Message" />
+                  <ComboBox fx:id="idCombo" layoutX="432.0" layoutY="192.0" prefWidth="150.0" />
+                  <ComboBox fx:id="Tax1Combo" layoutX="382.0" layoutY="55.0" prefHeight="25.0" prefWidth="79.0">
+                       <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Add" />
+                                 <String fx:value="Remove" />                                 
+                              </FXCollections>
+                        </items>
+                  </ComboBox>    
+                  <ComboBox fx:id="Tax2Combo" layoutX="384.0" layoutY="101.0" prefHeight="25.0" prefWidth="77.0">
+                       <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Add" />
+                                 <String fx:value="Remove" />                                 
+                              </FXCollections>
+                        </items>
+                  </ComboBox>    
+                  <ComboBox fx:id="Tax3Combo" layoutX="385.0" layoutY="144.0" prefHeight="25.0" prefWidth="76.0">
+                       <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Add" />
+                                 <String fx:value="Remove" />                                 
+                              </FXCollections>
+                        </items>
+                  </ComboBox>    
+                  <Text layoutX="343.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax 1" />
+                  <Text layoutX="340.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax 2" wrappingWidth="52.0" />
+                  <Text layoutX="343.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax 3" />
+                  <Text layoutX="244.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Display on Web" />
+                  <ComboBox fx:id="WebCombo" layoutX="355.0" layoutY="225.0" prefHeight="26.0" prefWidth="55.0">
+                       <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Add" />
+                                 <String fx:value="Remove" />                                 
+                              </FXCollections>
+                        </items>
+                  </ComboBox>    
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Button layoutX="796.0" layoutY="523.0" mnemonicParsing="false" onAction="#handleApplyButtonAction" prefHeight="50.0" prefWidth="93.0" text="Apply" />
+      <Button layoutX="796.0" layoutY="609.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="50.0" prefWidth="93.0" text="Close" />
+      <TableView fx:id="ItemTable2" layoutX="516.0" layoutY="145.0" prefHeight="333.0" prefWidth="373.0">
+         <columns>
+            <TableColumn fx:id="skucol1" prefWidth="51.0" text="SKU" />
+            <TableColumn fx:id="desc1" prefWidth="99.0" text="Description" />
+            <TableColumn fx:id="size1" prefWidth="86.0" text="ItemSize" />
+            <TableColumn fx:id="pack1" prefWidth="64.0" text="Pack" />
+            <TableColumn fx:id="price1" prefWidth="72.0" text="Price" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

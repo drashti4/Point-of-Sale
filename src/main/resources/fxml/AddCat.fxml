@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="307.0" prefWidth="444.0" stylesheets="@../styles/addcat.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AddCatController">
+   <children>
+      <Text layoutX="44.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category Name" />
+      <Text layoutX="44.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localized Name" />
+      <Text layoutX="44.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" />
+      <TextField fx:id="CatName" layoutX="183.0" layoutY="38.0" />
+      <TextField fx:id="LocalName" layoutX="184.0" layoutY="91.0" />
+      <ComboBox fx:id="DeptCombo" layoutX="183.0" layoutY="141.0" prefWidth="150.0" />
+      <Button layoutX="44.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleSaveNewButtonAction" text="Save &amp; New" />
+      <Button fx:id="Save" layoutX="196.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleSavenCloseButton" text="Save &amp; Close" />
+      <Button layoutX="341.0" layoutY="217.0" mnemonicParsing="false" text="Close" />
+   </children>
+</AnchorPane>

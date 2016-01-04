@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="696.0" prefWidth="921.0" stylesheets="@../styles/sysfinal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ShortcutController">
+   <children>
+      <Button layoutX="282.0" layoutY="24.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Menu Item" />
+      <Text layoutX="27.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Display Menu" />
+      <CheckBox layoutX="500.0" layoutY="35.0" mnemonicParsing="false" text="Show images on button" />
+      <Button layoutX="707.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleButtonPropertyActtion" prefHeight="31.0" prefWidth="200.0" text="Button Property Setting" />
+      <TitledPane animated="false" layoutX="440.0" layoutY="84.0" prefHeight="528.0" prefWidth="467.0" text="Button Setting">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Pane layoutX="14.0" layoutY="14.0" prefHeight="80.0" prefWidth="419.0">
+                     <children>
+                        <TextField fx:id="ButtonCaptionText" layoutX="210.0" layoutY="14.0" />
+                        <TextField fx:id="QuantityText" layoutX="210.0" layoutY="48.0" />
+                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caption" />
+                        <Text layoutX="14.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Quantity" />
+                     </children>
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Pane>
+                  <RadioButton fx:id="ItemRadio" layoutX="37.0" layoutY="104.0" mnemonicParsing="false" onAction="#handleItemRadioAction" selected="true" text="Item Shortcut">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Group1" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="GroupRadio" layoutX="224.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleGroupRadioAction" text="Group Shortcut" toggleGroup="$Group1" />
+                  <Pane fx:id="ItemPane" disable="true" layoutX="14.0" layoutY="132.0" prefHeight="360.0" prefWidth="191.0">
+                     <children>
+                        <TextField fx:id="SKUText" layoutX="28.0" layoutY="23.0" prefHeight="17.0" prefWidth="120.0" />
+                        <TextField fx:id="ItemName" layoutX="46.0" layoutY="113.0" prefHeight="25.0" prefWidth="116.0" />
+                        <TextField fx:id="SizeText" layoutX="49.0" layoutY="164.0" prefHeight="25.0" prefWidth="122.0" />
+                        <Text layoutX="22.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item SKU/UPC" />
+                        <Text layoutX="5.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Name" />
+                        <Text layoutX="7.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size/ Pack" />
+                        <Button layoutX="116.0" layoutY="61.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="52.0" text="Select" />
+                        <Text layoutX="9.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Default Pack" />
+                        <ComboBox fx:id="PackCombo" layoutX="46.0" layoutY="205.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: white;">
+                        <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="1" />
+                                 <String fx:value="6 pk" />
+                                 <String fx:value="10" />
+                                 <String fx:value="12 pk" />
+                              </FXCollections>
+                           </items>
+                         </ComboBox>
+                        <Label layoutX="16.0" layoutY="252.0" prefHeight="99.0" prefWidth="159.0" style="-fx-background-color: white;" />
+                        <Text layoutX="11.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Image" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="GroupPane" disable="true" layoutX="213.0" layoutY="121.0" prefHeight="339.0" prefWidth="240.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text layoutX="14.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text layoutX="14.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text layoutX="14.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group Image" />
+                        <TextField layoutX="106.0" layoutY="53.0" prefHeight="25.0" prefWidth="120.0" />
+                        <ComboBox layoutX="109.0" layoutY="7.0" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: white;" />
+                        <ComboBox fx:id="GroupDeafaultCombo" layoutX="112.0" layoutY="106.0" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: white;">
+                            <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="1" />
+                                 <String fx:value="6 pk" />
+                                 <String fx:value="10" />
+                                 <String fx:value="12 pk" />
+                              </FXCollections>
+                           </items>
+                         </ComboBox>
+                        <Button layoutX="174.0" layoutY="208.0" mnemonicParsing="false" text="Add" />
+                        <Button layoutX="174.0" layoutY="250.0" mnemonicParsing="false" text="Remove" />
+                        <Button layoutX="25.0" layoutY="307.0" mnemonicParsing="false" text="View Group Button" />
+                        <Label layoutX="14.0" layoutY="201.0" prefHeight="99.0" prefWidth="159.0" style="-fx-background-color: white;" />
+                     </children></Pane>
+                  <Button fx:id="AppendButton" layoutX="213.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleAppendButtonAction" text="Append" />
+                  <Button fx:id="InsertButton" layoutX="295.0" layoutY="473.0" mnemonicParsing="false" text="Insert" />
+                  <Button fx:id="ClearButton" disable="true" layoutX="381.0" layoutY="473.0" mnemonicParsing="false" text="Clear" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <ComboBox layoutX="121.0" layoutY="25.0" prefHeight="26.0" prefWidth="109.0" />
+      <TableView layoutX="14.0" layoutY="84.0" prefHeight="528.0" prefWidth="397.0">
+        <columns>
+          <TableColumn prefWidth="98.0" text="Caption" />
+          <TableColumn prefWidth="95.0" text="Group Link" />
+            <TableColumn prefWidth="79.0" text="QTY" />
+            <TableColumn prefWidth="120.0" text="SKU" />
+        </columns>
+      </TableView>
+      <Button layoutX="37.0" layoutY="639.0" mnemonicParsing="false" text="UP" />
+      <Button layoutX="164.0" layoutY="639.0" mnemonicParsing="false" text="Down" />
+      <Button layoutX="309.0" layoutY="639.0" mnemonicParsing="false" text="Remove" />
+      <Button fx:id="DeptKeyButton" layoutX="461.0" layoutY="640.0" mnemonicParsing="false" onAction="#handleDeptKeyButtonAction" text="Create Department Key" />
+      <Button layoutX="681.0" layoutY="639.0" mnemonicParsing="false" text="Close" />
+      <Button layoutX="836.0" layoutY="640.0" mnemonicParsing="false" text="Remove" />
+   </children>
+</AnchorPane>

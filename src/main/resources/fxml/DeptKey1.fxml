@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/SysSet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.DeptKey1Controller">
+   <children>
+      <TitledPane animated="false" layoutX="14.0" layoutY="6.0" prefHeight="400.0" prefWidth="611.0" text="Create Dept Keys">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="373.0" prefWidth="577.0">
+               <children>
+                  <Text layoutX="27.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Just Two Step To Create Department Keys" wrappingWidth="284.05078125" />
+                  <TabPane layoutX="19.0" layoutY="27.0" prefHeight="328.0" prefWidth="565.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="    Step - 1 Select Department">
+                        <content>
+                          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView layoutX="29.0" layoutY="8.0" prefHeight="265.0" prefWidth="341.0">
+                                      <columns>
+                                        <TableColumn prefWidth="261.0" text="Department" />
+                                          <TableColumn prefWidth="79.0" text="CheckBox" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="NextButton" layoutX="431.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleNextButtonAction" text="Next" />
+                                    <Button layoutX="431.0" layoutY="137.0" mnemonicParsing="false" text="Cancel" />
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

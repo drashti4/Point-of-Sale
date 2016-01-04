@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="458.0" stylesheets="@../styles/pricecalculator1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.PriceCalculator1Controller">
+   <children>
+      <Text layoutX="166.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="329.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="UnitText" layoutX="14.0" layoutY="41.0" prefHeight="25.0" prefWidth="114.0" text="0" />
+      <TextField fx:id="QuantityText" layoutX="155.0" layoutY="41.0" prefHeight="25.0" prefWidth="122.0" text="0" />
+      <TextField fx:id="totalText" layoutX="309.0" layoutY="41.0" prefHeight="25.0" prefWidth="136.0" />
+      <Button layoutX="172.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="2" />
+      <Button layoutX="16.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="1" />
+      <Button layoutX="320.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="3" />
+      <Button layoutX="172.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="5" />
+      <Button layoutX="172.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="8" />
+      <Button layoutX="16.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="7" />
+      <Button layoutX="16.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="4" />
+      <Button layoutX="320.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="9" />
+      <Button layoutX="320.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="6" />
+      <Button layoutX="320.0" layoutY="322.0" mnemonicParsing="false" onAction="#DeleteButtonActionhandle" prefHeight="55.0" prefWidth="114.0" text="Delete">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="172.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="0" />
+      <Button layoutX="16.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleOneButtonAction" prefHeight="55.0" prefWidth="114.0" text="00" />
+   </children>
+</AnchorPane>

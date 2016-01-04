@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--<AnchorPane id="AnchorPane" prefHeight="180.0" prefWidth="421.0" styleClass="mainFxmlClass"  stylesheets="@SysSet.css"  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AddBrandController">-->
+
+<AnchorPane id="AnchorPane" prefHeight="180.0" prefWidth="421.0" stylesheets="@../styles/addbrand.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AddBrandController">
+    
+   <children>
+      <Text layoutX="70.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name" />
+      <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manufacture Name" />
+      <Button layoutX="29.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleSaveNewButton" text="Save &amp; New" />
+      <Button fx:id="Save" layoutX="166.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleSaveNewButton" text="Save &amp; Close" />
+      <Button layoutX="343.0" layoutY="126.0" mnemonicParsing="false" text="Close" />
+      <TextField fx:id="BrandName" layoutX="157.0" layoutY="21.0" />
+      <TextField fx:id="ManName" layoutX="157.0" layoutY="61.0" />
+   </children>
+</AnchorPane>

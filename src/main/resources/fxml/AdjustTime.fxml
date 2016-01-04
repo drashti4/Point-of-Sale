@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="705.0" styleClass="mainFxmlClass" stylesheets="@../styles/adjusttime.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AdjustTimeController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="88.0" prefWidth="686.0">
+         <children>
+            <Text layoutX="-3.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report Period" />
+            <Text layoutX="20.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee" />
+            <ComboBox fx:id="ReportCombo" layoutX="101.0" layoutY="10.0" prefHeight="25.0" prefWidth="139.0" />
+            <Text layoutX="254.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" />
+            <Text layoutX="485.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+            <DatePicker layoutX="288.0" layoutY="10.0" prefHeight="26.0" prefWidth="177.0" />
+            <DatePicker layoutX="506.0" layoutY="10.0" prefHeight="26.0" prefWidth="177.0" />
+            <Button layoutX="288.0" layoutY="46.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="122.0" text="Show Data" />
+            <Button layoutX="465.0" layoutY="46.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="83.0" text="Reset" />
+            <ComboBox layoutX="100.0" layoutY="48.0" prefHeight="25.0" prefWidth="142.0" />
+         </children>
+      </Pane>
+      <TitledPane animated="false" layoutX="14.0" layoutY="425.0" prefHeight="175.0" prefWidth="412.0" text="Summary">
+        <content>
+          <AnchorPane fx:id="AmchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Text layoutX="24.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Worked" />
+                  <Text layoutX="24.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adjusted" />
+                  <Text layoutX="24.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difference" />
+                  <Text layoutX="133.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours" />
+                  <Text layoutX="282.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minutes" />
+                  <Text layoutX="11.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="---------------------------------------------------------------------------------" />
+                  <TextField layoutX="94.0" layoutY="35.0" prefHeight="25.0" prefWidth="122.0" />
+                  <TextField layoutX="94.0" layoutY="70.0" prefHeight="25.0" prefWidth="122.0" />
+                  <TextField layoutX="243.0" layoutY="35.0" prefHeight="25.0" prefWidth="122.0" />
+                  <TextField layoutX="243.0" layoutY="70.0" prefHeight="25.0" prefWidth="122.0" />
+                  <TextField layoutX="94.0" layoutY="114.0" prefHeight="25.0" prefWidth="122.0" />
+                  <TextField layoutX="243.0" layoutY="114.0" prefHeight="25.0" prefWidth="122.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <CheckBox layoutX="494.0" layoutY="438.0" mnemonicParsing="false" text="View Adjust Entry Only" />
+      <Button layoutX="445.0" layoutY="530.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="73.0" text="Save" />
+      <Button layoutX="574.0" layoutY="530.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="73.0" text="Close" />
+      <TableView layoutX="20.0" layoutY="115.0" prefHeight="297.0" prefWidth="660.0">
+        <columns>
+          <TableColumn prefWidth="42.0" text="ID #" />
+          <TableColumn prefWidth="78.0" text="Reg. #" />
+            <TableColumn prefWidth="127.0" text="Check In Time" />
+            <TableColumn prefWidth="124.0" text="Check Out Time" />
+            <TableColumn prefWidth="64.0" text="Hours" />
+            <TableColumn prefWidth="61.0" text="Minutes" />
+            <TableColumn prefWidth="77.0" text="Adj. Hour" />
+            <TableColumn prefWidth="85.0" text="Adj. Minutes" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

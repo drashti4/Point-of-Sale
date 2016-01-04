@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="692.0" prefWidth="1255.0" styleClass="mainFxmlClass" stylesheets="@../styles/viewreport.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ViewReportController">
+   <children>
+      <TitledPane animated="false" layoutX="14.0" layoutY="14.0" prefHeight="65.0" prefWidth="1222.0" text="untitled">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Text layoutX="319.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" />
+                  <ComboBox layoutX="124.0" layoutY="7.0" prefWidth="150.0" />
+                  <DatePicker layoutX="359.0" layoutY="6.0" />
+                  <Text layoutX="13.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report Period" />
+                  <Text layoutX="829.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+                  <DatePicker layoutX="849.0" layoutY="7.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="768.0" layoutY="93.0" prefHeight="506.0" prefWidth="468.0" text="Preview">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </TitledPane>
+      <TabPane layoutX="14.0" layoutY="93.0" prefHeight="515.0" prefWidth="733.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="  Sales     ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab text="Item Sales     ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Business Analytics     ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Inventory      ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Customer     ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Ordering     ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="RF Process     ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Text layoutX="35.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+      <TextField layoutX="348.0" layoutY="642.0" prefHeight="44.0" prefWidth="421.0" />
+      <Button layoutX="1077.0" layoutY="630.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="79.0" text="Close" />
+   </children>
+</AnchorPane>

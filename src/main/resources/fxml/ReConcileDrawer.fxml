@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="672.0" prefWidth="882.0" styleClass="mainFxmlClass" stylesheets="@../styles/reconciledrawer.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ReConcileDrawerController">
+   <children>
+      <TitledPane animated="false" layoutX="6.0" layoutY="7.0" prefHeight="111.0" prefWidth="871.0" text="Select Batch">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Text layoutX="22.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <ComboBox layoutX="82.0" layoutY="10.0" prefWidth="150.0" />
+                  <CheckBox layoutX="293.0" layoutY="14.0" mnemonicParsing="false" text="All Batches" />
+                  <Button layoutX="458.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="133.0" text="Select From List" />
+                  <Button layoutX="626.0" layoutY="4.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="124.0" text="View Z-Report" />
+                  <Button layoutX="759.0" layoutY="10.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="104.0" text="Close" />
+                  <TextField layoutX="107.0" layoutY="54.0" prefHeight="25.0" prefWidth="620.0" />
+               </children></AnchorPane>
+        </content>
+      </TitledPane>
+      <TableView layoutX="447.0" layoutY="121.0" prefHeight="283.0" prefWidth="421.0">
+        <columns>
+          <TableColumn prefWidth="126.0" text="Currency Unit" />
+          <TableColumn prefWidth="129.0" text="Monetory Value" />
+            <TableColumn prefWidth="78.0" text="Count" />
+            <TableColumn prefWidth="91.0" text="Amount" />
+        </columns>
+      </TableView>
+      <Text layoutX="447.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected Total" />
+      <Text layoutX="658.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actual Total" />
+      <Text layoutX="676.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difference" />
+      <Text layoutX="672.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grand Total" />
+      <Text fill="#eb1c1c" layoutX="751.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Short" />
+      <TableView layoutX="458.0" layoutY="450.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="105.0" text="Non-Cash Unit" />
+          <TableColumn prefWidth="94.0" text="Amount" />
+        </columns>
+      </TableView>
+      <TextField layoutX="691.0" layoutY="467.0" />
+      <TextField layoutX="691.0" layoutY="559.0" />
+      <Button layoutX="691.0" layoutY="606.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" text="Save" />
+      <Text layoutX="28.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remarks" />
+      <TextField layoutX="28.0" layoutY="613.0" prefHeight="25.0" prefWidth="410.0" />
+   </children>
+</AnchorPane>

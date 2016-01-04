@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="584.0" prefWidth="893.0" styleClass="mainFxmlClass" stylesheets="@../styles/salespromotion.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.SalesPromotionController">
+   <children>
+      <Text layoutX="75.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Promotion" />
+      <ComboBox fx:id="SalesPromotion" layoutX="204.0" layoutY="10.0" prefWidth="150.0">
+           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Show All Promotion" />
+                                 <String fx:value="Show Only Current Promotion" />
+                                 <String fx:value="Show Future Promotion" />
+                                 <String fx:value="Show Only Past Promotion" />
+                              </FXCollections>
+                           </items>
+                         </ComboBox>
+      <Text layoutX="673.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan SKU/UPC" />
+      <Button fx:id="SelectButton" layoutX="816.0" layoutY="68.0" mnemonicParsing="false" onAction="#handleSelectButtonAction" text="Select" />
+      <TextField layoutX="673.0" layoutY="68.0" prefHeight="25.0" prefWidth="106.0" />
+      <Text layoutX="767.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currently Active Sale" />
+      <Text layoutX="762.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sale Coming In Future" />
+      <Text layoutX="768.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Past Sale" wrappingWidth="106.0" />
+      <Label layoutX="696.0" layoutY="122.0" prefHeight="17.0" prefWidth="30.0" style="-fx-background-color: green;" text="      " />
+      <Label layoutX="696.0" layoutY="164.0" prefHeight="17.0" prefWidth="30.0" style="-fx-background-color: blue;" text="           " />
+      <Label layoutX="696.0" layoutY="201.0" prefHeight="17.0" prefWidth="30.0" style="-fx-background-color: red;" text="   " />
+      <Button layoutX="745.0" layoutY="265.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="95.0" text="UP" />
+      <Button layoutX="745.0" layoutY="334.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="95.0" text="Down" />
+      <Button layoutX="696.0" layoutY="394.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="171.0" text="Delete Past Sale" />
+      <Button fx:id="AddButton" layoutX="37.0" layoutY="514.0" mnemonicParsing="false" onAction="#handleAddButtonAction" prefHeight="48.0" prefWidth="115.0" text="Add Sale" />
+      <Button layoutX="193.0" layoutY="512.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="115.0" text="Add Coupon" />
+      <Button layoutX="382.0" layoutY="512.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="115.0" text="Edit" />
+      <TableView layoutX="18.0" layoutY="64.0" prefHeight="433.0" prefWidth="639.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="ID" />
+          <TableColumn prefWidth="172.0" text="Sale Name" />
+            <TableColumn prefWidth="97.0" text="Start Date" />
+            <TableColumn prefWidth="99.0" text="End Date" />
+            <TableColumn prefWidth="99.0" text="Target" />
+            <TableColumn prefWidth="93.0" text="Coupon" />
+        </columns>
+      </TableView>
+      <Button layoutX="553.0" layoutY="514.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="115.0" text="Delete" />
+   </children>
+</AnchorPane>

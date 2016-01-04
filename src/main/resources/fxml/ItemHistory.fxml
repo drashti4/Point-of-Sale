@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="580.0" prefWidth="725.0" styleClass="mainFxmlClass" stylesheets="@../styles/itemhistory.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ItemHistoryController">
+   <children>
+      <Text layoutX="33.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item" />
+      <TextField layoutX="72.0" layoutY="24.0" prefHeight="26.0" prefWidth="183.0" />
+      <Text layoutX="274.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKU" />
+      <TextField layoutX="307.0" layoutY="24.0" />
+      <Text layoutX="478.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size/Pack" />
+      <TextField layoutX="535.0" layoutY="24.0" />
+      <Text layoutX="4.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History Of" />
+      <ComboBox layoutX="72.0" layoutY="67.0" prefHeight="26.0" prefWidth="158.0" />
+      <AnchorPane layoutX="241.0" layoutY="60.0" prefHeight="134.0" prefWidth="460.0" style="-fx-border-color: black;">
+         <children>
+            <Text layoutX="20.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" />
+            <Text layoutX="15.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" wrappingWidth="36.13671875" />
+            <DatePicker layoutX="56.0" layoutY="10.0" />
+            <HBox layoutX="250.0" layoutY="10.0" xmlns:fx="http://javafx.com/fxml/1">
+         <children>
+        <Spinner fx:id="hourSpinner" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="hourValueFactory">
+                                       <min>0</min>
+                                       <max>23</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                               </Spinner>
+                               <Spinner fx:id="minuteSpinner" layoutX="500.0" layoutY="10.0" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="minuteValueFactory">
+                                       <min>0</min>
+                                       <max>59</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                                       </Spinner>
+                               <Spinner fx:id="secondSpinner" layoutX="550.0" layoutY="10.0" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="secondValueFactory">
+                                       <min>0</min>
+                                       <max>59</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                               </Spinner>
+         </children>
+</HBox>
+
+
+
+            <DatePicker layoutX="56.0" layoutY="58.0" />
+            
+  <HBox layoutX="250.0" layoutY="60.0" xmlns:fx="http://javafx.com/fxml/1">
+          <children>
+           <Spinner fx:id="hourSpinne1r" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="hourValueFactory1">
+                                       <min>0</min>
+                                       <max>23</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                               </Spinner>
+                               <Spinner fx:id="minuteSpinner1" layoutX="500.0" layoutY="10.0" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="minuteValueFactory1">
+                                       <min>0</min>
+                                       <max>59</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                                       </Spinner>
+                               <Spinner fx:id="secondSpinner1" layoutX="550.0" layoutY="10.0" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="secondValueFactory1">
+                                       <min>0</min>
+                                       <max>59</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                               </Spinner>
+          </children>
+</HBox>
+            <Text layoutX="270.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hour" />
+            <Text layoutX="325.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
+            <Text layoutX="376.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sec" />
+            <Button layoutX="350.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Apply" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="146.0" layoutY="115.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Apply" />
+      <TabPane layoutX="17.0" layoutY="218.0" prefHeight="349.0" prefWidth="692.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Purchase History    ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="27.0" layoutY="14.0" prefHeight="200.0" prefWidth="579.0">
+                          <columns>
+                            <TableColumn prefWidth="129.0" text="Invoice No.   " />
+                            <TableColumn prefWidth="127.0" text="Delivery Date   " />
+                              <TableColumn prefWidth="123.0" text="Vendor   " />
+                              <TableColumn prefWidth="113.0" text="Quantity   " />
+                              <TableColumn prefWidth="86.0" text="Cost" />
+                          </columns>
+                        </TableView>
+                        <Text layoutX="335.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total" />
+                        <Separator layoutX="524.0" layoutY="215.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="6.0" />
+                        <Text layoutX="466.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text layoutX="564.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Button layoutX="549.0" layoutY="281.0" mnemonicParsing="false" onAction="#OnPrintButtonAction" prefHeight="25.0" prefWidth="54.0" text="Print" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@SysSet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.LoginController">
+   <children>
+      <Text layoutX="113.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="copyable-label" text="User Name" />
+      <Text layoutX="118.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="copyable-label1" text="Password" />
+      <TextField fx:id="UserNameText" layoutX="205.0" layoutY="99.0" prefHeight="32.0" prefWidth="218.0" />
+      <Button fx:id="submit" layoutX="168.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="41.0" prefWidth="86.0" text="Submit" />
+      <Button layoutX="312.0" layoutY="242.0" mnemonicParsing="false" onAction="#hanleCancelButtonAction" prefHeight="41.0" prefWidth="86.0" text="Cancel" />
+      <PasswordField fx:id="PasswordText" layoutX="203.0" layoutY="160.0" prefHeight="32.0" prefWidth="218.0" />
+     <!-- <MeshView fx:id="mesh" layoutX="438.0" layoutY="111.0" scaleX="10.0" scaleY="10.0" scaleZ="10.0" translateX="250.0" translateY="100.0" translateZ="400.0" />
+      <Box fx:id="box" depth="150.0" height="100.0" layoutX="439.0" layoutY="120.0" width="150.0" />-->
+   </children>
+</AnchorPane>

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="831.0" prefWidth="958.0" styleClass="mainFxmlClass" stylesheets="@../styles/SysSet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.Security4Controller">
+   <children>
+      <Text layoutX="27.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Role" />
+      <ComboBox fx:id="roleCombo" layoutX="117.0" layoutY="8.0" onAction="#handleRoleCOmboAction" prefWidth="150.0" />
+      <Button fx:id="Manage" layoutX="304.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleManageButtonAction" prefHeight="32.0" prefWidth="130.0" text="Manage Role" />
+      <TableView fx:id="roleTable" layoutX="27.0" layoutY="48.0" prefHeight="156.0" prefWidth="275.0">
+        <columns>
+          <TableColumn fx:id="uidcol" prefWidth="75.0" text="User ID" />
+          <TableColumn fx:id="fnmcol" prefWidth="95.0" text="First Name" />
+            <TableColumn fx:id="lnmcol" prefWidth="101.0" text="Last Name" />
+        </columns>
+      </TableView>
+      <TitledPane animated="false" layoutX="14.0" layoutY="217.0" prefHeight="472.0" prefWidth="329.0" text="Entity Level Permission">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="580.0" prefWidth="327.0">
+               <children>
+                  <TableView fx:id="EntityTable" layoutX="7.0" layoutY="166.0" prefHeight="273.0" prefWidth="314.0">
+                    <columns>
+                      <TableColumn fx:id="entitycol" prefWidth="137.0" text="Entity" />
+                      <TableColumn fx:id="addcol" prefWidth="62.0" text="Add" />
+                        <TableColumn fx:id="editcol" prefWidth="61.0" text="Edit" />
+                        <TableColumn fx:id="delcol" prefWidth="51.0" text="Delete" />
+                    </columns>
+                  </TableView>
+                  <CheckBox layoutX="89.0" layoutY="14.0" mnemonicParsing="false" text="Block All Items" />
+                  <CheckBox layoutX="100.0" layoutY="45.0" mnemonicParsing="false" text="Edit" />
+                  <CheckBox layoutX="78.0" layoutY="78.0" mnemonicParsing="false" text="Edit Price" />
+                  <CheckBox layoutX="66.0" layoutY="107.0" mnemonicParsing="false" text="Edit Cost" />
+                  <CheckBox layoutX="14.0" layoutY="132.0" mnemonicParsing="false" text="View Item History" />
+                  <CheckBox layoutX="202.0" layoutY="52.0" mnemonicParsing="false" text="Delete" />
+                  <CheckBox layoutX="165.0" layoutY="79.0" mnemonicParsing="false" text="Edit Quantity" />
+                  <CheckBox layoutX="17.0" layoutY="41.0" mnemonicParsing="false" text="Add" />
+                  <CheckBox layoutX="158.0" layoutY="107.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="170.0" text="Non Discountable Item" />
+                  <CheckBox layoutX="185.0" layoutY="131.0" mnemonicParsing="false" text=" View Cost" />
+                  <Text layoutX="9.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-------------------------------------------------------" wrappingWidth="265.935546875" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="319.0" layoutY="48.0" prefHeight="156.0" prefWidth="568.0" text="Access Control Strategy">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Text layoutX="4.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete/Void Opertaion" />
+                  <Text layoutX="4.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No Sale Operation" />
+                  <Text layoutX="4.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Return Close Operation" />
+                  <RadioButton layoutX="223.0" layoutY="14.0" mnemonicParsing="false" text="Allow">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="t1" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton layoutX="346.0" layoutY="14.0" mnemonicParsing="false" text="Ask Reason" toggleGroup="$t1" />
+                  <RadioButton layoutX="492.0" layoutY="14.0" mnemonicParsing="false" text="Block" toggleGroup="$t1" />
+                  <RadioButton layoutX="223.0" layoutY="50.0" mnemonicParsing="false" text="Allow">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="t2" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton layoutX="346.0" layoutY="50.0" mnemonicParsing="false" text="Ask Reason" toggleGroup="$t2" />
+                  <RadioButton layoutX="492.0" layoutY="50.0" mnemonicParsing="false" text="Block" toggleGroup="$t2" />
+                  <RadioButton layoutX="223.0" layoutY="86.0" mnemonicParsing="false" text="Allow">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="t3" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton layoutX="346.0" layoutY="86.0" mnemonicParsing="false" text="Ask Reason" toggleGroup="$t3" />
+                  <RadioButton layoutX="492.0" layoutY="86.0" mnemonicParsing="false" text="Block" toggleGroup="$t3" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <ScrollPane id="AnchorPane" layoutX="663.0" layoutY="217.0" prefHeight="472.0" prefWidth="281.0">
+         <content>
+            <FlowPane id="AnchorPane" orientation="VERTICAL" prefHeight="894.0" prefWidth="247.0" vgap="13.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" text="Allow Selling Prompt-Price Item" />
+                  <CheckBox mnemonicParsing="false" text="Allow to override card processing" />
+                  <CheckBox mnemonicParsing="false" text="Allow cash drawer reconsiliation" />
+                  <CheckBox mnemonicParsing="false" text="Allow version upgrade" />
+                  <CheckBox mnemonicParsing="false" text="Allow RF operation" />
+                  <CheckBox mnemonicParsing="false" text="Currency Button Setting" />
+                  <CheckBox mnemonicParsing="false" text="Close Register" />
+                  <CheckBox mnemonicParsing="false" text="Change Hardware Setting" />
+                  <CheckBox mnemonicParsing="false" text="Hold/Resume Transaction" />
+                  <CheckBox mnemonicParsing="false" text="Override Item Tax in Invoice" />
+                  <CheckBox mnemonicParsing="false" text="View Register List" />
+                  <CheckBox mnemonicParsing="false" text="Reprint Receipt" />
+                  <CheckBox mnemonicParsing="false" text="View Card Process Log" />
+                  <CheckBox mnemonicParsing="false" text="Inventory Adjustment" />
+                  <CheckBox mnemonicParsing="false" text="Item/Invoice Discount" />
+                  <CheckBox mnemonicParsing="false" text="Income/Expenses Log Entries" />
+                  <CheckBox mnemonicParsing="false" text="Perform Cash Drawer Operation" />
+                  <CheckBox mnemonicParsing="false" text="Self Preference" />
+                  <CheckBox mnemonicParsing="false" text="Purge Utility" />
+                  <CheckBox mnemonicParsing="false" text="Print/View X Report" />
+                  <CheckBox mnemonicParsing="false" text="Print/View Z Report" />
+                  <CheckBox mnemonicParsing="false" text="Override Item in Invoice" />
+                  <CheckBox mnemonicParsing="false" text="Order Processing" />
+                  <CheckBox mnemonicParsing="false" text="Multi Record(global) Changes" />
+                  <CheckBox mnemonicParsing="false" text="Label and BarCode Printing" />
+                  <CheckBox mnemonicParsing="false" text="Item/Invoice Custom Discount" />
+               </children>
+            </FlowPane>
+         </content></ScrollPane>
+      <ScrollPane id="AnchorPane" layoutX="355.0" layoutY="233.0" prefHeight="466.0" prefWidth="308.0">
+         <content>
+            <FlowPane id="AnchorPane" prefHeight="877.0" prefWidth="266.0">
+               <children>
+                  <Accordion prefHeight="800.0" prefWidth="249.0">
+                    <panes>
+                      <TitledPane animated="true" prefHeight="75.0" prefWidth="264.0" text="SalesReport">
+                           <content>
+                              <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <FlowPane orientation="VERTICAL" prefHeight="427.0" prefWidth="260.0" vgap="13.0">
+                                             <children>
+                                                <CheckBox mnemonicParsing="false" text="Income/Expenses Log Entries" />
+                                                <CheckBox mnemonicParsing="false" text="Inventory Adjustment" />
+                                                <CheckBox mnemonicParsing="false" text="Item/Invoice Discount" />
+                                                <CheckBox mnemonicParsing="false" text="Item/Invoice Custom Discount" />
+                                                <CheckBox mnemonicParsing="false" text="Label and BarCode Printing" />
+                                                <CheckBox mnemonicParsing="false" text="Multi Record(global) Changes" />
+                                                <CheckBox mnemonicParsing="false" text="Order Processing" />
+                                                <CheckBox mnemonicParsing="false" text="Override Item in Invoice" />
+                                                <CheckBox mnemonicParsing="false" text="Print/View Z Report" />
+                                                <CheckBox mnemonicParsing="false" text="Print/View X Report" />
+                                                <CheckBox mnemonicParsing="false" text="Purge Utility" />
+                                                <CheckBox mnemonicParsing="false" text="Self Preference" />
+                                                <CheckBox mnemonicParsing="false" text="Perform Cash Drawer Operation" />
+                                             </children>
+                                          </FlowPane>
+                                          <FlowPane orientation="VERTICAL" prefHeight="427.0" prefWidth="260.0" vgap="13.0">
+                                             <children>
+                                                <CheckBox mnemonicParsing="false" text="Income/Expenses Log Entries" />
+                                                <CheckBox mnemonicParsing="false" text="Inventory Adjustment" />
+                                                <CheckBox mnemonicParsing="false" text="Item/Invoice Discount" />
+                                                <CheckBox mnemonicParsing="false" text="Item/Invoice Custom Discount" />
+                                                <CheckBox mnemonicParsing="false" text="Label and BarCode Printing" />
+                                                <CheckBox mnemonicParsing="false" text="Multi Record(global) Changes" />
+                                                <CheckBox mnemonicParsing="false" text="Order Processing" />
+                                                <CheckBox mnemonicParsing="false" text="Override Item in Invoice" />
+                                                <CheckBox mnemonicParsing="false" text="Print/View Z Report" />
+                                                <CheckBox mnemonicParsing="false" text="Print/View X Report" />
+                                                <CheckBox mnemonicParsing="false" text="Purge Utility" />
+                                                <CheckBox mnemonicParsing="false" text="Self Preference" />
+                                                <CheckBox mnemonicParsing="false" text="Perform Cash Drawer Operation" />
+                                             </children>
+                                          </FlowPane>
+                                       </children>
+                                    </FlowPane>
+                                 </content>
+                              </ScrollPane>
+                           </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="ItemSale Report">
+                           <content>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <FlowPane orientation="VERTICAL" prefHeight="427.0" prefWidth="260.0" vgap="13.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="Income/Expenses Log Entries" />
+                                          <CheckBox mnemonicParsing="false" text="Inventory Adjustment" />
+                                          <CheckBox mnemonicParsing="false" text="Item/Invoice Discount" />
+                                          <CheckBox mnemonicParsing="false" text="Item/Invoice Custom Discount" />
+                                          <CheckBox mnemonicParsing="false" text="Label and BarCode Printing" />
+                                          <CheckBox mnemonicParsing="false" text="Multi Record(global) Changes" />
+                                          <CheckBox mnemonicParsing="false" text="Order Processing" />
+                                          <CheckBox mnemonicParsing="false" text="Override Item in Invoice" />
+                                          <CheckBox mnemonicParsing="false" text="Print/View Z Report" />
+                                          <CheckBox mnemonicParsing="false" text="Print/View X Report" />
+                                          <CheckBox mnemonicParsing="false" text="Purge Utility" />
+                                          <CheckBox mnemonicParsing="false" text="Self Preference" />
+                                          <CheckBox mnemonicParsing="false" text="Perform Cash Drawer Operation" />
+                                       </children>
+                                    </FlowPane>
+                                    <FlowPane orientation="VERTICAL" prefHeight="427.0" prefWidth="260.0" vgap="13.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="Income/Expenses Log Entries" />
+                                          <CheckBox mnemonicParsing="false" text="Inventory Adjustment" />
+                                          <CheckBox mnemonicParsing="false" text="Item/Invoice Discount" />
+                                          <CheckBox mnemonicParsing="false" text="Item/Invoice Custom Discount" />
+                                          <CheckBox mnemonicParsing="false" text="Label and BarCode Printing" />
+                                          <CheckBox mnemonicParsing="false" text="Multi Record(global) Changes" />
+                                          <CheckBox mnemonicParsing="false" text="Order Processing" />
+                                          <CheckBox mnemonicParsing="false" text="Override Item in Invoice" />
+                                          <CheckBox mnemonicParsing="false" text="Print/View Z Report" />
+                                          <CheckBox mnemonicParsing="false" text="Print/View X Report" />
+                                          <CheckBox mnemonicParsing="false" text="Purge Utility" />
+                                          <CheckBox mnemonicParsing="false" text="Self Preference" />
+                                          <CheckBox mnemonicParsing="false" text="Perform Cash Drawer Operation" />
+                                       </children>
+                                    </FlowPane>
+                                 </children>
+                              </FlowPane>
+                           </content>
+                      </TitledPane>
+                      <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Profit Analysis Report">
+                        <content>
+                          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" layoutY="14.0" prefHeight="200.0" prefWidth="150.0" spacing="15.0" AnchorPane.bottomAnchor="39.0" AnchorPane.rightAnchor="133.0" AnchorPane.topAnchor="7.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                        </content>
+                      </TitledPane>
+                        <TitledPane animated="false" prefHeight="537.0" prefWidth="249.0" text="Customer Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" layoutX="8.0" layoutY="14.0" prefHeight="200.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Ordering Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0" />
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Misc Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0" />
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" layoutX="7.0" layoutY="4.0" prefHeight="246.0" prefWidth="150.0" spacing="10.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Mobile Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0" />
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Purchase Order Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="174.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Purchase Bill Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="180.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Adjustment Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="604.0" prefWidth="253.0" text="Inventory Purchase Return Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Vendor Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Misc Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Location Transfer Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Stock Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="150.0" spacing="7.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Stock Movement Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="211.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Location Transfer Report">
+                           <content>
+                              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0" />
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Account Receivale Report">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="330.0" prefWidth="202.0" text="Inventory Sales-Purchase Report">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="47.0" prefWidth="264.0" text="Inventory Account Payable Report">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="28.0" prefWidth="262.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="150.0" spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                          <CheckBox mnemonicParsing="false" text="CheckBox" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                    </panes>
+                  </Accordion>
+               </children>
+            </FlowPane>
+         </content>
+      </ScrollPane>
+      <Button layoutX="27.0" layoutY="706.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="101.0" text="Save" />
+      <Button layoutX="179.0" layoutY="705.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="78.0" text="Cancel" />
+   </children>
+</AnchorPane>

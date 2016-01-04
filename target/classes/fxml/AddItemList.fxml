@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="534.0" prefWidth="1027.0" styleClass="mainFxmlClass" stylesheets="@../styles/additemlist.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.AddItemListController">
+   <children>
+      <Button layoutX="153.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleAddUPCButtonAction" prefHeight="42.0" prefWidth="85.0" text="Add" />
+      <Button fx:id="AutoButton" layoutX="153.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleAutoCodeButtonAction" prefHeight="42.0" prefWidth="85.0" text="Auto" />
+      <Button layoutX="153.0" layoutY="152.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="85.0" text="Remove" />
+      <CheckBox layoutX="153.0" layoutY="6.0" mnemonicParsing="false" text="Non PLU" />
+      <AnchorPane layoutX="271.0" layoutY="7.0" prefHeight="162.0" prefWidth="500.0">
+         <children>
+            <TextField fx:id="DescriptionTextField" layoutX="307.0" layoutY="12.0" prefHeight="25.0" prefWidth="184.0" />
+            <Text layoutX="236.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="60.251953125" />
+            <TextField fx:id="SKUTextField" layoutX="80.0" layoutY="12.0" />
+            <Text layoutX="29.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKU" wrappingWidth="32.015625" />
+            <TextField fx:id="ItemNameText" layoutX="79.0" layoutY="43.0" prefHeight="25.0" prefWidth="413.0" />
+            <Text layoutX="13.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Name" />
+            <ComboBox fx:id="DeptCombo" layoutX="80.0" layoutY="79.0" prefHeight="25.0" prefWidth="149.0" />
+            <Button fx:id="DeptButton" layoutX="236.0" layoutY="79.0" mnemonicParsing="false" onAction="#handleDeptButtonAction" prefHeight="25.0" prefWidth="38.0" text="..." />
+            <Text layoutX="10.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" />
+            <Text layoutX="286.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size" />
+            <ComboBox fx:id="SizeCombo" layoutX="313.0" layoutY="79.0" prefHeight="25.0" prefWidth="139.0" />
+            <Button layoutX="467.0" layoutY="79.0" mnemonicParsing="false" onAction="#handleSizeButtonAction" text="...." />
+            <Text layoutX="21.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
+            <ComboBox fx:id="CatCombo" layoutX="80.0" layoutY="117.0" prefWidth="150.0" />
+            <Button layoutX="236.0" layoutY="117.0" mnemonicParsing="false" onAction="#handleCatButtonAction" prefHeight="25.0" prefWidth="38.0" text="..." />
+            <Text layoutX="284.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pack" />
+            <ComboBox fx:id="PackCombo" layoutX="313.0" layoutY="113.0" prefHeight="25.0" prefWidth="139.0" />
+            <Button layoutX="467.0" layoutY="109.0" mnemonicParsing="false" onAction="#handlePackButtonAction" text="...." />
+            <CheckBox fx:id="InactiveCheck" layoutX="394.0" layoutY="140.0" mnemonicParsing="false" text="Inactive Item" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="AnchorPane" layoutX="782.0" layoutY="7.0" prefHeight="138.0" prefWidth="231.0">
+         <children>
+            <Text layoutX="18.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand" />
+            <Text layoutX="12.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model #" />
+            <Text layoutX="25.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Part #" />
+            <Text layoutX="12.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" />
+            <ComboBox fx:id="BrandCombo" layoutX="63.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" />
+            <ComboBox fx:id="LocationCombo" layoutX="63.0" layoutY="43.0" prefHeight="25.0" prefWidth="85.0" />
+            <Button layoutX="152.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleBrandButtonAction" prefHeight="25.0" prefWidth="44.0" text="..." />
+            <Button layoutX="152.0" layoutY="43.0" mnemonicParsing="false" onAction="#handleLocationButtonAction" prefHeight="25.0" prefWidth="44.0" text="...." />
+            <TextField fx:id="ModelText" layoutX="63.0" layoutY="79.0" prefHeight="25.0" prefWidth="132.0" />
+            <TextField fx:id="PartText" layoutX="63.0" layoutY="110.0" prefHeight="25.0" prefWidth="139.0" />
+         </children>
+      </AnchorPane>
+      <TitledPane animated="false" layoutX="646.0" layoutY="179.0" prefHeight="312.0" prefWidth="367.0" text="Cost &amp; Pricing">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="QuantityCheck" layoutX="3.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleQuantityCheckAtion" text="Prompt For Quantity" />
+                  <CheckBox fx:id="PriceCheck" layoutX="230.0" layoutY="15.0" mnemonicParsing="false" text="Prompt Price" />
+                  <Text layoutX="6.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit cost" />
+                  <Text layoutX="10.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Margin" />
+                  <Text layoutX="4.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" />
+                  <Text layoutX="14.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MSRP" />
+                  <TextField fx:id="UnitCostText" layoutX="65.0" layoutY="43.0" prefHeight="25.0" prefWidth="89.0" />
+                  <Text layoutX="160.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BuyDown Amount" />
+                  <Text layoutX="206.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark-Up" />
+                  <Text layoutX="204.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sale Price" />
+                  <TextField fx:id="BuyDownText" layoutX="266.0" layoutY="43.0" prefHeight="25.0" prefWidth="99.0" />
+                  <TextField fx:id="UnitPriceText" layoutX="65.0" layoutY="78.0" prefHeight="25.0" prefWidth="89.0" />
+                  <TextField fx:id="MarginText" layoutX="65.0" layoutY="108.0" prefHeight="25.0" prefWidth="89.0" />
+                  <TextField fx:id="MarkUpText" layoutX="267.0" layoutY="78.0" prefHeight="25.0" prefWidth="95.0" />
+                  <TextField fx:id="SaleText" layoutX="273.0" layoutY="108.0" prefHeight="25.0" prefWidth="89.0" />
+                  <TextField fx:id="MSRPText" layoutX="65.0" layoutY="145.0" prefHeight="25.0" prefWidth="89.0" />
+                  <Text layoutX="67.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ " />
+                  <Text layoutX="65.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ " />
+                  <Text layoutX="144.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" />
+                  <Text layoutX="346.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" />
+                  <Text layoutX="269.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ " />
+                  <Button layoutX="256.0" layoutY="146.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Enter Value" />
+                  <TableView fx:id="costTable" layoutX="6.0" layoutY="182.0" prefHeight="84.0" prefWidth="246.0">
+                     <columns>
+                        <TableColumn fx:id="costQuantity" prefWidth="125.0" text="Quantity" />
+                        <TableColumn fx:id="Price" prefWidth="120.0" text="Price" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="263.0" layoutY="182.0" mnemonicParsing="false" onAction="#handlePriceCalcAction" prefHeight="35.0" prefWidth="95.0" text="Price" />
+                  <Button layoutX="265.0" layoutY="231.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="89.0" text="Remove" />
+                  <Text layoutX="67.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ " />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="7.0" layoutY="200.0" prefHeight="312.0" prefWidth="231.0" text="Shipping Details">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="sold" disable="true" layoutX="129.0" layoutY="6.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="97.0" selected="true" text="Sold As Case" />
+                  <CheckBox fx:id="buy" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleBuyCheckAction" prefHeight="17.0" prefWidth="111.0" text="Buy As Case" />
+                  <Text layoutX="129.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit In Case" />
+                  <Text layoutX="7.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Case In Cost" />
+                  <TextField fx:id="CaseText" disable="true" layoutX="11.0" layoutY="63.0" prefHeight="25.0" prefWidth="95.0" />
+                  <TextField fx:id="UnitText" disable="true" layoutX="129.0" layoutY="63.0" prefHeight="25.0" prefWidth="85.0" />
+                  <CheckBox fx:id="WeightedItem" layoutX="3.0" layoutY="102.0" mnemonicParsing="false" text="Weighted Item" />
+                  <CheckBox fx:id="WebItem" layoutX="3.0" layoutY="123.0" mnemonicParsing="false" text="Web Item" />
+                  <CheckBox fx:id="ExcludeSale" layoutX="3.0" layoutY="146.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="167.0" text="Exclude Sales Person" />
+                  <CheckBox fx:id="WIC" layoutX="3.0" layoutY="169.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="132.0" text="Accept WIC Check" />
+                  <CheckBox fx:id="HealthCard" layoutX="3.0" layoutY="193.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="132.0" text="Accept Health Card" />
+                  <CheckBox fx:id="FoodStamp" layoutX="3.0" layoutY="217.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="132.0" text="Accept Food Stemp" />
+                  <CheckBox fx:id="NonRevenueItem" layoutX="3.0" layoutY="241.0" mnemonicParsing="false" text="Non Revenue Item" />
+                  <CheckBox fx:id="NonDiscountable" layoutX="3.0" layoutY="264.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="150.0" text="Non Discountable Item" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="247.0" layoutY="188.0" prefHeight="240.0" prefWidth="276.0" text="Inventory">
+        <content>
+          <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="NonStockCheck" layoutY="6.0" mnemonicParsing="false" onAction="#handleNonStockCheckAction" text="Non Stock Item" />
+                  <Text layoutX="125.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Type" />
+                  <ComboBox fx:id="IventoryTypeCombo" layoutX="189.0" layoutY="2.0" prefHeight="25.0" prefWidth="85.0" promptText="Integer" />
+                  <Text layoutX="2.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On Hand" />
+                  <Text layoutX="134.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum Stock" />
+                  <Label layoutY="183.0" prefHeight="17.0" prefWidth="97.0" text="0" />
+                  <Label layoutX="136.0" layoutY="183.0" prefHeight="17.0" prefWidth="117.0" text="0" />
+                  <TableView fx:id="table" layoutY="38.0" prefHeight="106.0" prefWidth="268.0">
+                     <columns>
+                        <TableColumn fx:id="facilitycol" prefWidth="126.0" text="Facility" />
+                        <TableColumn fx:id="quantitycol" prefWidth="144.0" text="Quantity" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <CheckBox fx:id="NonTaxCheck" layoutX="538.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleNonTaxCheckAction" text="Non Taxable" />
+      <CheckBox layoutX="527.0" layoutY="229.0" mnemonicParsing="false" selected="true" text="Tax 1" />
+      <CheckBox layoutX="527.0" layoutY="277.0" mnemonicParsing="false" text="Tax 2" />
+      <CheckBox layoutX="527.0" layoutY="327.0" mnemonicParsing="false" text="Tax 3" />
+      <Button layoutX="247.0" layoutY="451.0" mnemonicParsing="false" onAction="#handleSaveitemButtonAction" prefHeight="60.0" prefWidth="109.0" text="Save" />
+      <Button layoutX="385.0" layoutY="451.0" mnemonicParsing="false" onAction="#handleAdvanceButtonAction" prefHeight="60.0" prefWidth="109.0" text="Advance" />
+      <Button layoutX="527.0" layoutY="452.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="109.0" text="Close" />
+      <Label fx:id="label" layoutX="14.0" layoutY="15.0" prefHeight="178.0" prefWidth="132.0" style="-fx-border-color: black;" />
+      <Button fx:id="NewR" layoutX="568.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleTestButtonAction" text="LoadPDF" />
+      <TextField fx:id="Tax1Text" layoutX="582.0" layoutY="225.0" prefHeight="25.0" prefWidth="59.0" />
+      <TextField fx:id="Tax2Text" layoutX="582.0" layoutY="273.0" prefHeight="25.0" prefWidth="59.0" />
+      <TextField fx:id="Tax3Text" layoutX="582.0" layoutY="323.0" prefHeight="25.0" prefWidth="59.0" />
+   </children>
+</AnchorPane>

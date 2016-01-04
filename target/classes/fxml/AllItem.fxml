@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.mycompany.mavenproject2.AllItemController">
+    <stylesheets>
+        <URL value="@/styles/allitem.css" />
+    </stylesheets>
+    <children>
+      <ListView fx:id="ItemList" layoutX="14.0" layoutY="55.0" prefHeight="431.0" prefWidth="340.0" />
+      <TextField layoutX="110.0" layoutY="10.0" />
+     
+      <Button layoutX="407.0" layoutY="381.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="86.0" text="Close" />
+      <Button layoutX="403.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleDeleteButtonAction" prefHeight="58.0" prefWidth="93.0" text="Delete" />
+      <Button fx:id="close" layoutX="403.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleSelectButtonAction" prefHeight="58.0" prefWidth="149.0" text="Select" />
+      <Button layoutX="406.0" layoutY="113.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="86.0" text="Edit" />
+      <Button layoutX="402.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleAddInItemListButtonAction" prefHeight="58.0" prefWidth="93.0" text="Add" />
+      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Item" />
+   </children>
+</AnchorPane>

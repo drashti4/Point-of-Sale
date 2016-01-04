@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="865.0" stylesheets="@../styles/sysfinal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.Sys1Controller">
+   <children>
+      <TabPane id="AnchorPane" layoutX="2.0" layoutY="-1.0" prefHeight="720.0" prefWidth="1053.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="General Setting">
+               <content>
+                  <AnchorPane id="AnchorPane" prefHeight="724.0" prefWidth="1053.0">
+                     <children>
+                        <ComboBox fx:id="DateF" layoutX="347.0" layoutY="14.0" prefHeight="26.0" prefWidth="166.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="System Default" />
+                                 <String fx:value="dd/MM/yy" />
+                                 <String fx:value="dd/MM/yyyy" />
+                                 <String fx:value="MM/dd/yy" />
+                                 <String fx:value="MM/dd/yyyy" />
+                                 <String fx:value="dd-MMM-yyyy" />
+                              </FXCollections>
+                           </items>
+                           <value>
+                                 <String fx:value="System Default" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="PhoneF" layoutX="345.0" layoutY="47.0" prefHeight="26.0" prefWidth="171.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="(999)999-9999" />
+                                 <String fx:value="999-999-9999" />
+                                 <String fx:value="9999999999" />
+                              </FXCollections>
+                           </items>
+                           <value>
+                                 <String fx:value="(999)999-9999" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="CurName" layoutX="343.0" layoutY="80.0" prefHeight="26.0" prefWidth="172.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Indian Ruppee" />
+                                 <String fx:value="USD" />                                
+                              </FXCollections>
+                           </items>
+                            <value>
+                                 <String fx:value="USD" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="CustNameText" layoutX="343.0" layoutY="116.0" prefHeight="26.0" prefWidth="173.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="InitCap" />
+                                 <String fx:value="All Upper" />
+                                 <String fx:value="All Lower" />
+                              </FXCollections>
+                           </items>
+                            <value>
+                                 <String fx:value="InitCap" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="DefaultSearch" layoutX="341.0" layoutY="148.0" prefHeight="26.0" prefWidth="180.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="SKU/UPC" />
+                                 <String fx:value="Item Name" />                                 
+                              </FXCollections>
+                           </items>
+                            <value>
+                                 <String fx:value="SKU/UPC" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="ZipCode" layoutX="343.0" layoutY="182.0" prefHeight="26.0" prefWidth="177.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="99999" />
+                                 <String fx:value="999999" />
+                                 <String fx:value="99999-9999" />
+                                 <String fx:value="9999" />
+                              </FXCollections>
+                           </items>
+                            <value>
+                                 <String fx:value="99999" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="CurSym" layoutX="343.0" layoutY="218.0" prefHeight="26.0" prefWidth="176.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="$" />
+                                 
+                              </FXCollections>
+                              
+                           </items>
+                            <value>
+                                 <String fx:value="$" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="ItemNameText" layoutX="340.0" layoutY="250.0" prefHeight="26.0" prefWidth="179.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="InitCap" />
+                                 <String fx:value="All Upper" />
+                                 <String fx:value="All Lower" />
+                              </FXCollections>
+                           </items>
+                           <value>
+                                 <String fx:value="InitCap" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="CurDigit" layoutX="340.0" layoutY="283.0" prefHeight="26.0" prefWidth="182.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="2" />
+                                 <String fx:value="3" />
+                                                                 
+                              </FXCollections>
+                           </items>
+                           <value>
+                                 <String fx:value="2" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="ReorderLevel" layoutX="340.0" layoutY="313.0" prefHeight="26.0" prefWidth="184.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="All Stock" />
+                                 <String fx:value="In Store Stock" />
+                                 
+                              </FXCollections>
+                           </items>
+                           <value>
+                                 <String fx:value="All Stock" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="PrimaryField" layoutX="341.0" layoutY="347.0" prefHeight="26.0" prefWidth="184.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="SKU" />
+                                 <String fx:value="UPC" />                                
+                              </FXCollections>
+                           </items>
+                           <value>
+                                 <String fx:value="SKU" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="DefaultHistory" layoutX="343.0" layoutY="380.0" prefHeight="26.0" prefWidth="182.0" promptText="---SELECT---">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Today" />
+                                 <String fx:value="Yesterday" />
+                                 <String fx:value="Current Week" />
+                                 <String fx:value="Current Month" />
+                                 <String fx:value="Current Quater" />
+                                 <String fx:value="Current Year" />
+                                 <String fx:value="Previous Week" />
+                                 <String fx:value="Previous Month" />
+                                 <String fx:value="Previous Quater" />
+                                 <String fx:value="Previous Year" />
+                              </FXCollections>
+                           </items>
+                           <value>
+                                 <String fx:value="Today" />
+                           </value>
+                        </ComboBox>
+                        <Button id="SaveButton" layoutX="825.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleGeneralSaveButtonAction" prefHeight="42.0" prefWidth="114.0" text="Save Setting" />
+                        <Button id="CloseButton" fx:id="Close" layoutX="844.0" layoutY="195.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="39.0" prefWidth="85.0" text="Close" />
+                        <Text layoutX="64.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DateFormat" />
+                        <Text layoutX="64.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Format" />
+                        <Text layoutX="63.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currency Name" />
+                        <Text layoutX="61.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name Text Case" />
+                        <Text layoutX="63.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Default Search Field for Item" />
+                        <Text layoutX="63.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code Format" />
+                        <Text layoutX="62.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currency Symbol" />
+                        <Text layoutX="59.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Name Text Case" />
+                        <Text layoutX="59.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reorder Level" />
+                        <Text layoutX="59.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Item Field" />
+                        <Text layoutX="59.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Default Item History Period" />
+                        <TitledPane animated="false" layoutX="37.0" layoutY="430.0" prefHeight="206.0" prefWidth="618.0" text="Scanner Setting">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="SuccessButton" layoutX="541.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleSuccessButtonAction" text="Select" />
+                                    <Button fx:id="NotFoundButton" layoutX="541.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleNotFoundButtonAction" text="Select" />
+                                    <Button layoutX="541.0" layoutY="129.0" mnemonicParsing="false" onAction="#handlePromptButtonAction" text="Select" />
+                                    <Text layoutX="31.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Play this file upon sucessful scan" />
+                                    <Text layoutX="25.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Play this File When Item not found" />
+                                    <Text layoutX="22.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Play this file when it is prompt price" />
+                                    <Label fx:id="SaveLabel" layoutX="263.0" layoutY="26.0" prefHeight="17.0" prefWidth="253.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="NotFoundLabel" layoutX="262.0" layoutY="83.0" prefHeight="17.0" prefWidth="255.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="PromptLabel" layoutX="260.0" layoutY="133.0" prefHeight="17.0" prefWidth="259.0" style="-fx-background-color: white;" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <Text layoutX="57.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currency Digit" />
+                     </children></AnchorPane>
+               </content></Tab>
+          <Tab text="Sales Control">
+            <content>
+              <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="505.0" prefWidth="580.0">
+                     <children>
+                        <Button layoutX="180.0" layoutY="581.0" mnemonicParsing="false" onAction="#handleSaveSalesButtonAction" prefHeight="66.0" prefWidth="98.0" text="Save" />
+                        <Button layoutX="331.0" layoutY="582.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="107.0" text="Close" />
+                        <TitledPane animated="false" layoutX="46.0" layoutY="14.0" prefHeight="190.0" prefWidth="888.0" text="Limits">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="minTobacco" layoutX="229.0" layoutY="14.0" prefHeight="25.0" prefWidth="127.0" />
+                                    <TextField fx:id="minAlco" layoutX="230.0" layoutY="105.0" prefHeight="25.0" prefWidth="130.0" />
+                                    <TextField fx:id="minSaleamt" layoutX="636.0" layoutY="16.0" prefHeight="25.0" prefWidth="173.0" />
+                                    <TextField fx:id="minHold" layoutX="636.0" layoutY="105.0" prefHeight="25.0" prefWidth="175.0" />
+                                    <Text layoutX="9.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum Age For Alcohole Sale" />
+                                    <Text layoutX="416.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimm Transaction On Hold" />
+                                    <Text layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum Age for Tobaco Sale" />
+                                    <Text layoutX="368.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum Sale Amount for transaction" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="46.0" layoutY="204.0" prefHeight="171.0" prefWidth="888.0" text="Sales Restriction">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="20.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Do Not Sale From" />
+                                    <ComboBox fx:id="DeptCombo3" layoutX="150.0" layoutY="11.0" prefHeight="21.0" prefWidth="150.0" />                                       
+                       <HBox layoutX="450.0" layoutY="10.0" xmlns:fx="http://javafx.com/fxml/1">
+                          <children>
+                               <Spinner fx:id="hourSpinner" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="hourValueFactory">
+                                       <min>0</min>
+                                       <max>23</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                               </Spinner>
+                               <Spinner fx:id="minuteSpinner" layoutX="500.0" layoutY="10.0" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="minuteValueFactory">
+                                       <min>0</min>
+                                       <max>59</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                                       </Spinner>
+                               <Spinner fx:id="secondSpinner" layoutX="550.0" layoutY="10.0" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="secondValueFactory">
+                                       <min>0</min>
+                                       <max>59</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                               </Spinner>
+                          </children>
+                       </HBox>
+                       <Text layoutX="640.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+                       
+                        <HBox layoutX="680.0" layoutY="10.0" xmlns:fx="http://javafx.com/fxml/1">
+                          <children>
+                               <Spinner fx:id="hourSpinner1" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="hourValueFactory">
+                                       <min>0</min>
+                                       <max>23</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                               </Spinner>
+                               <Spinner fx:id="minuteSpinner1" layoutX="500.0" layoutY="10.0" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="minuteValueFactory">
+                                       <min>0</min>
+                                       <max>59</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                                       </Spinner>
+                               <Spinner fx:id="secondSpinner1" layoutX="550.0" layoutY="10.0" prefWidth="60">
+                                       <valueFactory>
+                                       <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="secondValueFactory">
+                                       <min>0</min>
+                                       <max>59</max>
+                                       <wrapAround>true</wrapAround>
+                                       </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                                       </valueFactory>
+                               </Spinner>
+                          </children>
+                       </HBox>
+                                    <CheckBox fx:id="monday" layoutX="64.0" layoutY="64.0" mnemonicParsing="false" text="Monday" />
+                                    <CheckBox fx:id="tuesday" layoutX="178.0" layoutY="64.0" mnemonicParsing="false" text="Tuesday" />
+                                    <CheckBox fx:id="wednesday" layoutX="333.0" layoutY="64.0" mnemonicParsing="false" text="Wednesday" />
+                                    <CheckBox fx:id="thursday" layoutX="520.0" layoutY="64.0" mnemonicParsing="false" text="Thursday" />
+                                    <CheckBox fx:id="friday" layoutX="661.0" layoutY="64.0" mnemonicParsing="false" text="Friday" />
+                                    <CheckBox fx:id="saturday" layoutX="142.0" layoutY="101.0" mnemonicParsing="false" text="Saturday" />
+                                    <CheckBox disable="true" layoutX="264.0" layoutY="101.0" mnemonicParsing="false" selected="true" text="Sunday" />
+                                    <Text layoutX="300.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department between" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="47.0" layoutY="375.0" prefHeight="166.0" prefWidth="893.0" text="Sales Promotion Message">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="42.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please Type Message Here" />
+                                    <Text layoutX="66.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Line1" />
+                                    <Text layoutX="66.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Line2" />
+                                    <TextField fx:id="line1" layoutX="171.0" layoutY="48.0" prefHeight="25.0" prefWidth="352.0" />
+                                    <TextField fx:id="line2" layoutX="169.0" layoutY="84.0" prefHeight="25.0" prefWidth="355.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="FMM Charge">
+              <content>
+                <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TitledPane animated="false" layoutX="13.0" layoutY="37.0" prefHeight="206.0" prefWidth="3189.0" text="Merchant Configuration">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="3163.0">
+                                 <children>
+                                    <TextField fx:id="ATSID" layoutX="314.0" layoutY="14.0" />
+                                    <TextField fx:id="MerchantPIN" layoutX="314.0" layoutY="48.0" />
+                                    <TextField fx:id="ATSSubID" layoutX="314.0" layoutY="90.0" />
+                                    <TextField fx:id="OverridePIN" layoutX="314.0" layoutY="131.0" />
+                                    <Text layoutX="40.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATS ID" />
+                                    <Text layoutX="39.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Merchant PIN" />
+                                    <Text layoutX="40.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATS SubID" />
+                                    <Text layoutX="40.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overeide PIN" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <CheckBox fx:id="Tax1" layoutX="38.0" layoutY="277.0" mnemonicParsing="false" text="Tax Entry is Require" />
+                        <CheckBox fx:id="InDialoge2" layoutX="268.0" layoutY="277.0" mnemonicParsing="false" text="Show Dialog in center of screen" />
+                        <CheckBox fx:id="ReadOnly3" layoutX="518.0" layoutY="277.0" mnemonicParsing="false" text="Make Parameter Read Only" />
+                        <CheckBox fx:id="SwipeCard4" layoutX="39.0" layoutY="322.0" mnemonicParsing="false" text="Swipe Card Immediately" />
+                        <CheckBox fx:id="ProcessCard5" layoutX="267.0" layoutY="322.0" mnemonicParsing="false" text="Process Card as soon as it swipe" />
+                        <CheckBox fx:id="SupressAccepted6" layoutX="522.0" layoutY="418.0" mnemonicParsing="false" text="Supress accepted dialog on sucessful charge" />
+                        <CheckBox fx:id="DisablePIN7" layoutX="35.0" layoutY="371.0" mnemonicParsing="false" text="Disable Override PIN" />
+                        <CheckBox fx:id="DisableApp" layoutX="267.0" layoutY="371.0" mnemonicParsing="false" text="Disable credit APP popup" />
+                        <CheckBox fx:id="PrintItem" layoutX="261.0" layoutY="418.0" mnemonicParsing="false" text="Print Item Receipt with credit receipt" />
+                        <CheckBox fx:id="HideReceipt" layoutX="33.0" layoutY="418.0" mnemonicParsing="false" text="Hide receipt button" />
+                        <CheckBox fx:id="PrintReceipt" layoutX="33.0" layoutY="469.0" mnemonicParsing="false" text="Print receipt for debit card" />
+                        <CheckBox fx:id="AllowDebit" layoutX="518.0" layoutY="322.0" mnemonicParsing="false" text="Allow manual processing of Debit card" />
+                        <CheckBox fx:id="AllowEBT" layoutX="522.0" layoutY="371.0" mnemonicParsing="false" text="Allow manual processing of EBT Card" />
+                        <Button layoutX="179.0" layoutY="602.0" mnemonicParsing="false" onAction="#handleFMMSaveButtonAction" prefHeight="64.0" prefWidth="115.0" text="Save" />
+                        <Button layoutX="397.0" layoutY="596.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="105.0" text="Cancel" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Report Setting">
+              <content>
+                <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TitledPane id="AnchorPane" animated="false" layoutX="59.0" layoutY="28.0" prefHeight="393.0" prefWidth="737.0" text="2-Report/Day Report Setting">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="735.0">
+                                 <children>
+                                    <CheckBox fx:id="SumSale" layoutX="272.0" layoutY="109.0" mnemonicParsing="false" text="Sales Summary" />
+                                    <CheckBox fx:id="TenderSale" layoutX="270.0" layoutY="153.0" mnemonicParsing="false" text="Sales By Tender" />
+                                    <CheckBox fx:id="EmpSale" layoutX="272.0" layoutY="14.0" mnemonicParsing="false" text="Sales By Employee" />
+                                    <CheckBox fx:id="CashDrawer" layoutX="276.0" layoutY="64.0" mnemonicParsing="false" text="Cash Drawer/Cash Flow Reconsolliation" />
+                                    <CheckBox fx:id="Other" layoutX="270.0" layoutY="205.0" mnemonicParsing="false" text="Other Detail" />
+                                    <CheckBox fx:id="GroupSale" layoutX="272.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleSaleCheckAction" text="Sales By Group" />
+                                    <ComboBox fx:id="DeptCombo1" Disable="true" layoutX="438.0" layoutY="248.0" prefHeight="26.0" prefWidth="150.0" />
+                                       
+                              
+                                 </children></AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <ComboBox fx:id="PrinterCombo" layoutX="356.0" layoutY="496.0" prefHeight="25.0" prefWidth="168.0" />
+                        <Button fx:id="drawerButton" layoutX="375.0" layoutY="605.0" mnemonicParsing="false" onAction="#handleDrawerButtonAction" prefHeight="44.0" prefWidth="150.0" text="Cash Drawer Setting" />
+                        <Text layoutX="117.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fiscal Start Date" />
+                        <Text layoutX="117.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report Printer" />
+                        <AmbientLight color="CHARTREUSE" layoutX="139.0" layoutY="508.0" lightOn="true" />
+                        <Button fx:id="ReportSaveButton" layoutX="59.0" layoutY="609.0" mnemonicParsing="false" onAction="#handleSaveReportButtonAction" prefHeight="43.0" prefWidth="80.0" text="Save" />
+                        <Button layoutX="191.0" layoutY="610.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="68.0" text="Close" />
+                        <DatePicker fx:id="StartDate" layoutX="353.0" layoutY="439.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Email Server">
+              <content>
+                <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TitledPane id="AnchorPane" animated="false" layoutX="33.0" layoutY="43.0" prefHeight="206.0" prefWidth="459.0" text="SMTP Server">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="ServerName" layoutX="243.0" layoutY="24.0" prefHeight="25.0" prefWidth="179.0" />
+                                    <TextField fx:id="PortName" layoutX="273.0" layoutY="90.0" prefHeight="26.0" prefWidth="150.0" />
+                                    <Text layoutX="27.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server Name" />
+                                    <Text layoutX="27.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TextField fx:id="UserName" layoutX="140.0" layoutY="303.0" prefHeight="25.0" prefWidth="230.0" />
+                        <TextField fx:id="SenderName" layoutX="138.0" layoutY="423.0" prefHeight="25.0" prefWidth="232.0" />
+                        <TextField fx:id="FromAdd" layoutX="139.0" layoutY="478.0" prefHeight="25.0" prefWidth="231.0" />
+                        <CheckBox fx:id="SSL" layoutX="465.0" layoutY="320.0" mnemonicParsing="false" text="Enable SSL" />
+                        <Button layoutX="92.0" layoutY="608.0" mnemonicParsing="false" onAction="#handleSaveMailButtonAction" prefHeight="40.0" prefWidth="77.0" text="Save" />
+                        <Button fx:id="EmailCancel" layoutX="360.0" layoutY="608.0" mnemonicParsing="false" onAction="#handleEmailCancelAction" prefHeight="37.0" prefWidth="155.0" text="Cancel but prinitng" />
+                        <Button layoutX="231.0" layoutY="541.0" mnemonicParsing="false" onAction="#handleTestMailButtonAction" text="Send Test Mail" />
+                        <Text layoutX="46.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name" />
+                        <Text layoutX="44.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+                        <Text layoutX="32.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From Address" />
+                        <PasswordField fx:id="Password" layoutX="136.0" layoutY="363.0" prefHeight="25.0" prefWidth="234.0" />
+                        <Text layoutX="33.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sender Name" />
+                        <CheckBox fx:id="TLS" layoutX="465.0" layoutY="355.0" mnemonicParsing="false" text="Enable TLS" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Cost &amp; Pricing">
+              <content>
+                <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="686.0" prefWidth="901.0">
+                     <children>
+                        <CheckBox fx:id="MSRPCheck" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" text="Apply MSRP price as minimum required price" />
+                        <TitledPane animated="false" layoutX="23.0" layoutY="42.0" prefHeight="174.0" prefWidth="318.0" text="Configure Method">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <RadioButton layoutX="14.0" layoutY="52.0" mnemonicParsing="false" selected="true" text="Manual">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="t1" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton layoutX="158.0" layoutY="52.0" mnemonicParsing="false" text="Weighted Average" toggleGroup="$t1" />
+                                    <RadioButton layoutX="75.0" layoutY="98.0" mnemonicParsing="false" text="Last Purchase Cost" toggleGroup="$t1" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="385.0" layoutY="42.0" prefHeight="173.0" prefWidth="327.0" text="Price Calculation Basis">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <RadioButton layoutX="37.0" layoutY="32.0" mnemonicParsing="false" selected="true" text="Margin  -  Calculated on basis of Price ">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="t2" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton layoutX="37.0" layoutY="90.0" mnemonicParsing="false" text="MarkUp  -  Calculated on bais of Cost" toggleGroup="$t2" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="23.0" layoutY="276.0" prefHeight="206.0" prefWidth="725.0" text="Price AddOn">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="591.0" layoutY="27.0" mnemonicParsing="false" onAction="#handlePriceSaveButton" text="New" />
+                                    <Button layoutX="593.0" layoutY="58.0" mnemonicParsing="false" onAction="#dummyAdd" text="Edit" />
+                                    <Button layoutX="591.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleCostRemoveButtonAction" text="Remove" />
+                                    <TableView fx:id="table" layoutX="14.0" layoutY="13.0" prefHeight="156.0" prefWidth="503.0">
+                                      <columns>
+                                    <TableColumn fx:id="addoncol" prefWidth="131.0" text="AddOn Name" />
+                                   <TableColumn fx:id="valuecol" prefWidth="125.0" text="Value" />
+            <TableColumn fx:id="percol" prefWidth="121.0" text="By Percentage" />
+            <TableColumn fx:id="taxcol" prefWidth="121.0" text="Tax Exclusive" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <ComboBox fx:id="PrinterCombo1" layoutX="291.0" layoutY="489.0" prefHeight="29.0" prefWidth="150.0" />
+                        <Button layoutX="135.0" layoutY="626.0" mnemonicParsing="false" onAction="#handleCostSaveButton" prefHeight="40.0" prefWidth="71.0" text="Save" />
+                        <Button layoutX="425.0" layoutY="625.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="41.0" prefWidth="73.0" text="Cancel" />
+                        <Text layoutX="83.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adjust Total Sale Amount To Nearest" />
+                        <ComboBox fx:id="DeptCombo2" layoutX="310.0" layoutY="226.0" prefHeight="26.0" prefWidth="150.0" />
+                        <Text layoutX="488.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In every Transaction" />
+                        <Text layoutX="83.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Network Printer" />
+                        <Text layoutX="83.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sale Label Format File" />
+                        <Label fx:id="LabelFile" layoutX="291.0" layoutY="550.0" prefHeight="17.0" prefWidth="208.0" style="-fx-background-color: gray;" textFill="#fffafa" />
+                        <Button layoutX="555.0" layoutY="546.0" mnemonicParsing="false" onAction="#handleSelectLabelButtonAction" text="Select" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Receipt Setting">
+              <content>
+                <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="ReceiptFormatCombo" layoutX="377.0" layoutY="40.0" prefHeight="28.0" prefWidth="150.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Compact" />
+                                    <String fx:value="Short" />
+                                    <String fx:value="Medium" />
+                                    <String fx:value="Detailed" />
+                                    <String fx:value="Non Tax" />
+                                    <String fx:value="Custom Format" />
+                                    </FXCollections>
+                           </items>
+                           <value>
+                                 <String fx:value="Compact" />
+                           </value>
+                        </ComboBox>
+                        <ComboBox fx:id="LineCombo" layoutX="377.0" layoutY="98.0" prefHeight="27.0" prefWidth="150.0">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="0" />
+                                  <String fx:value="1" />
+                                 <String fx:value="2" />
+                                 <String fx:value="3" />
+                                  <String fx:value="4" />
+                                 <String fx:value="5" />
+                                 <String fx:value="6" />
+                                 <String fx:value="7" />
+                                 <String fx:value="8" />
+                                 <String fx:value="9" />
+                                 <String fx:value="10" />
+                              </FXCollections>
+                           </items>
+                           <value>
+                                 <String fx:value="0" />
+                           </value>
+                        </ComboBox>
+                        <TitledPane animated="false" layoutX="8.0" layoutY="145.0" prefHeight="232.0" prefWidth="485.0" text="Fotter Text">
+                          <content>
+                            <AnchorPane id="AchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="Footer1" layoutX="63.0" layoutY="2.0" prefHeight="25.0" prefWidth="358.0" />
+                                    <TextField fx:id="Footer2" layoutX="63.0" layoutY="35.0" prefHeight="25.0" prefWidth="358.0" />
+                                    <TextField fx:id="Footer3" layoutX="64.0" layoutY="68.0" prefHeight="25.0" prefWidth="357.0" />
+                                    <TextField fx:id="Footer4" layoutX="64.0" layoutY="103.0" prefHeight="25.0" prefWidth="357.0" />
+                                    <TextField fx:id="Footer5" layoutX="66.0" layoutY="134.0" prefHeight="25.0" prefWidth="355.0" />
+                                    <TextField fx:id="Footer6" layoutX="65.0" layoutY="167.0" prefHeight="25.0" prefWidth="356.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="575.0" layoutY="144.0" prefHeight="234.0" prefWidth="464.0" text="Print Text On Back Of Check">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="CheckText1" layoutX="85.0" layoutY="14.0" prefHeight="25.0" prefWidth="356.0" />
+                                    <TextField fx:id="CheckText2" layoutX="85.0" layoutY="42.0" prefHeight="25.0" prefWidth="356.0" />
+                                    <TextField fx:id="CheckText3" layoutX="85.0" layoutY="79.0" prefHeight="25.0" prefWidth="356.0" />
+                                    <TextField fx:id="CheckText4" layoutX="85.0" layoutY="112.0" prefHeight="25.0" prefWidth="356.0" />
+                                    <TextField fx:id="CheckText5" layoutX="85.0" layoutY="144.0" prefHeight="25.0" prefWidth="356.0" />
+                                    <TextField fx:id="CheckText6" layoutX="85.0" layoutY="175.0" prefHeight="25.0" prefWidth="356.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="14.0" layoutY="402.0" prefHeight="152.0" prefWidth="484.0" text="Merchant Fotter Text">
+                          <content>
+                            <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="MFotter1" layoutX="110.0" layoutY="14.0" prefHeight="25.0" prefWidth="358.0" />
+                                    <TextField fx:id="MFotter2" layoutX="110.0" layoutY="51.0" prefHeight="25.0" prefWidth="358.0" />
+                                    <TextField fx:id="MFotter3" layoutX="110.0" layoutY="87.0" prefHeight="25.0" prefWidth="358.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <Button layoutX="282.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleReceiptSaveButtonAction" prefHeight="57.0" prefWidth="126.0" text="Save" />
+                        <Button layoutX="511.0" layoutY="610.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="52.0" prefWidth="129.0" text="Cancel" />
+                        <CheckBox fx:id="AllowSlipCheck" layoutX="605.0" layoutY="106.0" mnemonicParsing="false" text="Allow slip priniting" />
+                        <Text layoutX="55.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receipt Format" />
+                        <Text layoutX="55.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add blank lines after priniting">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Text>
+                        <CheckBox fx:id="CurrencyCheck" layoutX="603.0" layoutY="64.0" mnemonicParsing="false" text="Print Currency Sign In Receipt" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
