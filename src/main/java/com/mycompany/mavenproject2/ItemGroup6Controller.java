@@ -35,6 +35,18 @@ public class ItemGroup6Controller implements Initializable {
            e.printStackTrace();
           } 
     }
+    @FXML public void handleAddNewGroupButtonAction(ActionEvent as){
+         try {
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/AddGroup.fxml"));
+                Parent root = (Parent) fxmlLoader.load();                
+                stage.setScene(new Scene(root));  
+                stage.setTitle("ItemList");
+                stage.show();
+        } catch(Exception e) {
+           e.printStackTrace();
+          } 
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

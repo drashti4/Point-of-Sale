@@ -26,6 +26,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -366,14 +367,12 @@ public class GlobalChanges7Controller implements Initializable {
     System.out.println("ComboBox Action (selected: " + selectedPerson + ")");
     basicdb.clear();
     basicdb.put("Size_Name", selectedPerson);
-     MongoCursor<Document> cursorFind = db.getCollection("ItemDetail").find(basicdb).iterator();
+
+    MongoCursor<Document> cursorFind = db.getCollection("ItemDetail").find(basicdb).iterator();
      while(cursorFind.hasNext()){
          Document g=cursorFind.next();
-        // System.out.println("Item is "+cursorFind.next().getString("ItemName"));
          data.add(new Person(g.getString("SKU"), g.getString("ItemDesc"),g.getString("Size_Name"), g.getString("Pack_Name"), g.getString("UnitCost")));
-         //System.out.println("result data is "+g.getString("SKU")+ g.getString("ItemDesc")+g.getString("Size_Name")+ g.getString("Pack_Name")+" " +g.getString("UnitCost"));
-     }
-     
+     }     
 });
         } finally {
                 ItemTable.setItems(data);
