@@ -235,8 +235,8 @@ public class AddItemListController implements Initializable {
         d.append("Size_Name",size_name );      
         d.append("Pack_Name",pack_name );
         d.append("Cat_Name", CatCombo.getValue());
-        d.append("Brand_Name",brand_name );
-        
+        d.append("Brand_Name",brand_name);
+        d.append("Location",LocationCombo.getValue());
         d.append("Model_Num",ModelText.getText() );
         d.append("Part_Num",PartText.getText() );
         d.append("NonStock",nonstock );
@@ -503,7 +503,7 @@ quantitycol.setOnEditCommit(new EventHandler<CellEditEvent<Person, String>>() {
         // single cell selection mode
         table.getSelectionModel().setCellSelectionEnabled(true);
         table.getSelectionModel().selectFirst();
-    DeptCombo.valueProperty().addListener(new ChangeListener<String>() {
+        DeptCombo.valueProperty().addListener(new ChangeListener<String>() {
         @Override 
         public void changed(ObservableValue ov, String t, String t1) {
           System.out.println("Observation value is "+ov);

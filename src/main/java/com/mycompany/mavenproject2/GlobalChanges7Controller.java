@@ -50,7 +50,7 @@ public class GlobalChanges7Controller implements Initializable {
     @FXML TableView<Person> ItemTable2;
     @FXML TableColumn<Person,String> skucol ,skucol1;
     @FXML TableColumn<Person,String> desc,desc1;
-    static int id;    
+    static int id,dept_id;    
     @FXML TableColumn<Person,String> size,size1;
     @FXML TableColumn<Person,String> pack,pack1;
     @FXML TableColumn<Person,String> price,price1;
@@ -62,6 +62,7 @@ public class GlobalChanges7Controller implements Initializable {
     MongoCursor<Document> cursor4 ;
     BasicDBObject basicdb=new BasicDBObject();
     BasicDBObject Itemdb=new BasicDBObject();
+    BasicDBObject b;
     BasicDBObject deptBasicdb=new BasicDBObject();
     @FXML public void handleApplyButtonAction(ActionEvent ag){
         
@@ -87,7 +88,17 @@ public class GlobalChanges7Controller implements Initializable {
     }
      private Document UpdateSeedData(){
         Document d=new Document();               
-       
+       b=new BasicDBObject();
+        b.put("Name",AddToDeptCombo.getValue());              	
+	MongoCursor<Document> cursor = db.getCollection("DeptDetail").find(b).iterator();
+        try {
+            while (cursor.hasNext()) {
+                dept_id=cursor.next().getInteger("ID");
+                System.out.println("Searched Output "+dept_id);
+            }
+        } finally {
+            cursor.close();
+        }
        /* d.append("ItemDesc", DescriptionTextField.getText());
         d.append("ItemName",ItemNameText.getText() );
         d.append("Dept_ID",dept_id );
@@ -112,11 +123,14 @@ public class GlobalChanges7Controller implements Initializable {
         d.append("BuyDownAmount",BuyDownText.getText() );
         d.append("MarkUP",MarkUpText.getText() );       
         d.append("SalesPrice",SaleText.getText() );
-        d.append("WeightedItem",check1 );       
-        d.append("WebItem",check2 );
+        d.append("WeightedItem",check1 );          
         d.append("ExcludeSale", check3);       
         d.append("WIC",check4 );        
         d.append("HealthCard",check5 );       */
+        d.append("Dept_ID",dept_id );
+        d.append("Cat_Name", AddToCatCombo.getValue());
+        d.append("Location",LocationCombo.getValue());
+        d.append("WebItem",(WebCombo.getValue().equals("Add"))?1:0 );
         d.append("FoodStamp", (FoodStampCombo.getValue().equals("Add"))?1:0);
         /*d.append("NonRevenueItem", check7); 
         if(SaleMsgCombo.getValue().equals("add")){
@@ -394,7 +408,37 @@ public class GlobalChanges7Controller implements Initializable {
                     initFilter();
             }
         });
-      
+        cursor4 =  db.getCollection("DeptDetail").find().iterator();
+            try {
+            while (cursor4.hasNext()) {                
+                String rs=cursor4.next().getString("Name");
+                AddToDeptCombo.setValue(rs);
+                AddToDeptCombo.getItems().addAll(rs);                
+            }
+        } finally {
+            cursor4.close();
+        } 
+            	
+            cursor4 = db.getCollection("CategoryDetail").find().iterator();
+            try {
+            while (cursor4.hasNext()) {                
+                String rs=cursor4.next().getString("Name");
+                AddToCatCombo.setValue(rs);
+                AddToCatCombo.getItems().addAll(rs);                
+            }
+        } finally {
+            cursor4.close();
+        }   
+            cursor4 =  db.getCollection("LocationDetail").find().iterator();
+            try {
+            while (cursor4.hasNext()) {                
+                String rs=cursor4.next().getString("Name");
+                LocationCombo.setValue(rs);
+                LocationCombo.getItems().addAll(rs);                
+            }
+        } finally {
+            cursor4.close();
+        }   
     }
      public static class Person {
 
