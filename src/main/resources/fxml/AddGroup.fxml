@@ -22,10 +22,10 @@
                   <ComboBox layoutX="449.0" layoutY="25.0" prefWidth="150.0" />
                   <TextField layoutX="610.0" layoutY="25.0" />
                   <Button layoutX="793.0" layoutY="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" text="Clear" />
-                  <Button layoutY="24.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Button" />
+                  <Button layoutX="10.0" layoutY="24.0" mnemonicParsing="false" onAction="#hanldeShowItemAction" prefHeight="26.0" prefWidth="116.0" text="Show Item" />
                   <Button layoutX="273.0" layoutY="25.0" mnemonicParsing="false" text="Select to add" />
                   <Text layoutX="126.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan item to add" />
-                  <TextField layoutX="86.0" layoutY="25.0" />
+                  <TextField layoutX="130.0" layoutY="25.0" prefHeight="26.0" prefWidth="133.0" />
                   <TableView layoutX="497.0" layoutY="61.0" prefHeight="533.0" prefWidth="374.0">
                      <columns>
                         <TableColumn prefWidth="62.0" text="SKU" />
@@ -35,13 +35,13 @@
                         <TableColumn prefWidth="71.0" text="Price" />
                      </columns>
                   </TableView>
-                  <TableView layoutY="61.0" prefHeight="333.0" prefWidth="348.0">
+                  <TableView fx:id="ItemTable" layoutY="61.0" prefHeight="333.0" prefWidth="348.0">
                      <columns>
-                        <TableColumn prefWidth="51.0" text="SKU" />
-                        <TableColumn prefWidth="86.0" text="Description" />
-                        <TableColumn prefWidth="74.0" text="ItemSize" />
-                        <TableColumn prefWidth="67.0" text="Pack" />
-                        <TableColumn prefWidth="68.0" text="Price" />
+                        <TableColumn fx:id="skucol" prefWidth="51.0" text="SKU" />
+                        <TableColumn fx:id="desc" prefWidth="86.0" text="Desc" />
+                        <TableColumn fx:id="size" prefWidth="74.0" text="Size" />
+                        <TableColumn fx:id="pack" prefWidth="67.0" text="Pack" />
+                        <TableColumn fx:id="price" prefWidth="68.0" text="Price" />
                      </columns>
                   </TableView>
                   <Button layoutX="379.0" layoutY="70.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" text="Add &gt;" />
