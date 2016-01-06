@@ -39,9 +39,9 @@
                         <TableColumn fx:id="price" prefWidth="68.0" text="Price" />
                      </columns>
                   </TableView>
-                  <Button layoutX="388.0" layoutY="137.0" mnemonicParsing="false" onAction="#handlePutButtonAction" prefHeight="40.0" prefWidth="94.0" text="Add &gt;" />
-                  <Button layoutX="380.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleAddAllButtonAction" prefHeight="40.0" prefWidth="94.0" text="Add All &gt;&gt;" />
-                  <Button layoutX="379.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleGetButtonAction" prefHeight="40.0" prefWidth="95.0" text="Remove &lt;" />
+                  <Button layoutX="380.0" layoutY="148.0" mnemonicParsing="false" onAction="#handlePutButtonAction" prefHeight="40.0" prefWidth="107.0" text="Add &gt;" />
+                  <Button layoutX="380.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleAddAllButtonAction" prefHeight="40.0" prefWidth="112.0" text="Add All &gt;&gt;" />
+                  <Button layoutX="380.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleGetButtonAction" prefHeight="40.0" prefWidth="109.0" text="Remove &lt;" />
                   <Button layoutX="380.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleRemoveAllSelectionButton" prefHeight="40.0" prefWidth="109.0" text="Remove All &lt;&lt;" />
                   <Button layoutX="542.0" layoutY="529.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="40.0" prefWidth="116.0" text="Save" />
                   <Button layoutX="731.0" layoutY="529.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Cancel" />

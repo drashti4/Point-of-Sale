@@ -22,11 +22,11 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView layoutX="4.0" layoutY="4.0" prefHeight="400.0" prefWidth="403.0">
+                  <TableView fx:id="GroupTable" layoutX="4.0" layoutY="4.0" prefHeight="400.0" prefWidth="403.0">
                     <columns>
-                      <TableColumn prefWidth="206.0" text="Group Names" />
-                      <TableColumn prefWidth="78.0" text="Item" />
-                        <TableColumn prefWidth="118.0" text="Allow Updates" />
+                      <TableColumn fx:id="groupcol" prefWidth="206.0" text="Group Names" />
+                      <TableColumn fx:id="itemcol" prefWidth="78.0" text="Item" />
+                        <TableColumn fx:id="updatecol" prefWidth="118.0" text="Allow Updates" />
                     </columns>
                   </TableView>
                </children></AnchorPane>
