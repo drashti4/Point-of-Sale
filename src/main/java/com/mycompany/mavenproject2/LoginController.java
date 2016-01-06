@@ -45,7 +45,7 @@ public class LoginController implements Initializable {
    @FXML
    public void handleSubmitButtonAction(ActionEvent a){       
        try {
-           if(PasswordText.getText().equals("admin") && UserNameText.getText().equals("admin")){
+          // if(PasswordText.getText().equals("admin") && UserNameText.getText().equals("admin")){
            Stage stg=new Stage();
            FXMLLoader fxml=new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
            Parent root=(Parent)fxml.load();
@@ -56,13 +56,13 @@ public class LoginController implements Initializable {
            stg.show();           
            Stage stage = (Stage) submit.getScene().getWindow();            
        stage.close();
-       }
+      /* }
            else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error ");
                 alert.setContentText("User Name or Password is incorrect!");
                 alert.showAndWait();
-           }
+        //   }*/
            
            
        } catch (IOException ex) {
