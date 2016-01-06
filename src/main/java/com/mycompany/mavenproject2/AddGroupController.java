@@ -24,6 +24,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 
@@ -47,6 +48,7 @@ public class AddGroupController implements Initializable {
     MongoClient client=new MongoClient();
     MongoDatabase db=client.getDatabase("FinalDemo");
     @FXML TableView<Person> ItemTable,ItemTable2;
+    @FXML CheckBox GlobalCheck;
     public static ObservableList<Person> obv= FXCollections.observableArrayList();
     public static Document d,ItemDoc;
     @FXML public void hanldeShowItemAction(ActionEvent as){
@@ -102,10 +104,12 @@ public class AddGroupController implements Initializable {
                    }
          }
      }*/
+           
            d=new Document();
            ItemDoc=new Document();
            d.append("GroupName", GroupNameText.getText());
            d.append("GroupDesc", GroupDescText.getText()); 
+           d.append("Update", GlobalCheck.isSelected()?1:0);
            ItemTable2.getItems().forEach(item -> CreateSeedData(item));  //diffi
            
            db.getCollection("ItemGroup").insertOne(d);

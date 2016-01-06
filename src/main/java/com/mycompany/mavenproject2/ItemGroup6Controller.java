@@ -7,12 +7,17 @@ package com.mycompany.mavenproject2;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 /**
@@ -21,6 +26,9 @@ import javafx.stage.Stage;
  * @author Third Ev
  */
 public class ItemGroup6Controller implements Initializable {
+    @FXML TableView<Person> GroupTable;
+    @FXML TableColumn<Person,String> groupcol,itemcol,updatecol;
+    public static ObservableList<Person> data= FXCollections.observableArrayList(new Person("ds","das","asd"));
     @FXML
     private void handleSelectButtonAction(ActionEvent eve){      
     System.out.println("You click Select Item");
@@ -49,7 +57,54 @@ public class ItemGroup6Controller implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        groupcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("GroupNames"));
+        itemcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Item"));
+        updatecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("AllowUpdates"));  
+        GroupTable.setItems(data);
+    } 
+    public static class Person {
+
+        private final SimpleStringProperty GroupNames;
+        private final SimpleStringProperty Item;
+        private final SimpleStringProperty AllowUpdates;
+       
+         
+        
+        
+        private Person(String SKU, String Desc,String Size) {
+            this.GroupNames = new SimpleStringProperty(SKU);
+            this.Item = new SimpleStringProperty(Desc);         
+            this.AllowUpdates = new SimpleStringProperty(Size);
+           
+        }      
+       
+        
+        public String getGroupNames() {
+            return GroupNames.get();
+        }
+
+        public void setGroupNames(String uName) {
+            GroupNames.set(uName);
+        }
+
+        public String getItem() {
+            return Item.get();
+        }
+
+        public void setItem(String val) {
+            Item.set(val);
+        }
+        public String getAllowUpdates() {
+            return AllowUpdates.get();
+        }
+
+        public void setAllowUpdates(String uName) {
+            AllowUpdates.set(uName);
+        }
+
+       
+     }
 }
+
+
+
