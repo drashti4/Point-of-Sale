@@ -24,6 +24,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
@@ -33,6 +35,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 import org.bson.Document;
 /**
  * FXML Controller class
@@ -49,17 +52,71 @@ public class AddGroupController implements Initializable {
     MongoDatabase db=client.getDatabase("FinalDemo");
     @FXML TableView<Person> ItemTable,ItemTable2;
     @FXML CheckBox GlobalCheck;
+    @FXML Button Cancel;
     public static ObservableList<Person> obv= FXCollections.observableArrayList();
     public static Document d,ItemDoc;
+    int GlobalFlag=0;
+    BasicDBObject db1=new BasicDBObject();
+    BasicDBObject dbx=new BasicDBObject();
+    public static String grp;
+   
+    int flag;
+    public void EditButton(String Name){
+        obv.removeAll(obv);
+        grp=Name;
+        GroupNameText.setText(Name);
+        ItemTable2.getItems().removeAll(obv);
+        GroupNameText.setDisable(true);
+        System.out.println("Cllaed "+Name);
+        GlobalFlag=1;
+        db1.put("GroupName", Name);
+        MongoCursor<Document> cursorFind = db.getCollection("ItemGroup").find(db1).iterator();
+        MongoCursor<Document> cursorFind1 = db.getCollection("ItemDetail").find().iterator();
+        while(cursorFind.hasNext()){
+             Document g=cursorFind.next();         
+             GroupDescText.setText(g.getString("GroupDesc"));
+            Document d=(Document)g.get("Items");                              
+            while(cursorFind1.hasNext()){
+                Document g1=cursorFind1.next();                         
+                if(d.getString(g1.getString("SKU"))!=null){                 
+                    
+                    obv.add(new Person(g1.getString("SKU"),g1.getString("ItemDesc"),g1.getString("Size_Name"),g1.getString("Pack_Name"),g1.getString("UnitPrice")));                                            
+                    ItemTable2.setItems(obv);
+                }
+                }
+           
+        }
+    }
+    @FXML public void handleCancelButtonAction(ActionEvent af){
+        Stage f=(Stage) Cancel.getScene().getWindow();
+        f.close();
+    }
     @FXML public void hanldeShowItemAction(ActionEvent as){
         
     }
+    private int compare(Person p,Person p1){
+        if((p.getSKU()).equals(p1.getSKU())){
+             Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Warning ");
+                alert.setContentText("Item Already Added!");
+                alert.showAndWait();
+                return 1;
+        }
+        else{
+            return 0;
+        }
+    }
      @FXML public void handlePutButtonAction(ActionEvent af){
-        System.out.println("You selected put button");
+        
+        
+       
         Person person = ItemTable.getSelectionModel().getSelectedItem();
+        ItemTable2.getItems().forEach(item -> flag=compare(item,person));
         System.out.println("Selected row is "+person.getDesc());
-        obv.add(person);     
+        if(flag==0){
+        obv.add(person);             
         ItemTable2.setItems(obv);
+        }
        /* System.out.println("total rows are in item table 2 "+ ItemTable2.getItems().size());      
         System.out.println("total rows are in item table 1 "+ ItemTable.getItems().size());  */           
     }
@@ -105,19 +162,43 @@ public class AddGroupController implements Initializable {
          }
      }*/
            
+           InsertMongo();
+       }
+       private void UpdateMongo(){
+           db.getCollection("ItemGroup").updateOne(new Document("GroupName", grp),
+         new Document("$set", UpdateSeedData()));
+       }
+       private Document UpdateSeedData(){
+           System.out.println("Update is called");
            d=new Document();
            ItemDoc=new Document();
            d.append("GroupName", GroupNameText.getText());
            d.append("GroupDesc", GroupDescText.getText()); 
-           d.append("Update", GlobalCheck.isSelected()?1:0);
+           d.append("Update", GlobalCheck.isSelected()?"Yes":"No");
+           ItemTable2.getItems().forEach(item -> CreateSeedData(item)); //diffi
+           
+           //db.getCollection("ItemGroup").insertOne(d);
+           return  d;
+       }
+       private void InsertMongo(){
+           if(GlobalFlag==1){
+               UpdateMongo();
+           }
+           else{
+               d=new Document();
+           ItemDoc=new Document();
+           d.append("GroupName", GroupNameText.getText());
+           d.append("GroupDesc", GroupDescText.getText()); 
+           d.append("Update", GlobalCheck.isSelected()?"Yes":"No");
            ItemTable2.getItems().forEach(item -> CreateSeedData(item));  //diffi
            
            db.getCollection("ItemGroup").insertOne(d);
+           }
        }
        private void CreateSeedData(Person p){  
             
            System.out.println("Sku Are "+p.getSKU());
-           ItemDoc.append(p.getSKU(),  p.getSKU());           
+           ItemDoc.append( p.getSKU(),  p.getSKU());           
           //  db.getCollection("ItemGroup").insertOne(ItemDoc);
            // System.out.println("Added "+p.getSKU());
            d.append("Items",ItemDoc);
@@ -160,6 +241,8 @@ public class AddGroupController implements Initializable {
        sizecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Size"));  
        packcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Pack"));      
        pricecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Price"));
+       data.removeAll(data);
+       ItemTable.getItems().removeAll(data);
        MongoCursor<Document> cursorFind = db.getCollection("ItemDetail").find().iterator();
        while(cursorFind.hasNext()){
          Document g=cursorFind.next();

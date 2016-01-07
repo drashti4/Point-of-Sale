@@ -208,8 +208,8 @@ public class AddUser8Controller implements Initializable {
      //  col.updateOne(eq("_id",Eid), new Document("$set",new Document("UserEID","U25")) );
        //col.replaceOne(eq("_id",Eid),UpdateSeedData());
          System.out.println("Updated Selected _id is "+PID);
-       col.updateOne(new Document("ID", PID),
-        new Document("$set", UpdateSeedData()));
+         col.updateOne(new Document("ID", PID),
+         new Document("$set", UpdateSeedData()));
             //.append("$currentDate", new Document("lastModified", true)));
         MongoCursor<Document> cursor5 = col.find().iterator();
          try {
