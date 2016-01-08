@@ -77,8 +77,7 @@ public class ItemGroup6Controller implements Initializable {
             stage.setScene(new Scene(root));
             stage.setTitle("Edit Item");
             System.out.println("Edit is called");
-            controller.EditButton(p.getGroupNames());
-            
+            controller.EditButton(p.getGroupNames());            
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(ItemGroup6Controller.class.getName()).log(Level.SEVERE, null, ex);

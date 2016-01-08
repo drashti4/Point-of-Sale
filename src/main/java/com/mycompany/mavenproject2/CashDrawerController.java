@@ -76,7 +76,7 @@ public class CashDrawerController implements Initializable {
     MongoDatabase  db=client.getDatabase("FinalDemo");
 @FXML
 private void handleRemoveButtonAction(ActionEvent ev){
-     /*org.controlsfx.control.action.Action response =  Dialogs.create()
+     org.controlsfx.control.action.Action response =  Dialogs.create()
         .owner(stage)
         .title("Confirm Dialog with Custom Actions")
         .masthead("Look, a Confirm Dialog with Custom Actions")
@@ -85,7 +85,7 @@ private void handleRemoveButtonAction(ActionEvent ev){
         .showConfirm();
         
 
-if (response == Dialog.ACTION_OK) {*/
+if (response == Dialog.ACTION_OK) {
          System.out.println("You click okay confirm");
          List items =  new ArrayList (table.getSelectionModel().getSelectedItems());  
          data.removeAll(items);
@@ -94,10 +94,10 @@ if (response == Dialog.ACTION_OK) {*/
         db.getCollection("CashDrawerDetail").deleteOne(eq("UnitName",person.getUnitName()));
         data.removeAll(items);
         table.getSelectionModel().clearSelection();
-/*}
+}
 else{
     System.out.println("You click cancel confirm");
-}*/
+}
    
 }
 

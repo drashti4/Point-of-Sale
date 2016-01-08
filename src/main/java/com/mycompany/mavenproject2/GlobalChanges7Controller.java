@@ -164,8 +164,7 @@ public class GlobalChanges7Controller implements Initializable {
         
             try {
             while (cursor4.hasNext()) {                
-                String rs=cursor4.next().getString("Name");
-                
+                String rs=cursor4.next().getString("Name");                
                 CatCombo.setValue(rs);
                 CatCombo.getItems().addAll(rs);   
                 CatCombo.setValue("");
