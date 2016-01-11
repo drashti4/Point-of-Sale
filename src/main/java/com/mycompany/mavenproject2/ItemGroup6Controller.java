@@ -109,7 +109,7 @@ public class ItemGroup6Controller implements Initializable {
         itemcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,Integer>("Item"));
         updatecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("AllowUpdates"));  
         data.removeAll(data);
-        GroupTable.getItems().retainAll(data);
+        GroupTable.getItems().removeAll(data);
         GroupTable.setItems(data);
         MongoCursor<Document> cursorFind = db.getCollection("ItemGroup").find().iterator();
        while(cursorFind.hasNext()){
