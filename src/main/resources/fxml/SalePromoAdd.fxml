@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import com.mycompany.mavenproject2.*?>
+
 <AnchorPane id="AnchorPane" prefHeight="784.0" prefWidth="995.0" styleClass="mainFxmlClass" stylesheets="@../styles/salepromoadd.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.SalePromoAddController">
    <children>
       <TitledPane animated="false" layoutY="14.0" prefHeight="168.0" prefWidth="963.0" text="Promotion Definition">
@@ -48,7 +49,7 @@
                   <Button layoutX="610.0" layoutY="76.0" mnemonicParsing="false" text="View" />
                   <Text layoutX="496.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" />
                   <Text layoutX="736.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" />
-                  <DatePicker layoutX="571.0" layoutY="9.0" prefHeight="25.0" prefWidth="149.0" />
+                  <DatePicker layoutX="536.0" layoutY="9.0" prefHeight="25.0" prefWidth="149.0" />
                   <DatePicker layoutX="798.0" layoutY="10.0" prefHeight="25.0" prefWidth="149.0" />
                   <CheckBox layoutX="736.0" layoutY="120.0" mnemonicParsing="false" text="Discount Odd Item In Pricing" />
                   <CheckBox layoutX="508.0" layoutY="120.0" mnemonicParsing="false" text="Mix &amp; Match Type Promotion" />
@@ -65,21 +66,10 @@
                         <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Load Item" />
                         <Text layoutX="151.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Name" />
                         <TextField layoutX="250.0" layoutY="19.0" />
-                        <Text layoutX="489.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By" />
-                        <ComboBox layoutX="564.0" layoutY="20.0" prefWidth="150.0" />
+                        <Text layoutX="565.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Text for Search " />
                         <Text layoutX="5.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Item" />
-                        <TextField layoutX="728.0" layoutY="20.0" />
-                        <TableView layoutX="506.0" layoutY="65.0" prefHeight="365.0" prefWidth="457.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="SKU" />
-                            <TableColumn prefWidth="75.0" text="Item Name" />
-                              <TableColumn prefWidth="75.0" text="Size" />
-                              <TableColumn prefWidth="75.0" text="Pack" />
-                              <TableColumn prefWidth="75.0" text="QTY" />
-                              <TableColumn text="Sale" />
-                          </columns>
-                        </TableView>
-                        <Button layoutX="865.0" layoutY="436.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Remove" />
+                        <TextField fx:id="filterField" layoutX="728.0" layoutY="20.0" />
+                        <Button layoutX="826.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Remove" />
                         <TextField layoutX="77.0" layoutY="288.0" />
                         <Button layoutX="270.0" layoutY="287.0" mnemonicParsing="false" text="Select" />
                         <Text layoutX="352.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKU" />
@@ -96,23 +86,62 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Text layoutX="40.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QTY" />
-                                    <Text layoutX="10.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum Purchase Amount" />
+                                    <Text layoutX="-2.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum Purchase Amount" />
                                     <TextField layoutX="84.0" layoutY="2.0" prefHeight="25.0" prefWidth="53.0" />
                                     <Text layoutX="156.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For" />
-                                    <TextField layoutX="165.0" layoutY="39.0" prefHeight="25.0" prefWidth="91.0" />
+                                    <TextField layoutX="173.0" layoutY="38.0" prefHeight="25.0" prefWidth="91.0" />
                                     <Text layoutX="265.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limit" />
                                     <Text layoutX="199.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price :" />
                                     <TextField layoutX="262.0" layoutY="2.0" prefHeight="19.0" prefWidth="85.0" />
                                     <TextField layoutX="356.0" layoutY="2.0" prefHeight="25.0" prefWidth="62.0" />
                                     <Text layoutX="427.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" />
                                     <TextField layoutX="299.0" layoutY="39.0" prefHeight="25.0" prefWidth="88.0" />
-                                    <Button layoutX="399.0" layoutY="39.0" mnemonicParsing="false" text="Add" />
+                                    <Button layoutX="399.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleAddItemButtonAction" text="Add" />
                                     <Text layoutX="274.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
                                     <Text layoutX="173.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
                                  </children>
                               </AnchorPane>
                           </content>
                         </TitledPane>
+                        <ScrollPane layoutX="19.0" layoutY="65.0" prefHeight="208.0" prefWidth="485.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="483.0">
+                                 <children>
+                                    <TableView fx:id="ItemTable" prefHeight="201.0" prefWidth="485.0">
+                                       <columns>
+                                          <TableColumn fx:id="sel" prefWidth="49.0" text="Select" />
+                                          <TableColumn fx:id="skucol1" prefWidth="70.0" text="SKU" />
+                                          <TableColumn fx:id="name" prefWidth="154.0" text="Name" />
+                                          <TableColumn fx:id="size" prefWidth="76.0" text="Size" />
+                                          <TableColumn fx:id="pack" minWidth="5.0" prefWidth="60.0" text="Pack" />
+                                          <TableColumn fx:id="price" prefWidth="75.0" text="Price" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <ScrollPane layoutX="516.0" layoutY="58.0" prefHeight="411.0" prefWidth="441.0">
+                           <content>
+                              <FlowPane prefHeight="403.0" prefWidth="437.0">
+                                 <children>
+                                    <TableView fx:id="ListItemTable" prefHeight="395.0" prefWidth="758.0">
+                                      <columns>
+                                        <TableColumn fx:id="skucol" prefWidth="75.0" text="SKU" />
+                                        <TableColumn fx:id="namecol" prefWidth="128.0" text="Name" />
+                                          <TableColumn fx:id="sizecol" prefWidth="75.0" text="Size" />
+                                          <TableColumn fx:id="packcol" text="Pack" />
+                                          <TableColumn fx:id="qtycol" prefWidth="81.0" text="QTY" />
+                                          <TableColumn fx:id="salecol" prefWidth="78.0" text="Sale" />
+                                          <TableColumn fx:id="pricecol1" prefWidth="74.0" text="Price" />
+                                          <TableColumn fx:id="purcol" prefWidth="83.0" text="Min Pur." />
+                                          <TableColumn fx:id="limitcol" prefWidth="83.0" text="Limit QT" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </FlowPane>
+                           </content>
+                        </ScrollPane>
                      </children></AnchorPane>
             </content>
           </Tab>
