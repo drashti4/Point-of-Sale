@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.mavenproject2;
 
 import com.mongodb.BasicDBObject;
@@ -12,7 +8,11 @@ import com.mongodb.client.MongoDatabase;
 import static com.mycompany.mavenproject2.Sys1Controller.stage;
 import java.io.IOException;
 import java.net.URL;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -38,6 +38,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableCell;
@@ -52,7 +53,8 @@ import org.controlsfx.dialog.Dialog;
 import org.controlsfx.dialog.Dialogs;
 public class SalePromoAddController extends Thread implements Initializable{
     @FXML TextField SKUText,CostText,ItemNameText,PriceText,FormulaQuantity,DisLevelText,filterField;
-    @FXML ComboBox PromoTarget,TargetCombo,CountType,DiscountType;
+    @FXML TextField QTYText,SaleText,MinPurText,LimitText,PromoNameText;
+    @FXML ComboBox PromoTarget,TargetCombo,CountType,DiscountType,CustTarget;
     @FXML Button SelectFormulaButton;
     @FXML Tab ListTab,FormulaTab;
     @FXML TabPane TabPane;
@@ -63,9 +65,10 @@ public class SalePromoAddController extends Thread implements Initializable{
     @FXML TableColumn<Person,String> quantity ;
     @FXML TableView<ListPerson> ListItemTable;
     @FXML TableColumn<ListPerson,String> skucol,namecol,sizecol,packcol,qtycol,salecol,limitcol,purcol,costcol1,pricecol1; 
-    @FXML static TableView<ListAllItem> ItemTable;
+    @FXML TableView<ListAllItem> ItemTable;
     @FXML private TableColumn<ListAllItem, Boolean> sel;
     @FXML TableColumn<ListAllItem,String> skucol1,name,size,pack,price;
+    @FXML DatePicker StartDate,EndDate;
     String selectedItem;
     BasicDBObject ref;
     MongoClient client = new MongoClient();
@@ -73,13 +76,56 @@ public class SalePromoAddController extends Thread implements Initializable{
     public static ObservableList<Person> data= FXCollections.observableArrayList();
     public static ObservableList<Person> data1= FXCollections.observableArrayList();
     public static ObservableList<ListPerson> data2= FXCollections.observableArrayList();
-    public static ObservableList<ListAllItem> data3= FXCollections.observableArrayList();
-    public static ArrayList<ListAllItem> arr=new ArrayList<ListAllItem>();
+    //public static ObservableList<ListAllItem> data3= FXCollections.observableArrayList();
+    public static ObservableList<ListPerson> data4= FXCollections.observableArrayList();
+    public static ObservableList<ListAllItem> ItemData= FXCollections.observableArrayList();
+    public static ArrayList<String> arr=new ArrayList<String>();
+    public static SalePromoAddController s=new SalePromoAddController();
+    BasicDBObject obj=new BasicDBObject();
     @FXML public void handleAddItemButtonAction(ActionEvent ak){
-        for(ListAllItem item:arr){
-            System.out.println("Elements are "+item.getName());
-            
+       for(String item:arr){ //Problem diffi
+            System.out.println("Elements are "+item);
+            obj.put("SKU",item);
+            MongoCursor<Document> cur=db.getCollection("ItemDetail").find(obj).iterator();
+            while(cur.hasNext()){
+                Document p=cur.next();
+            data4.add(new ListPerson(p.getString("SKU"),p.getString("ItemName"),p.getString("Size_Name"),p.getString("Pack_Name"),QTYText.getText() , SaleText.getText(),p.getString("UnitCost"), MinPurText.getText(), LimitText.getText()));
+            }
         }
+       
+        ListItemTable.setItems(data4);        
+    }
+    @FXML public void handleSavePromoButtonAction(ActionEvent ag){
+        if(PromoTarget.getValue().toString().equalsIgnoreCase("Custom List")){          
+            Document d=createListData();
+            db.getCollection("SalePromoDetail").insertOne(d);
+        }
+    }
+    private Document createListData(){
+        Document p=new Document();       
+        p.append("Name",PromoNameText.getText());        
+        LocalDate SDate=StartDate.getValue();
+        Instant instant = SDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+        Date Startdate = Date.from(instant);
+        LocalDate EDate=EndDate.getValue();
+        Instant instant1 = EDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+        Date Enddate = Date.from(instant1);
+        p.append("StartDate", Startdate);
+        p.append("EndDate", Enddate);
+        p.append("TargetCust", CustTarget.getValue().toString());
+        p.append("PromoTarget","Custom List");
+        p.append("Items",SKU());
+        p.append("Quantity", QTYText);
+        p.append("Price", SaleText.getText());
+        p.append("MinimumPAmount", MinPurText.getText());
+        return p;        
+    }
+    private Document SKU(){
+        Document r=new Document();
+         for(String item:arr){ 
+              r.append("SKU", item); //diffi
+            }
+         return r;
     }
     @FXML public void handleAddSaleFormulaButtonAction(ActionEvent a){
         data1.add(new Person(CountType.getValue().toString(),Integer.parseInt(FormulaQuantity.getText()) , DiscountType.getValue().toString(), DisLevelText.getText()));
@@ -235,7 +281,7 @@ else{
         qtycol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<ListPerson,String>("QTY"));
         salecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<ListPerson,String>("Sale"));
         pricecol1.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<ListPerson,String>("Price"));        
-        purcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<ListPerson,String>("MinPur."));
+        purcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<ListPerson,String>("MinPurchase"));
         limitcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<ListPerson,String>("LimitQT"));
         skucol1.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<ListAllItem,String>("SKU"));
         name.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<ListAllItem,String>("Name"));
@@ -252,6 +298,18 @@ else{
         TargetCombo.setDisable(true);
         TabPane.getSelectionModel().selectLast();        
       // System.out.println("FX Vesion "+com.sun.javafx.runtime.VersionInfo.getRuntimeVersion());
+        ItemData.removeAll(ItemData);
+        ItemTable.getItems().removeAll(ItemData);
+        MongoCursor<Document> cur1=db.getCollection("ItemDetail").find().iterator();
+         while(cur1.hasNext()){
+             Document p=cur1.next();             
+            try {             
+                ItemData.add(new ListAllItem(false, p.getString("SKU"), p.getString("ItemName"), p.getString("Size_Name"), p.getString("Pack_Name"), p.getString("UnitCost")));
+            } catch (IOException ex) {
+                Logger.getLogger(SalePromoAddController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         }
+         ItemTable.setItems(ItemData);
         sel.setCellFactory(new Callback<TableColumn<ListAllItem, Boolean>, TableCell<ListAllItem, Boolean>>() {        
             public TableCell<ListAllItem, Boolean> call(TableColumn<ListAllItem, Boolean> p) { 
                 return new CheckBoxTableCell<ListAllItem, Boolean>(); 
@@ -334,15 +392,8 @@ else{
                 //updateFilteredData();
                     initFilter();
             }
-        });
-        data3.removeAll(data3);
-      ItemTable.getItems().removeAll(data3);
-         MongoCursor<Document> cur=db.getCollection("ItemDetail").find().iterator();
-         while(cur.hasNext()){
-             Document p=cur.next();
-             data3.add(new ListAllItem(false, p.getString("SKU"), p.getString("ItemName"), p.getString("Size_Name"), p.getString("Pack_Name"), p.getString("UnitCost")));
-         }
-         ItemTable.setItems(data3);
+        });      
+         
     }
     public static class CheckBoxTableCell<S, T> extends TableCell<S, T> { 
         private final CheckBox checkBox; 
@@ -379,29 +430,36 @@ else{
         private final SimpleStringProperty Size;
         private final SimpleStringProperty Pack;
         private final SimpleStringProperty Price;
-        
+       /* FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/SalePromoAdd.fxml"));
+            Parent root;
+            SalePromoAddController controller=fxmlLoader.<SalePromoAddController>getController*/
          
         
         
-        private ListAllItem(Boolean b,String SKU, String da,String Size,String Pack,String Price) {
+        private ListAllItem(Boolean b,String SKU, String da,String Size,String Pack,String Price) throws IOException {
+          //  this.root = (Parent) fxmlLoader.load();
             this.sel=new SimpleBooleanProperty(b);
             this.SKU = new SimpleStringProperty(SKU);
             this.Name = new SimpleStringProperty(da);         
             this.Size = new SimpleStringProperty(Size);
             this.Pack = new SimpleStringProperty(Pack);
             this.Price = new SimpleStringProperty(Price);
+            
             sel.addListener(new ChangeListener<Boolean>() {
  
                 public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
  
                     System.out.println(getName()+" checked: " + t1);
                     if(t1.toString().equalsIgnoreCase("false")) {
-                        arr.remove(ItemTable.getSelectionModel().getSelectedItem());
-                        System.out.println("Removed "+getName());
+                        
+                       // System.out.println("Removed "+getName() + " item Table "+s.ItemTable.getSelectionModel().getSelectedItem().getName());
+                        arr.remove(getSKU());
+                        
                     }
                     else if(t1.toString().equalsIgnoreCase("true")){
-                        arr.add(ItemTable.getSelectionModel().getSelectedItem());
-                        System.out.println("Added "+getName());
+                        
+                        // System.out.println("Added "+getName() + " item Table "+s.ItemTable.getSelectionModel().getSelectedItem().getName());
+                         arr.add(getSKU());
                     }
                     else{
                         System.out.println("NOTHING");
@@ -409,16 +467,15 @@ else{
                 }
  
             }); 
-        }      
+        }    
+      
         public void setSelect(){
            sel.get();
         }
         public Boolean getSelect(){
             return sel.get();
         }
-        public BooleanProperty SelectProperty() {
-              return sel;
-        }
+       
         public String getSKU() {
             return SKU.get();
         }
@@ -455,6 +512,9 @@ else{
 
         public void setPrice(String val) {
             Price.set(val);
+        }
+         public BooleanProperty SelectProperty() {
+              return sel;
         }
      }
      public static class Person {
@@ -510,7 +570,7 @@ else{
         private final SimpleStringProperty QTY;
         private final SimpleStringProperty Sale;
         private final SimpleStringProperty Price;
-        private final SimpleStringProperty MinP;
+        private final SimpleStringProperty MinPurchase;
         private final SimpleStringProperty LimitQ;
         private ListPerson(String uName, String val, String type,String nc,String a,String b,String x,String y,String z) {
             this.SKU = new SimpleStringProperty(uName);
@@ -520,7 +580,7 @@ else{
             this.QTY = new SimpleStringProperty(a);
             this.Sale = new SimpleStringProperty(b);
             this.Price = new SimpleStringProperty(x);
-            this.MinP = new SimpleStringProperty(y);
+            this.MinPurchase = new SimpleStringProperty(y);
             this.LimitQ = new SimpleStringProperty(z);
             
         }
@@ -577,12 +637,12 @@ else{
         public void setPrice(String nc){
             Price.set(nc);
         }
-        public String getMinPur(){
-            return MinP.get();
+        public String getMinPurchase(){
+            return MinPurchase.get();
         }
         
-        public void setMinPur(String nc){
-            MinP.set(nc);
+        public void setMinPurchase(String nc){
+            MinPurchase.set(nc);
         }
         public String getLimitQT(){
             return LimitQ.get();
