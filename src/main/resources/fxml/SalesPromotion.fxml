@@ -34,15 +34,15 @@
       <Button layoutX="696.0" layoutY="394.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="171.0" text="Delete Past Sale" />
       <Button fx:id="AddButton" layoutX="37.0" layoutY="514.0" mnemonicParsing="false" onAction="#handleAddButtonAction" prefHeight="48.0" prefWidth="115.0" text="Add Sale" />
       <Button layoutX="193.0" layoutY="512.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="115.0" text="Add Coupon" />
-      <Button layoutX="382.0" layoutY="512.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="115.0" text="Edit" />
-      <TableView layoutX="18.0" layoutY="64.0" prefHeight="433.0" prefWidth="639.0">
+      <Button layoutX="382.0" layoutY="512.0" mnemonicParsing="false" onAction="#handleEditButtonAction" prefHeight="48.0" prefWidth="115.0" text="Edit" />
+      <TableView fx:id="SalesTable" layoutX="18.0" layoutY="64.0" prefHeight="433.0" prefWidth="639.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="172.0" text="Sale Name" />
-            <TableColumn prefWidth="97.0" text="Start Date" />
-            <TableColumn prefWidth="99.0" text="End Date" />
-            <TableColumn prefWidth="99.0" text="Target" />
-            <TableColumn prefWidth="93.0" text="Coupon" />
+          <TableColumn fx:id="idcol" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="namecol" prefWidth="172.0" text="Sale Name" />
+            <TableColumn fx:id="sdatecol" prefWidth="97.0" text="Start Date" />
+            <TableColumn fx:id="edatecol" prefWidth="99.0" text="End Date" />
+            <TableColumn fx:id="targetcol" prefWidth="99.0" text="Target" />
+            <TableColumn fx:id="couponcol" prefWidth="93.0" text="Coupon" />
         </columns>
       </TableView>
       <Button layoutX="553.0" layoutY="514.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="115.0" text="Delete" />

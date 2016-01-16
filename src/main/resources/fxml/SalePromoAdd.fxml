@@ -40,7 +40,7 @@
                            </items>
                          </ComboBox>
                   <CheckBox fx:id="CostCheck" layoutX="106.0" layoutY="120.0" mnemonicParsing="false" text="Allow below cost sale for this promotion" />
-                  <CheckBox layoutX="305.0" layoutY="6.0" mnemonicParsing="false" selected="true" text="Limited Time Promotion" />
+                  <CheckBox fx:id="LimitPromoCheck" layoutX="305.0" layoutY="6.0" mnemonicParsing="false" selected="true" text="Limited Time Promotion" />
                   <Text layoutX="318.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Club" />
                   <Text layoutX="318.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Slect Target" />
                   <ComboBox layoutX="421.0" layoutY="42.0" prefWidth="150.0" />
@@ -69,7 +69,7 @@
                         <Text layoutX="565.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Text for Search " />
                         <Text layoutX="5.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Item" />
                         <TextField fx:id="filterField" layoutX="728.0" layoutY="20.0" />
-                        <Button layoutX="826.0" layoutY="469.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Remove" />
+                        <Button layoutX="826.0" layoutY="469.0" mnemonicParsing="false" onAction="#handleListRemoveButtonAction" prefHeight="25.0" prefWidth="79.0" text="Remove" />
                         <TextField layoutX="77.0" layoutY="288.0" />
                         <Button layoutX="270.0" layoutY="287.0" mnemonicParsing="false" text="Select" />
                         <Text layoutX="352.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKU" />
@@ -92,12 +92,12 @@
                                     <TextField fx:id="MinPurText" layoutX="173.0" layoutY="38.0" prefHeight="25.0" prefWidth="91.0" />
                                     <Text layoutX="265.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limit" />
                                     <Text layoutX="199.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price :" />
-                                    <TextField fx:id="SaleText" layoutX="262.0" layoutY="2.0" prefHeight="19.0" prefWidth="85.0" />
+                                    <TextField fx:id="SaleText" layoutX="245.0" layoutY="2.0" prefHeight="19.0" prefWidth="85.0" />
                                     <TextField layoutX="356.0" layoutY="2.0" prefHeight="25.0" prefWidth="62.0" />
                                     <Text layoutX="427.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" />
                                     <TextField fx:id="LimitText" layoutX="299.0" layoutY="39.0" prefHeight="25.0" prefWidth="88.0" />
                                     <Button layoutX="399.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleAddItemButtonAction" text="Add" />
-                                    <Text layoutX="274.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
+                                    <Text layoutX="245.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
                                     <Text layoutX="173.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
                                  </children>
                               </AnchorPane>
@@ -194,7 +194,7 @@
                               <TableColumn fx:id="quantity" prefWidth="122.0" text="Quantity" />
                           </columns>
                         </TableView>
-                        <Button layoutX="529.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleRemoveButtonAction" prefHeight="25.0" prefWidth="99.0" text="Remove" />
+                        <Button layoutX="538.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleRemoveButtonAction" prefHeight="25.0" prefWidth="99.0" text="Remove" />
                      </children>
                   </AnchorPane>
             </content>
