@@ -3,6 +3,7 @@ package com.mycompany.mavenproject2;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import static com.mycompany.mavenproject2.Sys1Controller.stage;
@@ -48,6 +49,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.converter.LocalDateStringConverter;
 import org.bson.Document;
 import org.controlsfx.dialog.Dialog;
 import org.controlsfx.dialog.Dialogs;
@@ -69,66 +71,212 @@ public class SalePromoAddController extends Thread implements Initializable{
     @FXML private TableColumn<ListAllItem, Boolean> sel;
     @FXML TableColumn<ListAllItem,String> skucol1,name,size,pack,price;
     @FXML DatePicker StartDate,EndDate;
+    @FXML CheckBox LimitPromoCheck,CostCheck,MixMatchCheck;
+    int count;
     String selectedItem;
     BasicDBObject ref;
     MongoClient client = new MongoClient();
     MongoDatabase  db = client.getDatabase("FinalDemo");
+    MongoCollection<Document> col=db.getCollection("SalePromoDetail");
     public static ObservableList<Person> data= FXCollections.observableArrayList();
     public static ObservableList<Person> data1= FXCollections.observableArrayList();
-    public static ObservableList<ListPerson> data2= FXCollections.observableArrayList();
-    //public static ObservableList<ListAllItem> data3= FXCollections.observableArrayList();
+    public static ObservableList<Person> SaveFormula= FXCollections.observableArrayList();
+    public static ObservableList<ListPerson> data2= FXCollections.observableArrayList();    
     public static ObservableList<ListPerson> data4= FXCollections.observableArrayList();
     public static ObservableList<ListAllItem> ItemData= FXCollections.observableArrayList();
     public static ArrayList<String> arr=new ArrayList<String>();
     public static SalePromoAddController s=new SalePromoAddController();
     BasicDBObject obj=new BasicDBObject();
+    BasicDBObject sort1,sort2;
+    static int EID=1,UID=1,PID=0;
+    int GlobalFlag=0;
+    @FXML public void handleListRemoveButtonAction(ActionEvent a){
+        org.controlsfx.control.action.Action response =  Dialogs.create()
+        .owner(stage)
+        .title("Confirm Actions")        
+        .message("Item will get Removed from Table")
+        .actions(Dialog.ACTION_OK, Dialog.ACTION_CANCEL)
+        .showConfirm();      
+        if (response == Dialog.ACTION_OK) {
+            List items =  new ArrayList (ListItemTable.getSelectionModel().getSelectedItems());  
+            System.out.println("Selected tem is "+items);
+            data4.removeAll(items);            
+            ListItemTable.getSelectionModel().clearSelection();                               
+           
+        }
+        else{
+            System.out.println("cANCEL");
+        }
+    }
     @FXML public void handleAddItemButtonAction(ActionEvent ak){
        for(String item:arr){ //Problem diffi
-            System.out.println("Elements are "+item);
+            
             obj.put("SKU",item);
             MongoCursor<Document> cur=db.getCollection("ItemDetail").find(obj).iterator();
             while(cur.hasNext()){
                 Document p=cur.next();
             data4.add(new ListPerson(p.getString("SKU"),p.getString("ItemName"),p.getString("Size_Name"),p.getString("Pack_Name"),QTYText.getText() , SaleText.getText(),p.getString("UnitCost"), MinPurText.getText(), LimitText.getText()));
             }
-        }
-       
+        }       
         ListItemTable.setItems(data4);        
     }
     @FXML public void handleSavePromoButtonAction(ActionEvent ag){
-        if(PromoTarget.getValue().toString().equalsIgnoreCase("Custom List")){          
-            Document d=createListData();
-            db.getCollection("SalePromoDetail").insertOne(d);
+        InsertMongo();
+        CostText.clear();
+        DisLevelText.clear();
+        FormulaQuantity.clear();
+        FormulaQuantity.clear();
+        ItemNameText.clear();
+        LimitText.clear();
+        PromoNameText.clear();
+    }
+    private void InsertMongo(){
+        if(GlobalFlag==1){
+                 UpdateMongo();                    
+            }
+         else{
+        count= (int) col.count();
+        if(count==0){
+            if(PromoTarget.getValue().toString().equalsIgnoreCase("Custom List")){                 
+                Document d=createListData();
+                col .insertOne(d);                       
+            }
+            else{
+                Document d=createSeedData();
+                col.insertOne(d);                  
+            }
+        }
+        else{        
+            sort1=new BasicDBObject();        
+            MongoCursor<Document> cursor = col.find().sort(sort1).limit(1).skip((int)count-1).iterator();        
+            try {
+                while (cursor.hasNext()) {                
+                    EID=cursor.next().getInteger("ID");
+                    System.out.println("last EID "+EID);
+                    EID++;
+                    System.out.println("Inserted "+EID);
+                }
+             } finally {
+                cursor.close();
+            }
+                Document d1=createListData();
+                col.insertOne(d1);   
+            }        
         }
     }
+    public void EditButton(int para1,String para2,String para3,String para4,String para5){
+        GlobalFlag=1;        
+        PromoNameText.setText(para2);              
+        sort2.put("ID", para1);
+	MongoCursor<Document> cursor = col.find(sort2).iterator();      
+         while (cursor.hasNext()) {       
+            Document dr=cursor.next();
+            if(dr.getString("PromoTarget").equalsIgnoreCase("Custom List")){
+                QTYText.setText(dr.getString("Quantity"));
+                SaleText.setText(dr.getString("Price"));
+                MinPurText.setText(dr.getString("Price"));
+                LimitText.setText(dr.getString("Limit"));
+                CustTarget.setValue(dr.getString("TargetCust"));
+                PromoTarget.setValue(dr.getString("PromoTarget"));
+                TargetCombo.setValue(dr.getString("SubPromoTarget"));
+                dr.getString("MixMatchPromo").equalsIgnoreCase("Yes")?MixMatchCheck.setSelected(true):MixMatchCheck.setSelected(false);
+            }
+       
+      }
+    
+    }
+    private Document createSeedData(){
+        Document p=new Document();   
+        p.append("ID",EID);
+        p.append("Name",PromoNameText.getText());      
+        p.append("StartDate", StartDate.getValue().toString());
+        p.append("EndDate", EndDate.getValue().toString());
+        p.append("TargetCust", CustTarget.getValue().toString());
+        p.append("PromoTarget",PromoTarget.getValue().toString());
+        p.append("SubPromoTarget", TargetCombo.getValue().toString());
+        p.append("LimitedPromo",LimitPromoCheck.isSelected()?"Yes":"No");
+        p.append("AllowBelowCost", CostCheck.isSelected()?"Yes":"No");
+        p.append("MixMatchPromo", MixMatchCheck.isSelected()?"Yes":"No"); //diffi Item
+        p.append("Items", FormulaItem());        
+        return p;        
+    }
+    private Document FormulaItem(){
+        Document y=new Document();
+        for(int i=0;i<data1.size();i++){
+            y.append("Count Type", data1.get(i).getDiscountType());
+            y.append("Value", data1.get(i).getValue());
+            y.append("Quntity Type", data1.get(i).getQuantityType());
+            y.append("Quantity", data1.get(i).getQuantity());
+        }        
+        return  y;
+    }    
     private Document createListData(){
-        Document p=new Document();       
-        p.append("Name",PromoNameText.getText());        
-        LocalDate SDate=StartDate.getValue();
-        Instant instant = SDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
-        Date Startdate = Date.from(instant);
-        LocalDate EDate=EndDate.getValue();
-        Instant instant1 = EDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
-        Date Enddate = Date.from(instant1);
-        p.append("StartDate", Startdate);
-        p.append("EndDate", Enddate);
+        Document p=new Document(); 
+        p.append("ID",EID);
+        p.append("Name",PromoNameText.getText());      
+        p.append("StartDate", StartDate.getValue().toString());
+        p.append("EndDate", EndDate.getValue().toString());
         p.append("TargetCust", CustTarget.getValue().toString());
         p.append("PromoTarget","Custom List");
+        p.append("LimitedPromo",LimitPromoCheck.isSelected()?"Yes":"No");
+        p.append("AllowBelowCost", CostCheck.isSelected()?"Yes":"No");
+        p.append("MixMatchPromo", MixMatchCheck.isSelected()?"Yes":"No");
         p.append("Items",SKU());
-        p.append("Quantity", QTYText);
-        p.append("Price", SaleText.getText());
-        p.append("MinimumPAmount", MinPurText.getText());
+        p.append("Quantity", QTYText.getText());
+        p.append("Price", SaleText.getText().toString());
+        p.append("MinimumPAmount", MinPurText.getText().toString());
+        p.append("Limit",LimitText.getText());
         return p;        
     }
     private Document SKU(){
         Document r=new Document();
          for(String item:arr){ 
-              r.append("SKU", item); //diffi
+              r.append(item, item); //diffi
             }
          return r;
     }
+    private Document UpdateSeedData(){
+        Document d1=new Document();               
+        d1.append("ID",  PID);    
+        d1.append("Name",PromoNameText.getText());      
+        d1.append("StartDate", StartDate.getValue().toString());
+        d1.append("EndDate", EndDate.getValue().toString());
+        d1.append("TargetCust", CustTarget.getValue().toString());
+        d1.append("PromoTarget","Custom List");
+        d1.append("LimitedPromo",LimitPromoCheck.isSelected()?"Yes":"No");
+        d1.append("AllowBelowCost", CostCheck.isSelected()?"Yes":"No");
+        d1.append("MixMatchPromo", MixMatchCheck.isSelected()?"Yes":"No");
+        d1.append("Items",SKU());
+        d1.append("Quantity", QTYText.getText());
+        d1.append("Price", SaleText.getText().toString());
+        d1.append("MinimumPAmount", MinPurText.getText().toString());
+        return d1;
+    }
+    public void UpdateMongo(){        
+       System.out.println("global 1 update called");     
+        MongoCursor<Document> cursor4 = col.find().iterator();
+         try {
+            while (cursor4.hasNext()) {
+                System.out.println("ID=> "+cursor4.next().getString("UserEID"));                
+            }
+        } finally {
+            cursor4.close();
+        }            
+        System.out.println("Updated Selected _id is "+PID);
+        col.updateOne(new Document("ID", PID),
+        new Document("$set", UpdateSeedData()));            
+        MongoCursor<Document> cursor5 = col.find().iterator();
+         try {
+            while (cursor5.hasNext()) {
+                System.out.println("After UpdateID=> "+cursor5.next().getString("UserEID"));
+                
+            }
+        } finally {
+            cursor5.close();
+        }      
+    }
     @FXML public void handleAddSaleFormulaButtonAction(ActionEvent a){
-        data1.add(new Person(CountType.getValue().toString(),Integer.parseInt(FormulaQuantity.getText()) , DiscountType.getValue().toString(), DisLevelText.getText()));
+        data1.add(new Person(DiscountType.getValue().toString(),Integer.parseInt(DisLevelText.getText()) , CountType.getValue().toString(), FormulaQuantity.getText()));
         FormulaTable.setItems(data1);
         FormulaQuantity.clear();
         DisLevelText.clear();
@@ -139,20 +287,18 @@ public class SalePromoAddController extends Thread implements Initializable{
         .title("Confirm Actions")        
         .message("Are you ok with this?")
         .actions(Dialog.ACTION_OK, Dialog.ACTION_CANCEL)
-        .showConfirm();
-        
-
-if (response == Dialog.ACTION_OK) {
-         List items =  new ArrayList (FormulaTable.getSelectionModel().getSelectedItems());  
-         data1.removeAll(items);
-         //Person person = FormulaTable.getSelectionModel().getSelectedItem();
-         FormulaTable.getSelectionModel().clearSelection();                               
-        data1.removeAll(items);
-        FormulaTable.getSelectionModel().clearSelection();
-}
-else{
-    System.out.println("cANCEL");
-}
+        .showConfirm();       
+        if (response == Dialog.ACTION_OK) {
+            List items =  new ArrayList (FormulaTable.getSelectionModel().getSelectedItems());  
+            data1.removeAll(items);
+            //Person person = FormulaTable.getSelectionModel().getSelectedItem();
+            FormulaTable.getSelectionModel().clearSelection();                               
+           data1.removeAll(items);
+           FormulaTable.getSelectionModel().clearSelection();
+        }
+        else{
+            System.out.println("cANCEL");
+        }
     }
     @FXML    public void handleSeelectButtonAction(ActionEvent af){
         try {
@@ -193,47 +339,43 @@ else{
         } catch (IOException ex) {
             Logger.getLogger(SalePromoAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-   
+    }   
   @Override
   public void run() {
      Platform.runLater(new Runnable() {
-
          @Override
          public void run() {
              try{
-             System.out.println("Thread is Runing");
-              Stage stg=new Stage();
-                 System.out.println("1");
-              FXMLLoader fxml1=new FXMLLoader(getClass().getResource("/fxml/AllItem.fxml"));
-              System.out.println("2");
-            Parent root1=(Parent)fxml1.load();
-            System.out.println("3");
-            AllItemController controller=fxml1.<AllItemController>getController();
-            stg.setScene(new Scene(root1));
-            selectedItem=controller.ItemName;
-            System.out.println("Selcted Item is "+selectedItem);
-            ref=new BasicDBObject();
-            ref.put("ItemName", selectedItem );
-            MongoCursor<Document> myDoc2 =  db.getCollection("ItemDetail").find(ref).iterator();
-            if(myDoc2.hasNext()){
-            Document pos=myDoc2.next();  
-            System.out.println("Final Ouput");
-            FXMLLoader fxml=new FXMLLoader(getClass().getResource("/fxml/SalePromoAdd.fxml"));
-            Parent root=(Parent)fxml.load();
-            Stage r=new Stage();
-            System.out.println("kk");
-            r.setScene(new Scene(root));  
-            System.out.println("Final 2 Ouput "+selectedItem);
-            ItemNameText.setText(selectedItem);
-            SKUText.setText(pos.getString("SKU"));
-            CostText.setText(pos.getString("UnitCost"));            
-            PriceText.setText(pos.getString("UnitPrice"));
-            
-                       
-            r.show();
-            System.out.println("Name is "+selectedItem+" SKU is "+pos.getString("SKU")+" Cost is "+pos.getString("UnitCost"));            
-            //System.out.println("ItemNameText "+ItemNameText.getText()+" SKUText "+SKUText.getText()+" Cost Text "+CostText.getText());
+                System.out.println("Thread is Runing");
+                Stage stg=new Stage();
+                System.out.println("1");
+                FXMLLoader fxml1=new FXMLLoader(getClass().getResource("/fxml/AllItem.fxml"));
+                System.out.println("2");
+                Parent root1=(Parent)fxml1.load();
+                System.out.println("3");
+                AllItemController controller=fxml1.<AllItemController>getController();
+                stg.setScene(new Scene(root1));
+                selectedItem=controller.ItemName;
+                System.out.println("Selcted Item is "+selectedItem);
+                ref=new BasicDBObject();
+                ref.put("ItemName", selectedItem );
+                MongoCursor<Document> myDoc2 =  db.getCollection("ItemDetail").find(ref).iterator();
+                if(myDoc2.hasNext()){
+                Document pos=myDoc2.next();  
+                System.out.println("Final Ouput");
+                FXMLLoader fxml=new FXMLLoader(getClass().getResource("/fxml/SalePromoAdd.fxml"));
+                Parent root=(Parent)fxml.load();
+                Stage r=new Stage();
+                System.out.println("kk");
+                r.setScene(new Scene(root));  
+                System.out.println("Final 2 Ouput "+selectedItem);
+                ItemNameText.setText(selectedItem);
+                SKUText.setText(pos.getString("SKU"));
+                CostText.setText(pos.getString("UnitCost"));            
+                PriceText.setText(pos.getString("UnitPrice"));
+                r.show();
+                System.out.println("Name is "+selectedItem+" SKU is "+pos.getString("SKU")+" Cost is "+pos.getString("UnitCost"));            
+                //System.out.println("ItemNameText "+ItemNameText.getText()+" SKUText "+SKUText.getText()+" Cost Text "+CostText.getText());
             }
             } catch (IOException ex) {
             Logger.getLogger(SalePromoAddController.class.getName()).log(Level.SEVERE, null, ex);
@@ -445,19 +587,13 @@ else{
             this.Pack = new SimpleStringProperty(Pack);
             this.Price = new SimpleStringProperty(Price);
             
-            sel.addListener(new ChangeListener<Boolean>() {
- 
+            sel.addListener(new ChangeListener<Boolean>() { 
                 public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
- 
-                    System.out.println(getName()+" checked: " + t1);
-                    if(t1.toString().equalsIgnoreCase("false")) {
-                        
+                     if(t1.toString().equalsIgnoreCase("false")) {                        
                        // System.out.println("Removed "+getName() + " item Table "+s.ItemTable.getSelectionModel().getSelectedItem().getName());
-                        arr.remove(getSKU());
-                        
+                        arr.remove(getSKU());                        
                     }
-                    else if(t1.toString().equalsIgnoreCase("true")){
-                        
+                    else if(t1.toString().equalsIgnoreCase("true")){                        
                         // System.out.println("Added "+getName() + " item Table "+s.ItemTable.getSelectionModel().getSelectedItem().getName());
                          arr.add(getSKU());
                     }

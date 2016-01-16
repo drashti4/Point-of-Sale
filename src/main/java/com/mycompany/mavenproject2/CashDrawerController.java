@@ -91,9 +91,9 @@ if (response == Dialog.ACTION_OK) {
          data.removeAll(items);
          Person person = table.getSelectionModel().getSelectedItem();
          table.getSelectionModel().clearSelection();                       
-        db.getCollection("CashDrawerDetail").deleteOne(eq("UnitName",person.getUnitName()));
-        data.removeAll(items);
-        table.getSelectionModel().clearSelection();
+         db.getCollection("CashDrawerDetail").deleteOne(eq("UnitName",person.getUnitName()));
+         data.removeAll(items);
+         table.getSelectionModel().clearSelection();
 }
 else{
     System.out.println("You click cancel confirm");

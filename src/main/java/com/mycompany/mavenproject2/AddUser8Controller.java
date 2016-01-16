@@ -64,8 +64,7 @@ public class AddUser8Controller implements Initializable {
     }
     private void InsertMongo(){
          if(GlobalFlag==1){
-                 UpdateMongo();    
-                 
+                 UpdateMongo();                     
             }
          else{
         count= (int) col.count();
@@ -262,11 +261,8 @@ public class AddUser8Controller implements Initializable {
     }
   
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-      
-        
-        
-        MongoCursor<Document> cursor4 = db.getCollection("SecurityRole").find().iterator();
+    public void initialize(URL url, ResourceBundle rb) {    
+            MongoCursor<Document> cursor4 = db.getCollection("SecurityRole").find().iterator();
             try {
             while (cursor4.hasNext()) {                
                 String rs=cursor4.next().getString("Role");

@@ -64,6 +64,9 @@ public class SelectItemController implements Initializable {
             stg.setScene(new Scene(root1));
             controller.setSelectedItem();*/
             Stage stage3=(Stage) close.getScene().getWindow();
+            /*Thread t1=new Thread();
+            t1.start();
+            t1.join();*/
             stage3.close();            
         } catch (Exception ex) {
             Logger.getLogger(ItemListController.class.getName()).log(Level.SEVERE, null, ex);

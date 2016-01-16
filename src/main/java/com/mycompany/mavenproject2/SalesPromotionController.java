@@ -5,30 +5,44 @@
  */
 package com.mycompany.mavenproject2;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.MongoDatabase;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-
-/**
- * FXML Controller class
- *
- * @author Third Ev
- */
+import org.bson.Document;
 public class SalesPromotionController implements Initializable {
+    @FXML TableView<Person> SalesTable;
+    @FXML TableColumn<Person,Integer> idcol;
+    @FXML TableColumn<Person,String> namecol,sdatecol,edatecol,targetcol,couponcol ;
+    MongoClient client = new MongoClient();
+    MongoDatabase  db = client.getDatabase("FinalDemo");
+    MongoCollection<Document> col=db.getCollection("SalePromoDetail");
+    public static ObservableList<Person> data= FXCollections.observableArrayList();
+    
     @FXML
     public void handleAddButtonAction(ActionEvent ev)
-    {
-         System.out.println("You click Add Sales Promo");
+    {         
          try {
                 Stage stage = new Stage();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/SalePromoAdd.fxml"));
-                
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/SalePromoAdd.fxml"));                
                 Parent root = (Parent) fxmlLoader.load();                
                 stage.setScene(new Scene(root));  
                 stage.setTitle("Add Sales Promotion");
@@ -37,10 +51,29 @@ public class SalesPromotionController implements Initializable {
            e.printStackTrace();
           } 
     }
+    @FXML public void handleEditButtonAction(ActionEvent ak){
+        Person person = SalesTable.getSelectionModel().getSelectedItem();
+         System.out.println("id is "+person.getID());    
+        //System.out.println("first "+person.getFName());    
+       // System.out.println("last name is "+person.getLName());    
+        //System.out.println("phone "+person.getPhone());    
+         try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/SalePromoAdd.fxml"));
+            Parent root44 = (Parent) fxmlLoader.load();
+            AddUser8Controller controller=fxmlLoader.<AddUser8Controller>getController();
+            stage.setScene(new Scene(root44));
+            stage.setTitle("Edit Sale Promo");
+            controller.EditButton(person.getID(),person.getSaleName(),person.getStartDate(),person.getEndDate(),person.getTarget());
+            stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Sys1Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
      @FXML     
      public void handleSelectButtonAction(ActionEvent ev)
-    {
-         System.out.println("You clicked Select Button");
+    {         
          try {
                 Stage stage = new Stage();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/AllItem.fxml"));
@@ -54,7 +87,80 @@ public class SalesPromotionController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        idcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,Integer>("ID"));
+        namecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("SaleName"));
+        sdatecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("StartDate"));
+        edatecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("EndDate"));  
+        targetcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Target"));      
+        couponcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Coupon"));
+        MongoCursor<Document> cur=col.find().iterator();
+        while(cur.hasNext()){
+           Document d=cur.next();           
+           data.add(new Person(d.getInteger("ID"),d.getString("Name"),d.getString("StartDate"),d.getString("EndDate"),d.getString("TargetCust"),"c"));
+        }
+       SalesTable.setItems(data);
     }    
-    
+     public static class Person {
+        private final SimpleIntegerProperty ID;
+        private final SimpleStringProperty SaleName;
+        private final SimpleStringProperty StartDate;
+        private final SimpleStringProperty EndDate;
+        private final SimpleStringProperty Target;
+        private final SimpleStringProperty Coupon;
+        private Person(int id,String uName, String val, String type,String nc,String cpn) {
+            this.ID = new SimpleIntegerProperty(id);
+            this.SaleName = new SimpleStringProperty(uName);
+            this.StartDate = new SimpleStringProperty(val);
+            this.EndDate = new SimpleStringProperty(type);
+            this.Target = new SimpleStringProperty(nc);
+            this.Coupon = new SimpleStringProperty(cpn);
+        }
+
+        public int getID() {
+            return ID.get();
+        }
+
+        public void setDiscountType(int uName) {
+            ID.set(uName);
+        }
+
+        public String getSaleName() {
+            return SaleName.get();
+        }
+
+        public void setSaleName(String val) {
+            SaleName.set(val);
+        }
+
+        public String getStartDate() {
+            return StartDate.get();
+        }
+
+        public void setStartDate(String type) {
+            StartDate.set(type);
+        }
+        
+        public String getEndDate(){
+            return EndDate.get();
+        }
+        
+        public void setQuantity(String nc){
+            EndDate.set(nc);
+        }
+        public String getTarget() {
+            return Target.get();
+        }
+
+        public void setTarget(String type) {
+            Target.set(type);
+        }
+        
+        public String getCoupon(){
+            return Coupon.get();
+        }
+        
+        public void setCoupon(String nc){
+            Coupon.set(nc);
+        }
+    }
 }
