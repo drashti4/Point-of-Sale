@@ -45,6 +45,6 @@
             <TableColumn fx:id="couponcol" prefWidth="93.0" text="Coupon" />
         </columns>
       </TableView>
-      <Button layoutX="553.0" layoutY="514.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="115.0" text="Delete" />
+      <Button layoutX="553.0" layoutY="514.0" mnemonicParsing="false" onAction="#handleDeleteButtonAction" prefHeight="48.0" prefWidth="115.0" text="Delete" />
    </children>
 </AnchorPane>
