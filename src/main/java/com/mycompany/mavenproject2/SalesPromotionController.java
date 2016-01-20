@@ -40,7 +40,7 @@ public class SalesPromotionController implements Initializable {
     MongoCollection<Document> col=db.getCollection("SalePromoDetail");
     public static ObservableList<Person> data= FXCollections.observableArrayList();
     @FXML public void handleDeleteButtonAction(ActionEvent al){
-        System.out.println("You click okay confirm");
+        
         List items =  new ArrayList (SalesTable.getSelectionModel().getSelectedItems());  
         Person person = SalesTable.getSelectionModel().getSelectedItem();
         System.out.println(person.getID());       

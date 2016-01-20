@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.bson.Document;
@@ -33,8 +34,7 @@ public class AddUser8Controller implements Initializable {
     @FXML Button Save;
     @FXML ComboBox roleCombo,GenderCombo;
     int count;
-    static int EID=1,UID=1,PID=0;
-   
+    static int EID=1,UID=1,PID=0;   
     BasicDBObject sort1,sort2;
     Document seedData;
     BasicDBObject ref;
@@ -44,8 +44,8 @@ public class AddUser8Controller implements Initializable {
     BasicDBObject condition;
     static String UserId;
     MongoCollection<Document> col = db.getCollection("EmployeeDetail");
-    @FXML
-    public void handleSaveButtonAction(ActionEvent a){
+    
+    @FXML public void handleSaveButtonAction(ActionEvent a){
         InsertMongo();
         fname.clear();
         lname.clear();

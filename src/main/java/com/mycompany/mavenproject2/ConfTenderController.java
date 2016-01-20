@@ -9,8 +9,15 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import static com.mongodb.client.model.Filters.eq;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -29,6 +36,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.bson.Document;
+import org.controlsfx.dialog.Dialog;
+import org.controlsfx.dialog.Dialogs;
 
 public class ConfTenderController implements Initializable {
     MongoClient client = new MongoClient();
@@ -40,7 +49,47 @@ public class ConfTenderController implements Initializable {
     @FXML TableColumn<Person,String> TDesc ;
     @FXML TableColumn<Person,String> TType ;
     @FXML TextField filterField;
-    public void handleAddButtonAction(ActionEvent ev)
+    public static Stage stage = null;
+    @FXML public void handleEditButtonAction(ActionEvent ak){
+       Person person = TenderTable.getSelectionModel().getSelectedItem();       
+         try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/TenderAdd.fxml"));
+            Parent root44 = (Parent) fxmlLoader.load();
+            TenderAddController controller=fxmlLoader.<TenderAddController>getController();
+            stage.setScene(new Scene(root44));
+            stage.setTitle("Edit Employee");
+            controller.EditButton(person.getTDesc(),person.getTType());
+            stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Sys1Controller.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ConfTenderController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    @FXML public void handleDeleteButtonAction(ActionEvent ak){
+       org.controlsfx.control.action.Action response =  Dialogs.create()
+        .owner(stage)
+        .title("Confirm Dialog with Custom Actions")
+        .masthead("Look, a Confirm Dialog with Custom Actions")
+        .message("Are you ok with this?")
+        .actions(Dialog.ACTION_OK, Dialog.ACTION_CANCEL)
+        .showConfirm();
+        
+
+if (response == Dialog.ACTION_OK) {
+        List items =  new ArrayList (TenderTable.getSelectionModel().getSelectedItems());  
+        Person person = TenderTable.getSelectionModel().getSelectedItem();         
+        col.deleteOne(eq("TenderName",person.getTDesc()));
+        data.removeAll(items);
+        TenderTable.getSelectionModel().clearSelection();
+        }
+else{
+    System.out.println("You click cancel confirm");
+}
+    }
+    @FXML public void handleAddButtonAction(ActionEvent ev)
     {
          System.out.println("You click Add Tender");
          try {
@@ -82,26 +131,23 @@ public class ConfTenderController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         TDesc.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("TDesc"));
-      TType.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("TType"));
+        TDesc.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("TDesc"));
+        TType.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("TType"));
         MongoCursor<Document> cursor5 = col.find().iterator();
-                 try {
-                    while (cursor5.hasNext()) {
-                   Document rs=cursor5.next();
-             System.out.println("Tender Name is "+rs.getString("TenderName"));
-              data.add(new Person(rs.getString("TenderName"),rs.getString("PaymentMode")));
+            try {
+                while (cursor5.hasNext()) {
+                    Document rs=cursor5.next();            
+                    data.add(new Person(rs.getString("TenderName"),rs.getString("PaymentMode")));
                 }
-        } finally {
-            cursor5.close();
+            } finally {
+                cursor5.close();
         } 
          TenderTable.setItems(data);
          filterField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable,
-                    String oldValue, String newValue) {
-                    
-                //updateFilteredData();
-                    initFilter();
+                String oldValue, String newValue) {                             
+                initFilter();
             }
         });
     }   
@@ -112,10 +158,7 @@ public class ConfTenderController implements Initializable {
        
         private Person(String TDesc1,String TType1) {
             first = new SimpleStringProperty(TDesc1);
-            second = new SimpleStringProperty(TType1);
-            
-          //  System.out.println("person Data "+first +" "+second+" "+third+" "+four+" "+five );
-           // System.out.println("data pass in constructor are "+uName +" "+val+" "+type+" "+nc+" "+xtra);
+            second = new SimpleStringProperty(TType1);           
         }
 
         public String getTDesc() {
