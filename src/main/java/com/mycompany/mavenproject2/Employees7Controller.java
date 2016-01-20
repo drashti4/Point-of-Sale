@@ -79,7 +79,7 @@ public class Employees7Controller implements Initializable {
            e.printStackTrace();
           } 
     }
-    public void handleSearchComboAction(ActionEvent af){
+    @FXML public void handleSearchComboAction(ActionEvent af){
         switch(SearchBy.getSelectionModel().getSelectedItem().toString()){
             case "First Name":
                  MongoCursor<Document> cursor4 = col.find().iterator();
@@ -138,7 +138,7 @@ public class Employees7Controller implements Initializable {
         
 
 if (response == Dialog.ACTION_OK) {*/
-         System.out.println("You click okay confirm");
+        System.out.println("You click okay confirm");
         List items =  new ArrayList (empTable.getSelectionModel().getSelectedItems());  
         Person person = empTable.getSelectionModel().getSelectedItem();
         System.out.println(person.getFName());       

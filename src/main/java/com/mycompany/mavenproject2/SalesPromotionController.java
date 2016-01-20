@@ -9,8 +9,11 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import static com.mongodb.client.model.Filters.eq;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,7 +39,15 @@ public class SalesPromotionController implements Initializable {
     MongoDatabase  db = client.getDatabase("FinalDemo");
     MongoCollection<Document> col=db.getCollection("SalePromoDetail");
     public static ObservableList<Person> data= FXCollections.observableArrayList();
-    
+    @FXML public void handleDeleteButtonAction(ActionEvent al){
+        System.out.println("You click okay confirm");
+        List items =  new ArrayList (SalesTable.getSelectionModel().getSelectedItems());  
+        Person person = SalesTable.getSelectionModel().getSelectedItem();
+        System.out.println(person.getID());       
+        db.getCollection("SalePromoDetail").deleteOne(eq("ID",person.getID()));
+        data.removeAll(items);
+        SalesTable.getSelectionModel().clearSelection();
+    }
     @FXML
     public void handleAddButtonAction(ActionEvent ev)
     {         
@@ -53,15 +64,13 @@ public class SalesPromotionController implements Initializable {
     }
     @FXML public void handleEditButtonAction(ActionEvent ak){
         Person person = SalesTable.getSelectionModel().getSelectedItem();
-         System.out.println("id is "+person.getID());    
-        //System.out.println("first "+person.getFName());    
-       // System.out.println("last name is "+person.getLName());    
-        //System.out.println("phone "+person.getPhone());    
+         System.out.println("id is "+person.getID());   
+        
          try {
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/SalePromoAdd.fxml"));
             Parent root44 = (Parent) fxmlLoader.load();
-            AddUser8Controller controller=fxmlLoader.<AddUser8Controller>getController();
+            SalePromoAddController controller=fxmlLoader.<SalePromoAddController>getController();
             stage.setScene(new Scene(root44));
             stage.setTitle("Edit Sale Promo");
             controller.EditButton(person.getID(),person.getSaleName(),person.getStartDate(),person.getEndDate(),person.getTarget());
@@ -93,6 +102,8 @@ public class SalesPromotionController implements Initializable {
         edatecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("EndDate"));  
         targetcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Target"));      
         couponcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Coupon"));
+        data.removeAll(data);
+        SalesTable.getItems().removeAll(data);
         MongoCursor<Document> cur=col.find().iterator();
         while(cur.hasNext()){
            Document d=cur.next();           

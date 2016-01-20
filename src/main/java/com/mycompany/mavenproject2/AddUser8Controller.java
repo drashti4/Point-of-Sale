@@ -117,10 +117,10 @@ public class AddUser8Controller implements Initializable {
          GenderCombo.setValue(dr.getString("Gender"));
          email.setText(dr.getString("Email"));
          
-        condition=new BasicDBObject();    
+         condition=new BasicDBObject();    
          condition.put("UserEID", para4);
          System.out.println("Value of UserEID is "+para4);
-       MongoCursor<Document> cursor4 = col.find(condition).iterator();      
+        MongoCursor<Document> cursor4 = col.find(condition).iterator();      
          while (cursor4.hasNext()) {       
               
              
@@ -151,10 +151,7 @@ public class AddUser8Controller implements Initializable {
         if((pwd.getText()).equals(cpwd.getText())){
         d.append("Password", pwd.getText());
         d.append("ConfirmPWD",cpwd.getText() );}        
-        d.append("Role", roleCombo.getValue());
-        // d.append("EID",  EID);    
-       
-        
+        d.append("Role", roleCombo.getValue());        
         return d;
     }
      private Document UpdateSeedData(){

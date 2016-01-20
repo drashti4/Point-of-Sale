@@ -112,9 +112,8 @@ public class ItemGroup6Controller implements Initializable {
         GroupTable.getItems().removeAll(data);
         GroupTable.setItems(data);
         MongoCursor<Document> cursorFind = db.getCollection("ItemGroup").find().iterator();
-       while(cursorFind.hasNext()){
-         Document g=cursorFind.next();
-         
+        while(cursorFind.hasNext()){
+            Document g=cursorFind.next();         
             Document d=(Document)g.get("Items");
             count=d.keySet().size();
          data.add(new Person(g.getString("GroupName"), count,g.getString("Update")));
