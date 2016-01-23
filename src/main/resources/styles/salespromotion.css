@@ -19,3 +19,5 @@
      -fx-text-fill: black;
    
 }
+.willPayRow                       { -fx-background-color: palegreen;   }
+.wontPayRow                       { -fx-background-color: coral;       }
