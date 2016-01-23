@@ -12,7 +12,11 @@ import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -31,6 +35,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import org.bson.Document;
+import javafx.application.Application;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 public class SalesPromotionController implements Initializable {
     @FXML TableView<Person> SalesTable;
     @FXML TableColumn<Person,Integer> idcol;
@@ -99,18 +109,46 @@ public class SalesPromotionController implements Initializable {
         idcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,Integer>("ID"));
         namecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("SaleName"));
         sdatecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("StartDate"));
-        edatecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("EndDate"));  
-        targetcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Target"));      
+        edatecol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("EndDate"));
+        targetcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Target"));
         couponcol.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<Person,String>("Coupon"));
         data.removeAll(data);
         SalesTable.getItems().removeAll(data);
         MongoCursor<Document> cur=col.find().iterator();
+        
+        Date date = new Date();
         while(cur.hasNext()){
-           Document d=cur.next();           
-           data.add(new Person(d.getInteger("ID"),d.getString("Name"),d.getString("StartDate"),d.getString("EndDate"),d.getString("TargetCust"),"c"));
+            Document d=cur.next();
+            data.add(new Person(d.getInteger("ID"),d.getString("Name"),d.getString("StartDate"),d.getDate("EndDate").toString(),d.getString("TargetCust"),"c"));            
+                System.out.println("End Date is before date2 for "+d.getInteger("ID"));                                         
+            System.out.println("EndDate is "+d.getDate("EndDate")+" our date is "+date);            
+            
         }
-       SalesTable.setItems(data);
-    }    
+        SalesTable.setItems(data);
+        int last=SalesTable.getItems().size();
+        System.out.println("Size is "+last);
+        Person row=SalesTable.getItems().get(last-1);
+        System.out.println("date is "+row.getEndDate());    
+        int i = 0;
+        for (Node n: SalesTable.lookupAll("TableRow")) {
+            System.out.println("1st loop");
+            if (n instanceof TableRow) {
+                try {
+                    System.out.println("2n d");
+                    TableRow row1 = (TableRow) n;
+                    String stringdate=SalesTable.getItems().get(i).getEndDate();
+                    SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-dd-mm" );
+                    java.util.Date d1 = sdf.parse(stringdate);
+                    System.out.println("d1 is "+d1);
+                    i++;
+                    if (i == SalesTable.getItems().size())
+                        break;
+                } catch (ParseException ex) {
+                    Logger.getLogger(SalesPromotionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }   
+ }    
      public static class Person {
         private final SimpleIntegerProperty ID;
         private final SimpleStringProperty SaleName;

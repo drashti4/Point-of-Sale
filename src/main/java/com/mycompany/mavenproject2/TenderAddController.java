@@ -33,12 +33,24 @@ import javafx.stage.Stage;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.bson.Document;
-
-/**
- * FXML Controller class
- *
- * @author Third Ev
- */
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 public class TenderAddController implements Initializable {
 @FXML ImageView imageLabel;
 @FXML Button save;
@@ -53,8 +65,18 @@ MongoCollection<Document> col=db.getCollection("TenderDetail");
 int GlobalFlag=0;
 static int EID=1,UID=1,PID=0;
 BasicDBObject sort1,sort2,condition;
-
-public void EditButton(String Desc,String Type) throws URISyntaxException{
+private static Image convertToJavaFXImage(byte[] raw, final int width, final int height) {
+        WritableImage image = new WritableImage(width, height);
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(raw);
+            BufferedImage read = ImageIO.read(bis);
+            image = SwingFXUtils.toFXImage(read, null);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return image;
+    }
+public void EditButton(String Desc,String Type) throws URISyntaxException, IOException{
         GlobalFlag=1;        
         TenderName.setText(Desc);       
         sort2=new BasicDBObject();
@@ -70,8 +92,11 @@ public void EditButton(String Desc,String Type) throws URISyntaxException{
             MinPayAmount.setText(dr.getString("MinPayAmount"));
             NoteText.setText(dr.getString("Notes"));       
             if (!dr.getString("Image").equalsIgnoreCase("")) {               
-                URI uri = new URI(dr.getString("Image"));         
-                imageLabel.setImage(new Image(uri.toString()));
+                Path get = Paths.get(dr.getString("Image"));
+                byte[] readAllBytes = Files.readAllBytes(get);
+                Image convertToJavaFXImage = convertToJavaFXImage(readAllBytes, 1024, 768);
+                
+                imageLabel.setImage(convertToJavaFXImage);
             }
             if(dr.getInteger("AuthenticationCheck")==1){
                 AuthenticationCheck.setSelected(true);                    
@@ -107,13 +132,11 @@ public void EditButton(String Desc,String Type) throws URISyntaxException{
             System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
             System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
             File file1=chooser.getSelectedFile();
-            path=chooser.getSelectedFile().getAbsolutePath();
-            path.replaceAll("\\", "//");
-            System.out.println("patyh is "+path);
+            path=chooser.getSelectedFile().toString();
+            System.out.println("path si "+path);           
             if (file1 != null) {               
                 Image image = new Image(file1.toURI().toString());                
-                imageLabel.setImage(image);  
-                
+                imageLabel.setImage(image);                  
             }
         } else {
             System.out.println("No Selection ");

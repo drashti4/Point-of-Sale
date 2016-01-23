@@ -168,16 +168,20 @@ public class SalePromoAddController extends Thread implements Initializable{
             MongoCursor<Document> cursor = col.find().sort(sort1).limit(1).skip((int)count-1).iterator();        
             try {
                 while (cursor.hasNext()) {                
-                    EID=cursor.next().getInteger("ID");
-                    System.out.println("last EID "+EID);
-                    EID++;
-                    System.out.println("Inserted "+EID);
+                    EID=cursor.next().getInteger("ID");                    
+                    EID++;                    
                 }
              } finally {
                 cursor.close();
             }
-                Document d1=createListData();
-                col.insertOne(d1);   
+               if(PromoTarget.getValue().toString().equalsIgnoreCase("Custom List")){                 
+                Document d=createListData();
+                col .insertOne(d);                       
+            }
+            else{
+                Document d=createSeedData();
+                col.insertOne(d);                  
+            }
             }        
         }
     }
@@ -235,14 +239,24 @@ public class SalePromoAddController extends Thread implements Initializable{
  }    
     
     private Document createSeedData(){
+        System.out.println("creayeSeed date");
         Document p=new Document();   
         p.append("ID",EID);
-        p.append("Name",PromoNameText.getText());      
-        p.append("StartDate", StartDate.getValue().toString());
-        p.append("EndDate", EndDate.getValue().toString());
+        p.append("Name",PromoNameText.getText());   
+        LocalDate localDate = StartDate.getValue();
+        Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+        Date date = Date.from(instant);
+        System.out.println("date is "+date);
+        p.append("StartDate", date.toString());
+        LocalDate localDate1 = EndDate.getValue();
+        Instant instant1 = Instant.from(localDate1.atStartOfDay(ZoneId.systemDefault()));
+        Date EndDate1 = Date.from(instant1);
+        System.out.println("Added "+EndDate1);
+        p.append("EndDate", EndDate1);        
         p.append("TargetCust", CustTarget.getValue().toString());
         p.append("PromoTarget",PromoTarget.getValue().toString());
-        p.append("SubPromoTarget", TargetCombo.getValue().toString());
+        if(!PromoTarget.getValue().toString().equalsIgnoreCase("Single Item")){
+        p.append("SubPromoTarget", TargetCombo.getValue().toString());}
         p.append("LimitedPromo",LimitPromoCheck.isSelected()?"Yes":"No");
         p.append("AllowBelowCost", CostCheck.isSelected()?"Yes":"No");
         p.append("MixMatchPromo", MixMatchCheck.isSelected()?"Yes":"No"); //diffi Item
@@ -262,9 +276,16 @@ public class SalePromoAddController extends Thread implements Initializable{
     private Document createListData(){
         Document p=new Document(); 
         p.append("ID",EID);
-        p.append("Name",PromoNameText.getText());      
-        p.append("StartDate", StartDate.getValue().toString());
-        p.append("EndDate", EndDate.getValue().toString());
+        p.append("Name",PromoNameText.getText());  
+        LocalDate localDate = StartDate.getValue();
+        Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+        Date date = Date.from(instant);
+        p.append("StartDate", date);
+        p.append("StartDate", date.toString());
+        LocalDate localDate1 = EndDate.getValue();
+        Instant instant1 = Instant.from(localDate1.atStartOfDay(ZoneId.systemDefault()));
+        Date EndDate1 = Date.from(instant1);
+        p.append("EndDate", EndDate1);
         p.append("TargetCust", CustTarget.getValue().toString());
         p.append("PromoTarget","Custom List");
         p.append("LimitedPromo",LimitPromoCheck.isSelected()?"Yes":"No");
