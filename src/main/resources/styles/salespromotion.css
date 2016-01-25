@@ -19,5 +19,15 @@
      -fx-text-fill: black;
    
 }
-.willPayRow                       { -fx-background-color: palegreen;   }
-.wontPayRow                       { -fx-background-color: coral;       }
+.table-row-cell:up 
+{
+    -fx-background-color: #A30029; 
+}
+
+/*
+Pseudo class 'down' will change the row background 
+color to red when activated
+*/
+.table-row-cell:down {
+    -fx-background-color: #96b946;
+}
