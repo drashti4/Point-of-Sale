@@ -12,10 +12,12 @@ import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -36,6 +38,9 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import org.bson.Document;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.ListChangeListener;
+import javafx.css.PseudoClass;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -49,6 +54,7 @@ public class SalesPromotionController implements Initializable {
     MongoDatabase  db = client.getDatabase("FinalDemo");
     MongoCollection<Document> col=db.getCollection("SalePromoDetail");
     public static ObservableList<Person> data= FXCollections.observableArrayList();
+    public static int cnt=0;
     @FXML public void handleDeleteButtonAction(ActionEvent al){
         
         List items =  new ArrayList (SalesTable.getSelectionModel().getSelectedItems());  
@@ -115,40 +121,41 @@ public class SalesPromotionController implements Initializable {
         data.removeAll(data);
         SalesTable.getItems().removeAll(data);
         MongoCursor<Document> cur=col.find().iterator();
-        
-        Date date = new Date();
         while(cur.hasNext()){
             Document d=cur.next();
-            data.add(new Person(d.getInteger("ID"),d.getString("Name"),d.getString("StartDate"),d.getDate("EndDate").toString(),d.getString("TargetCust"),"c"));            
-                System.out.println("End Date is before date2 for "+d.getInteger("ID"));                                         
-            System.out.println("EndDate is "+d.getDate("EndDate")+" our date is "+date);            
-            
+            data.add(new Person(d.getInteger("ID"),d.getString("Name"),d.getString("StartDate"),d.getDate("EndDate").toString(),d.getString("TargetCust"),"c"));
         }
+        cur.close();
+        final ObservableList<Integer> highlightRows = FXCollections.observableArrayList();
         SalesTable.setItems(data);
-        int last=SalesTable.getItems().size();
-        System.out.println("Size is "+last);
-        Person row=SalesTable.getItems().get(last-1);
-        System.out.println("date is "+row.getEndDate());    
-        int i = 0;
-        for (Node n: SalesTable.lookupAll("TableRow")) {
-            System.out.println("1st loop");
-            if (n instanceof TableRow) {
-                try {
-                    System.out.println("2n d");
-                    TableRow row1 = (TableRow) n;
-                    String stringdate=SalesTable.getItems().get(i).getEndDate();
-                    SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-dd-mm" );
-                    java.util.Date d1 = sdf.parse(stringdate);
-                    System.out.println("d1 is "+d1);
-                    i++;
-                    if (i == SalesTable.getItems().size())
-                        break;
-                } catch (ParseException ex) {
-                    Logger.getLogger(SalesPromotionController.class.getName()).log(Level.SEVERE, null, ex);
+        SalesTable.getItems().forEach(item -> Date(item));
+        
+    }    
+    private void Date(Person item) {    
+        PseudoClass up = PseudoClass.getPseudoClass("up");
+    PseudoClass down = PseudoClass.getPseudoClass("down");
+        try {
+            Date now=new Date();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+            Date date = simpleDateFormat.parse(item.getEndDate());   
+            cnt++;
+            if(now.before(date)){
+                System.out.println("After ");     
+                //diffi
+                TableRow<Person> row = new TableRow<>();
+                row.pseudoClassStateChanged(up, true);          
+          
+     
+
             }
+            else if(now==date)
+                System.out.println("equal");
+            else
+                System.out.println("BEfore");
+        } catch (ParseException ex) {
+            Logger.getLogger(SalesPromotionController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }   
- }    
+    }
      public static class Person {
         private final SimpleIntegerProperty ID;
         private final SimpleStringProperty SaleName;
